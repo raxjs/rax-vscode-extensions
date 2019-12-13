@@ -1,0 +1,13 @@
+{
+  "version": "independent",
+  "packages": [
+    "extensions/*"
+  ],
+  "command": {
+    "bootstrap": {
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
+    }
+  }
+}

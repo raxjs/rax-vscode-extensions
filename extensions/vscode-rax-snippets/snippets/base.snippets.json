@@ -1,0 +1,41 @@
+{
+  "Import Rax": {
+    "prefix": "ir",
+    "body": [
+      "import { createElement } from 'rax';"
+    ],
+    "description": "Import Rax"
+  },
+  "Function Component": {
+    "prefix": "fc",
+    "body": [
+      "function $1(props) => {",
+      "\treturn ( $0 );",
+      "}",
+      " ",
+      "export default $1;"
+    ],
+    "description": "Function Component"
+  },
+  "Import Rax, { Component }": {
+    "prefix": "irc",
+    "body": [
+      "import { createElement, Component } from 'rax';"
+    ],
+    "description": "Import Rax and Component"
+  },
+  "Class Component": {
+    "prefix": "cc",
+    "body": [
+      "class $1 extends Component {",
+      "\tstate = { $2 }",
+      "\trender() { ",
+      "\t\treturn ( $0 );",
+      "\t}",
+      "}",
+      " ",
+      "export default $1;"
+    ],
+    "description": "Class Component"
+  }
+}

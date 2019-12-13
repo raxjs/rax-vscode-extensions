@@ -1,0 +1,37 @@
+{
+  "useState": {
+    "prefix": "ush",
+    "body": [
+      "const [${1}, set${1/(.*)/${1:/capitalize}/}] = useState($2);$0"
+    ],
+    "description": "Rax useState() hook"
+  },
+  "useEffect": {
+    "prefix": "ueh",
+    "body": [
+      "useEffect(() => {",
+      "\t// componentDidMount(), componentDidUpdate()",
+      "\t$1",
+      "\n\treturn () => {",
+      "\t\t// componentWillUnmount()",
+      "\t\t$2",
+      "\t}",
+      "// effect dependency array",
+      "}, [${3}]);$0"
+    ],
+    "description": "Rax useEffect() hook"
+  },
+  "useMemo": {
+    "prefix": "umh",
+    "body": [
+      "const ${1:memoizedValue} = useMemo(() => ${2:computeExpensiveValue}(${3:a}, ${4:b}), [${5:a}, ${6:b}]);$0"
+    ],
+    "description": "Rax useMemo() hook"
+  },
+  "import rax hooks": {
+    "prefix": "irh",
+    "body": [
+      "import { createElement, useState, useEffect } from 'rax';"
+    ]
+  }
+}
