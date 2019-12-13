@@ -49,7 +49,7 @@ export default |;
 ### fc - Function Component
 
 ```javascript
-const | = (props) => {
+function |(props) => {
   return ( | );
 }
 
