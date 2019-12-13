@@ -1,0 +1,15 @@
+{
+  "routes": [
+    {
+      "path": "/create",
+      "source": "pages/Create/index"
+    },
+    {
+      "path": "/start",
+      "source": "pages/Start/index"
+    }
+  ],
+  "window": {
+    "defaultTitle": "Rax App 1.0"
+  }
+}
