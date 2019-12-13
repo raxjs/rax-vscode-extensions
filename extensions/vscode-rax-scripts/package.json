@@ -1,0 +1,40 @@
+{
+	"name": "vscode-rax-scripts",
+	"displayName": "Rax Scripts",
+	"description": "VS Code extension: Rax Scripts",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.40.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "assets/logo.png",
+	"activationEvents": [
+		"*"
+	],
+	"main": "./src/index.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "rax.create",
+				"title": "Rax: Create new project"
+			},
+			{
+				"command": "rax.start",
+				"title": "Rax: Start a development server"
+			},
+			{
+				"command": "rax.build",
+				"title": "Rax: Build your project"
+			}
+		]
+	},
+	"extensionDependencies": [
+		"weex.weex-debugger",
+		"msjsdiag.debugger-for-chrome"
+	],
+	"dependencies": {
+		"fs-extra": "^8.1.0"
+	}
+}
