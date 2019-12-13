@@ -1,0 +1,33 @@
+{
+	"name": "vscode-rax-snippets",
+	"displayName": "Rax Snippets",
+	"description": "VS Code extension: Rax Snippets",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.40.0"
+	},
+	"icon": "assets/logo.png",
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "snippets/hooks.snippets.json"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "snippets/hooks.snippets.json"
+			},
+			{
+				"language": "javascript",
+				"path": "snippets/base.snippets.json"
+			},
+			{
+				"language": "javascriptreact",
+				"path": "snippets/base.snippets.json"
+			}
+		]
+	}
+}
