@@ -9,7 +9,7 @@
   "Function Component": {
     "prefix": "fc",
     "body": [
-      "const $1 = (props) => {",
+      "function $1(props) => {",
       "\treturn ( $0 );",
       "}",
       " ",
@@ -22,7 +22,7 @@
     "body": [
       "import { createElement, Component } from 'rax';"
     ],
-    "description": "Import Rax, { Component }"
+    "description": "Import Rax and Component"
   },
   "Class Component": {
     "prefix": "cc",
