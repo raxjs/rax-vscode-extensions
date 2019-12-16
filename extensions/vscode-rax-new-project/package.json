@@ -1,0 +1,28 @@
+{
+	"name": "vscode-rax-new-project",
+	"displayName": "Rax New Project",
+	"description": "VS Code extension: Rax New Project",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.40.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "assets/logo.png",
+	"activationEvents": [
+		"*"
+	],
+	"main": "./src/index.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "rax.create",
+				"title": "Rax: Create new project"
+			}
+		]
+	},
+	"dependencies": {
+		"fs-extra": "^8.1.0"
+	}
+}
