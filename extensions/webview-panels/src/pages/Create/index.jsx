@@ -1,12 +1,17 @@
-import { createElement, useState } from 'rax';
+import { createElement, useRef, useState } from 'rax';
 import Menu from './Menu/index';
-import Platforms from './Platforms/index';
-import Server from './Server/index';
+import Form from './Form/index';
 import './index.css';
 
 export default function Create() {
-  // app, component, api
-  const [type, setType] = useState('app');
+  // scaffold, component, api
+  const [type, setType] = useState('scaffold');
+
+  const formRef = useRef(null);
+
+  function create() {
+    console.log(formRef.current.getData());
+  };
 
   return (
     <div className="page">
@@ -19,15 +24,16 @@ export default function Create() {
           type={type}
           onChange={(type) => { setType(type) }}
         />
-        {type !== 'api' ? (
-          <div className="wrap">
-            <Platforms />
-            <Server />
-          </div>
-        ) : null}
+        <Form
+          type={type}
+          ref={formRef}
+        />
       </div>
       <div className="footer">
-        <a className="btn create">创建工程</a>
+        <a
+          className="btn create"
+          onClick={create}
+        >创建工程</a>
       </div>
     </div>
   );

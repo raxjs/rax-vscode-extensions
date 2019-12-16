@@ -36,11 +36,6 @@ a {
   flex-direction: row;
 }
 
-.wrap {
-  padding: 0 30px;
-  flex: 1;
-}
-
 .footer {
   margin-top: 30px;
 }

@@ -10,7 +10,7 @@
     "prefix": "ueh",
     "body": [
       "useEffect(() => {",
-      "\t// componentDidMount(), componentDidUpdate()",
+      "\t// componentDidMount()",
       "\t$1",
       "\n\treturn () => {",
       "\t\t// componentWillUnmount()",

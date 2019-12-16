@@ -3,12 +3,12 @@ import { createElement } from 'rax';
 import './index.css';
 
 export default (props) => {
-  const { type = 'app', onChange } = props;
+  const { type = 'scaffold', onChange } = props;
   return (
     <div className={`menu${type !== 'api' ? ` rightBorder` : ''}`}>
       <div
-        className={`card${type === 'app' ? ` selectedCart` : ''}`}
-        onClick={() => { onChange('app') }}
+        className={`card${type === 'scaffold' ? ` selectedCart` : ''}`}
+        onClick={() => { onChange('scaffold') }}
       >
         <img className="selectedCartTag" src="https://img.alicdn.com/tfs/TB1V5LSqkP2gK0jSZPxXXacQpXa-80-80.png" />
         <div className="cardTitle">
