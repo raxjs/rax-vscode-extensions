@@ -1,12 +1,10 @@
 import { createElement, useState } from 'rax';
+import useEn from './useEn';
 import Menu from './Menu/index';
 import Form from './Form/index';
 import './index.css';
 
 export default function Create() {
-  // en-US, en-en-GB, en ...
-  const useEn = (window.__VSCODE__.env || '').indexOf('en') === 0;
-
   // scaffold, component, api
   const [type, setType] = useState('scaffold');
 

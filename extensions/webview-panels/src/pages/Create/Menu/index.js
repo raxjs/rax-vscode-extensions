@@ -1,12 +1,10 @@
 import { createElement } from 'rax';
+import useEn from '../useEn';
 import menuOptions from '../configs/menu';
 
 import './index.css';
 
 export default (props) => {
-  // en-US, en-en-GB, en ...
-  const useEn = (window.__VSCODE__.env || '').indexOf('en') === 0;
-
   const { type = 'scaffold', onChange } = props;
   return (
     <div className="menu rightBorder">

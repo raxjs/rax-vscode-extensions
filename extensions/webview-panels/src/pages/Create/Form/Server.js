@@ -1,4 +1,5 @@
 import { createElement, forwardRef, useImperativeHandle, useState } from 'rax';
+import useEn from '../useEn';
 import serverOptions from '../configs/server';
 
 import './Server.css';
@@ -7,9 +8,6 @@ import './Server.css';
 let projectFeatures = [];
 
 function Server(props, ref) {
-  // en-US, en-en-GB, en ...
-  const useEn = (window.__VSCODE__.env || '').indexOf('en') === 0;
-
   const [mark, setMark] = useState({
     ssr: false,
     faas: false

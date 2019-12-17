@@ -1,4 +1,5 @@
 import { Fragment, createElement, useRef, useEffect, useState } from 'rax';
+import useEn from '../useEn';
 import Platforms from './Platforms';
 import ScaffoldType from './ScaffoldType';
 import Server from './Server';
@@ -9,8 +10,7 @@ const defaultScaffoldType = 'spa-standard';
 
 export default function Form(props) {
   const { type } = props;
-  // en-US, en-en-GB, en ...
-  const useEn = (window.__VSCODE__.env || '').indexOf('en') === 0;
+
   const [showServerOption, setShowServerOption] = useState(true);
 
   // rax-cli args

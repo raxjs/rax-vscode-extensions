@@ -1,4 +1,5 @@
 import { createElement } from 'rax';
+import useEn from '../useEn';
 import scaffoldTypeOptions from '../configs/scaffoldType';
 
 import './ScaffoldType.css';
@@ -6,8 +7,6 @@ import './ScaffoldType.css';
 console.log(scaffoldTypeOptions);
 
 export default function ScaffoldType(props) {
-  // en-US, en-en-GB, en ...
-  const useEn = (window.__VSCODE__.env || '').indexOf('en') === 0;
   const { scaffoldType, onChange } = props;
 
   return (

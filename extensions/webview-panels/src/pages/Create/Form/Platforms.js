@@ -1,4 +1,5 @@
 import { createElement, forwardRef, useImperativeHandle, useEffect, useState } from 'rax';
+import useEn from '../useEn';
 import platformOptions from '../configs/platforms';
 
 import './Platforms.css';
@@ -9,8 +10,7 @@ let projectTargets = [];
 function Platforms(props, ref) {
 
   const { onChange } = props;
-  // en-US, en-en-GB, en ...
-  const useEn = (window.__VSCODE__.env || '').indexOf('en') === 0;
+  
   const [mark, setMark] = useState({});
   const [showError, setShowError] = useState(false);
 
