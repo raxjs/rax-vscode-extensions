@@ -76,16 +76,12 @@ function activate(context) {
 
 					Object.assign(options, message.data);
 
-					// Create project
-					if (options.scaffoldType === 'standard') {
-						options.scaffoldType = 'spa-standard';
-					}
-
 					window.withProgress(
 						{
 							location: ProgressLocation.Notification,
 							title: 'Creating rax project'
 						}, () => {
+							// Create project
 							return raxCli.init(options).then(function (directory) {
 								disposeWebview();
 								commands.executeCommand("vscode.openFolder", Uri.file(directory), true);
