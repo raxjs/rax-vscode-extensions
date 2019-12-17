@@ -1,7 +1,7 @@
 {
-	"name": "vscode-rax-new-project",
-	"displayName": "Rax New Project",
-	"description": "VS Code extension: Rax New Project",
+	"name": "vscode-create-rax",
+	"displayName": "Create Rax",
+	"description": "VS Code extension: Create Rax",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.40.0"
@@ -18,7 +18,8 @@
 		"commands": [
 			{
 				"command": "rax.create",
-				"title": "Rax: Create new project"
+				"title": "Create new project",
+				"category": "Rax"
 			}
 		]
 	},

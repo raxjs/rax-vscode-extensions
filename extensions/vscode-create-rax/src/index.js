@@ -64,8 +64,8 @@ function activate(context) {
 			options.root = path.join(folders[0].path, options.projectName);
 
 			webviewPanel = window.createWebviewPanel(
-				'raxCreate',
-				'Rax New Project',
+				'createRax',
+				'Create Rax',
 				ViewColumn.One,
 				{ enableScripts: true }
 			);
