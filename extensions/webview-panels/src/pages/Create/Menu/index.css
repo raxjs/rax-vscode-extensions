@@ -21,11 +21,11 @@
   cursor: pointer;
 }
 
-.card:hover, .selectedCart {
+.card:hover, .selectedCard {
   border: 1px solid #3790FF !important;
 }
 
-.selectedCartTag {
+.selectedCardTag {
   display: none;
   position: absolute;
   top: 2px;
@@ -34,7 +34,7 @@
   height: 20px;
 }
 
-.selectedCart .selectedCartTag {
+.selectedCard .selectedCardTag {
   display: block;
 }
 
