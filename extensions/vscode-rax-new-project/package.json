@@ -23,6 +23,7 @@
 		]
 	},
 	"dependencies": {
-		"fs-extra": "^8.1.0"
+		"fs-extra": "^8.1.0",
+		"rax-cli": "^2.2.1"
 	}
 }
