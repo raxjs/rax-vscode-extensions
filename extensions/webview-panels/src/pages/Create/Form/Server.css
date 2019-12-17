@@ -38,7 +38,7 @@
   cursor: pointer;
 }
 
-.serverItem:hover {
+.serverSelectedItem, .serverItem:hover {
   background-color: #333238;
 }
 
@@ -75,6 +75,7 @@
 .extraInfo {
   position: relative;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .extraTitle {

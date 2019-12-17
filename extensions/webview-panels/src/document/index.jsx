@@ -7,7 +7,6 @@ function Document(props) {
     scripts
   } = props;
 
-
   return (
     <html>
       <head>
@@ -19,6 +18,7 @@ function Document(props) {
       <body>
         {/* root container */}
         <div id="root" />
+        <script dangerouslySetInnerHTML={{ __html: 'window.__VSCODE__ = (window.acquireVsCodeApi && window.acquireVsCodeApi()) || {};' }} />
         {scripts.map(
           (src, index) => <script src={`${publicPath}${src}`} key={`script_${index}`}>
             {/* self-closing script element will not work in HTML */}

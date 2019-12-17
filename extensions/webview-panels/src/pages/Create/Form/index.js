@@ -1,17 +1,19 @@
-import { Fragment, createElement, forwardRef, useImperativeHandle, useRef, useEffect, useState } from 'rax';
+import { Fragment, createElement, useRef, useEffect, useState } from 'rax';
 import Platforms from './Platforms';
 import Server from './Server';
 
 import './index.css';
 
-function Form(props, ref) {
+export default function Form(props) {
   const { type } = props;
-
+  // en-US, en-en-GB, en ...
+  const useEn = (window.__VSCODE__.env || '').indexOf('en') === 0;
   const [showServerOption, setShowServerOption] = useState(true);
 
   const platformsRef = useRef(null);
   const serverRef = useRef(null);
 
+  // when type is scaffold and contains web platform, show ssr options
   function serverOptionToggle() {
     if (type === 'scaffold') {
       const platformsData = platformsRef.current.getData();
@@ -29,34 +31,45 @@ function Form(props, ref) {
     }
   }
 
+  // Get form data
+  function getData() {
+    let res = { projectType: type };
+    switch (type) {
+      case 'scaffold':
+      case 'component':
+        const platformsData = platformsRef.current.getData();
+        if (platformsData === null) return null;
+        Object.assign(
+          res,
+          platformsData,
+          showServerOption ? serverRef.current.getData() : {}
+        );
+        break;
+      default:
+    }
+    return res;
+  }
+
+  function create() {
+    const data = getData();
+    console.log("create -> data", data)
+
+    if (data && window.__VSCODE__ && window.__VSCODE__.postMessage) {
+      window.__VSCODE__.postMessage({
+        key: 'new-project',
+        data
+      })
+    }
+  };
+
   useEffect(() => {
     serverOptionToggle();
   }, [type]);
 
-  useImperativeHandle(ref, () => ({
-    getData: () => {
-      let res = { projectType: type };
-      switch (type) {
-        case 'scaffold':
-        case 'component':
-          const platformsData = platformsRef.current.getData();
-          if (platformsData === null) return null;
-          Object.assign(
-            res,
-            platformsData,
-            showServerOption ? serverRef.current.getData() : {}
-          );
-          break;
-        default:
-      }
-      return res;
-    }
-  }));
-
   return (
-    <>
+    <div className="formWrap">
       {type !== 'api' ? (
-        <div className="formWrap">
+        <>
           <Platforms
             ref={platformsRef}
             onChange={serverOptionToggle}
@@ -66,10 +79,16 @@ function Form(props, ref) {
               ref={serverRef}
             />
           ) : null}
-        </div>
+        </>
       ) : null}
-    </>
+      <div className="footer">
+        <a
+          className="btn create"
+          onClick={create}
+        >
+          {useEn ? 'Create' : '创建工程'}
+        </a>
+      </div>
+    </div>
   );
 };
-
-export default forwardRef(Form)

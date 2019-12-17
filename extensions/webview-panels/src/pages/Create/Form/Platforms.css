@@ -39,7 +39,7 @@
 
 .platformItem {
   margin: 10px 5px 10px 0;
-  border-radius: 2px;
+  border-radius: 3px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -50,7 +50,7 @@
   cursor: pointer;
 }
 
-.platformItem:hover {
+.platformSelectedItem, .platformItem:hover {
   background-color: #333238;
 }
 

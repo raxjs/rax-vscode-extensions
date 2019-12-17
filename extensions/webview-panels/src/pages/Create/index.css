@@ -35,24 +35,3 @@ a {
   display: flex;
   flex-direction: row;
 }
-
-.footer {
-  margin-top: 30px;
-}
-
-.btn {
-  position: relative;
-  width: 160px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 2px;
-  font-size: 14px;
-  color: #E7FFFF;
-  cursor: pointer;
-}
-
-.create {
-  background-color: #3180C2;
-}
