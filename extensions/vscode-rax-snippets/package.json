@@ -2,6 +2,7 @@
   "name": "vscode-rax-snippets",
   "displayName": "Rax Snippets",
   "description": "VS Code extension: Rax Snippets",
+  "publisher": "Rax",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.40.0"
