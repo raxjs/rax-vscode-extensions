@@ -8,13 +8,13 @@ export default [
     description: (
       <div>
         <p>开启服务器端渲染，为 Web  应用带来更快的首屏呈现时间。</p>
-        <a target="_blank" href="http://rax.alibaba-inc.com/docs/guide/ssr">查看文档</a>
+        <a target="_blank" href="https://rax.js.org/docs/guide/ssr">查看文档</a>
       </div>
     ),
     description_en: (
       <div>
         <p>Turn on the SSR(Server-Side Rendering) for faster first-screen rendering time for web applications.</p>
-        <a target="_blank" href="http://rax.alibaba-inc.com/docs/guide/ssr">Reference</a>
+        <a target="_blank" href="https://rax.js.org/docs/guide/ssr">Reference</a>
       </div>
     )
   },
