@@ -19,8 +19,8 @@ Rax VS Code Extensions
 ## 2. Create Rax
 ### Usage
 
-1. cmd + shift + p (Windows: ctrl + shift + p)
+1. `cmd + shift + p` (Windows: `ctrl + shift + p`)
 2. Input `rax create`
 3. Enter
 
-![img](https://img.alicdn.com/tfs/TB1kOVxq1H2gK0jSZJnXXaT1FXa-980-651.gif)
+![img](https://img.alicdn.com/tfs/TB1TB9pqYj1gK0jSZFOXXc7GpXa-980-654.gif)
