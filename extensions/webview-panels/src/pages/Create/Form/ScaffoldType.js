@@ -11,9 +11,7 @@ export default function ScaffoldType(props) {
 
   return (
     <div className="scaffoldType">
-      <p className="scaffoldTypeTitle">
-        应用类型
-      </p>
+      <p className="scaffoldTypeTitle">{useEn ? 'App Type' : '应用类型'}</p>
       {scaffoldTypeOptions.map((option, index) => {
         return (
           <div

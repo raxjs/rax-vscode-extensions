@@ -1,9 +1,9 @@
 # vscode-rax-webview-panels
 
-VS Code 扩展运行时，新开的 WebView panel 页面。
+Newly opened WebView panel page when VS Code extension is extended.
 
-## 创建项目
+## Create Rax
 
-创建项目时 WebView panel 页面，见下图红框部分。
+The WebView panel page when the project is created, see the red box in the figure below.
 
-![img01](https://img.alicdn.com/tfs/TB1M1xSquL2gK0jSZFmXXc7iXXa-2570-1492.jpg)
+![img01](https://img.alicdn.com/tfs/TB1Js1qq8r0gK0jSZFnXXbRRXXa-2344-1566.jpg)
