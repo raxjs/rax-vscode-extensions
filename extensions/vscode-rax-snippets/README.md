@@ -71,7 +71,7 @@ const [|, set|] = useState(|);
 ### ueh - Use Effect Hook
 ```javascript
 useEffect(() => {
-  // componentDidMount(), componentDidUpdate()
+  // componentDidMount()
   |
   return () => {
     // componentWillUnmount()
