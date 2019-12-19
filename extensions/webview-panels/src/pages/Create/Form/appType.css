@@ -1,9 +1,9 @@
-.scaffoldType {
+.appType {
   display: flex;
   flex-wrap: wrap;
 }
 
-.scaffoldTypeTitle {
+.appTypeTitle {
   position: relative;
   width: 100%;
   height: 20px;
@@ -12,7 +12,7 @@
   font-weight: 600;
 }
 
-.scaffoldTypeItem {
+.appTypeItem {
   margin: 10px 10px 10px 0;
   padding: 5px;
   position: relative;
@@ -27,15 +27,15 @@
   cursor: pointer;
 }
 
-.scaffoldTypeItem:hover, .selectedScaffoldTypeItem {
+.appTypeItem:hover, .selectedAppTypeItem {
   border: 1px solid #3790FF !important;
 }
 
-.scaffoldTypeItem:hover .scaffoldTypeItemDescription, .selectedScaffoldTypeItem .selectedScaffoldTypeTag {
+.appTypeItem:hover .appTypeItemDescription, .selectedAppTypeItem .selectedAppTypeTag {
   display: block;
 }
 
-.selectedScaffoldTypeTag {
+.selectedAppTypeTag {
   display: none;
   position: absolute;
   top: 2px;
@@ -44,12 +44,12 @@
   height: 14px;
 }
 
-.scaffoldTypeItemName {
+.appTypeItemName {
   font-size: 14px;
   color: #A6A5AA;
 }
 
-.scaffoldTypeItemDescription {
+.appTypeItemDescription {
   display: none;
   z-index: 99;
   position: absolute;

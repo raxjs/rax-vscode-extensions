@@ -5,7 +5,7 @@ import menuOptions from '../configs/menu';
 import './index.css';
 
 export default (props) => {
-  const { type = 'scaffold', onChange } = props;
+  const { type = 'app', onChange } = props;
   return (
     <div className="menu rightBorder">
       {menuOptions.map((option, index) => {

@@ -5,12 +5,12 @@ import Form from './Form/index';
 import './index.css';
 
 export default function Create() {
-  // scaffold, component, api
-  const [type, setType] = useState('scaffold');
+  // app, component, api
+  const [type, setType] = useState('app');
 
   return (
     <div className="page">
-      <div className="header">
+      <div className="header" x-memo>
         <h1 className="title">{useEn ? 'Create Rax Project' : '创建 Rax 工程'}</h1>
         <p className="subTitle">
           {useEn ?

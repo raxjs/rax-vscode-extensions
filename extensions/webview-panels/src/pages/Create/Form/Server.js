@@ -1,4 +1,4 @@
-import { createElement, forwardRef, useImperativeHandle, useState } from 'rax';
+import { createElement, forwardRef, useEffect, useImperativeHandle, useState } from 'rax';
 import useEn from '../useEn';
 import serverOptions from '../configs/server';
 
@@ -8,6 +8,8 @@ import './Server.css';
 let projectFeatures = [];
 
 function Server(props, ref) {
+  const { appType, type } = props;
+
   const [mark, setMark] = useState({
     ssr: false,
     faas: false
@@ -15,35 +17,54 @@ function Server(props, ref) {
 
   // rax-cli args
   const [projectAliyunId, setProjectAliyunId] = useState('');
-  const [projectServerlessRegion, setProjectServerlessRegion] = useState('cn-hangzhou');
+  const [projectAliyunRegion, setProjectAliyunRegion] = useState('cn-hangzhou');
+
+  function setProjectFeatures(currentMark) {
+    // Update rax-cli args projectFeatures
+    projectFeatures = [];
+    Object.keys(currentMark).forEach((key) => {
+      if (currentMark[key] === true) {
+        projectFeatures.push(key);
+      }
+    })
+  }
 
   function handleClick(options) {
-    const newMark = Object.assign(
+    const currentMark = Object.assign(
       {},
       mark,
       { [options.type]: !mark[options.type] }
     );
-    // Update rax-cli args projectFeatures
-    projectFeatures = [];
-    Object.keys(newMark).forEach((key) => {
-      if (newMark[key] === true) {
-        projectFeatures.push(key);
-      }
-    })
-    setMark(newMark);
+    setProjectFeatures(currentMark);
+    setMark(currentMark);
   };
+
+  // Listen appType and type to update projectFeatures
+  useEffect(() => {
+    let currentMark = mark;
+    // Lite-App without SSR 
+    if (appType === 'lite' && mark.ssr === true) {
+      currentMark = Object.assign(
+        {},
+        mark,
+        { ssr: false }
+      );
+    }
+    setProjectFeatures(currentMark);
+    setMark(currentMark);
+  }, [appType, type]);
 
   useImperativeHandle(ref, () => ({
     getData: () => {
       const res = {
         projectFeatures,
         projectAliyunId: '',
-        projectServerlessRegion: ''
+        projectAliyunRegion: ''
       };
-      // FaaS need projectAliyunId and projectServerlessRegion
+      // FaaS need projectAliyunId and projectAliyunRegion
       if (projectFeatures.includes('faas')) {
         res.projectAliyunId = projectAliyunId;
-        res.projectServerlessRegion = projectServerlessRegion;
+        res.projectAliyunRegion = projectAliyunRegion;
       }
       return res;
     }
@@ -58,6 +79,9 @@ function Server(props, ref) {
         }
       </p>
       {serverOptions.map((option, index) => {
+        if (appType === 'lite' && option.type === 'ssr') {
+          return null;
+        }
         return (
           <div
             key={`option_${index}`}
@@ -95,8 +119,8 @@ function Server(props, ref) {
               <a target="_blank" href="https://help.aliyun.com/document_detail/40654.html">[{useEn ? 'Reference' : '查看文档'}]</a>
           </p>
           <input
-            value={projectServerlessRegion}
-            onKeyUp={(e) => { setProjectServerlessRegion(e.target.value) }}
+            value={projectAliyunRegion}
+            onKeyUp={(e) => { setProjectAliyunRegion(e.target.value) }}
             className="extraItemInput"
             placeholder="cn-hangzhou" />
         </div>

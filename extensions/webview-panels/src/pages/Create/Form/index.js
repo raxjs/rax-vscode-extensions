@@ -1,12 +1,12 @@
 import { Fragment, createElement, useRef, useEffect, useState } from 'rax';
 import useEn from '../useEn';
 import Platforms from './Platforms';
-import ScaffoldType from './ScaffoldType';
+import AppType from './appType';
 import Server from './Server';
 
 import './index.css';
 
-const defaultScaffoldType = 'spa-standard';
+const defaultAppType = 'spa';
 
 export default function Form(props) {
   const { type } = props;
@@ -14,14 +14,14 @@ export default function Form(props) {
   const [showServerOption, setShowServerOption] = useState(true);
 
   // rax-cli args
-  const [scaffoldType, setScaffoldType] = useState(defaultScaffoldType);
+  const [appType, setAppType] = useState(defaultAppType);
 
   const platformsRef = useRef(null);
   const serverRef = useRef(null);
 
-  // when type is scaffold and contains web platform, show ssr options
+  // when type is app and contains web platform, show ssr options
   function serverOptionToggle() {
-    if (type === 'scaffold' && scaffoldType !== 'lite') {
+    if (type === 'app') {
       const platformsData = platformsRef.current.getData();
       if (platformsData && platformsData.projectTargets.includes('web')) {
         setShowServerOption(true);
@@ -37,18 +37,17 @@ export default function Form(props) {
   function getData() {
     let res = { projectType: type };
     switch (type) {
-      case 'scaffold':
-        res.scaffoldType = scaffoldType;
+      case 'app':
+        res.appType = appType;
+      case 'api':
       case 'component':
-        if (scaffoldType !== 'lite') {
-          const platformsData = platformsRef.current.getData();
-          if (platformsData === null) return null;
-          Object.assign(
-            res,
-            platformsData,
-            showServerOption ? serverRef.current.getData() : {}
-          );
-        }
+        const platformsData = platformsRef.current.getData();
+        if (platformsData === null) return null;
+        Object.assign(
+          res,
+          platformsData,
+          showServerOption ? serverRef.current.getData() : {}
+        );
         break;
       default:
     }
@@ -69,28 +68,26 @@ export default function Form(props) {
 
   useEffect(() => {
     serverOptionToggle();
-    setScaffoldType(defaultScaffoldType);
+    setAppType(defaultAppType);
   }, [type]);
 
   return (
     <div className="formWrap">
-      <ScaffoldType
-        x-if={type === 'scaffold'}
-        scaffoldType={scaffoldType}
-        onChange={setScaffoldType}
+      <AppType
+        x-if={type === 'app'}
+        appType={appType}
+        onChange={setAppType}
       />
-      {type !== 'api' && scaffoldType !== 'lite' ? (
-        <>
-          <Platforms
-            ref={platformsRef}
-            onChange={serverOptionToggle}
-          />
-          <Server
-            x-if={showServerOption}
-            ref={serverRef}
-          />
-        </>
-      ) : null}
+      <Platforms
+        ref={platformsRef}
+        onChange={serverOptionToggle}
+      />
+      <Server
+        x-if={showServerOption}
+        type={type}
+        appType={appType}
+        ref={serverRef}
+      />
       <div className="footer">
         <a
           className="btn create"

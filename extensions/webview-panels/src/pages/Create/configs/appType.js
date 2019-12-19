@@ -2,7 +2,7 @@ import { createElement } from 'rax';
 
 export default [
   {
-    type: 'spa-standard',
+    type: 'spa',
     title: '单页应用',
     title_en: 'SPA',
     icon: "https://gw.alicdn.com/tfs/TB1S7n7qbj1gK0jSZFuXXcrHpXa-120-120.png",
@@ -20,7 +20,7 @@ export default [
     )
   },
   {
-    type: 'mpa-standard',
+    type: 'mpa',
     title: '多页应用',
     title_en: 'MPA',
     icon: "https://gw.alicdn.com/tfs/TB1j4z7qkT2gK0jSZFkXXcIQFXa-120-120.png",

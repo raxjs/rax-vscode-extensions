@@ -1,6 +1,6 @@
 export default [
   {
-    type: 'scaffold',
+    type: 'app',
     icon: 'https://img.alicdn.com/tfs/TB1MxTSqXT7gK0jSZFpXXaTkpXa-48-48.png',
     title: 'Rax 应用',
     title_en: 'Rax App',
