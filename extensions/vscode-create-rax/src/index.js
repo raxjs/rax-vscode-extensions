@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 const fs = require('fs-extra');
 const path = require('path');
-const raxCli = require('rax-cli');
+const generator = require('rax-generator');
 
 function activate(context) {
 	console.log('"vscode-rax-new-project" is now active!');
@@ -75,14 +75,14 @@ function activate(context) {
 				if (message.key === 'new-project') {
 
 					Object.assign(options, message.data);
-
+					
 					window.withProgress(
 						{
 							location: ProgressLocation.Notification,
 							title: 'Creating rax project'
 						}, () => {
 							// Create project
-							return raxCli.init(options).then(function (directory) {
+							return generator.init(options).then(function (directory) {
 								disposeWebview();
 								commands.executeCommand("vscode.openFolder", Uri.file(directory), true);
 							}).catch(function (e) {

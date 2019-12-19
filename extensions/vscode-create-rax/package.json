@@ -26,6 +26,6 @@
 	},
 	"dependencies": {
 		"fs-extra": "^8.1.0",
-		"rax-cli": "^2.2.1"
+		"rax-generator": "^0.1.0"
 	}
 }
