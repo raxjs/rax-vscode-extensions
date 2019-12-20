@@ -39,12 +39,12 @@ export default [
   },
   {
     type: 'lite',
-    title: 'Lite App',
+    title: '最简应用',
     title_en: 'Lite App',
     icon: "https://gw.alicdn.com/tfs/TB1j4z7qkT2gK0jSZFkXXcIQFXa-120-120.png",
     description: (
       <div>
-        <p>Lite 工程是一个最简化的 Rax 工程，没有复杂的配置，默认也没有路由系统。</p>
+        <p>最简化的 Rax 工程，没有复杂的配置，默认也没有路由系统。</p>
         <a target="_blank" href="https://rax.js.org/docs/guide/lite">查看文档</a>
       </div>
     ),
