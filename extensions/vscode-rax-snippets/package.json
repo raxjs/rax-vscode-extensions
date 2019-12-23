@@ -26,6 +26,22 @@
         "path": "snippets/hooks.snippets.json"
       },
       {
+        "language": "javascript",
+        "path": "snippets/base.snippets.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "snippets/base.snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "snippets/hooks.snippets.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "snippets/hooks.snippets.json"
+      },
+      {
         "language": "typescript",
         "path": "snippets/base.snippets.json"
       },
