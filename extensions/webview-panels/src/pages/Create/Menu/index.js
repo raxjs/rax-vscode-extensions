@@ -1,5 +1,5 @@
 import { createElement } from 'rax';
-import useEn from '../useEn';
+import isEnLang from '../isEnLang';
 import menuOptions from '../configs/menu';
 
 import './index.css';
@@ -19,9 +19,9 @@ export default (props) => {
             <img className="selectedCardTag" src="https://img.alicdn.com/tfs/TB1V5LSqkP2gK0jSZPxXXacQpXa-80-80.png" />
             <div className="cardTitle">
               <img className="cardTitleIcon" src={option.icon} />
-              <p className="cardTitleTxt">{useEn ? option.title_en : option.title}</p>
+              <p className="cardTitleTxt">{isEnLang ? option.title_en : option.title}</p>
             </div>
-            <p className="cardDescription">{useEn ? option.description_en : option.description}</p>
+            <p className="cardDescription">{isEnLang ? option.description_en : option.description}</p>
           </div>
         );
       })}

@@ -1,5 +1,5 @@
 import { createElement, forwardRef, useImperativeHandle, useEffect, useState } from 'rax';
-import useEn from '../useEn';
+import isEnLang from '../isEnLang';
 import platformOptions from '../configs/platforms';
 
 import './Platforms.css';
@@ -72,8 +72,8 @@ function Platforms(props, ref) {
   return (
     <div className={`platform${showError ? " platformError" : ""}`}>
       <p className="platformTitle">
-        {useEn ? 'Select platform' : '选择支持的平台'}
-        (<b style={{ color: "red" }}>* </b><span className="platformTitleExplain">{useEn ? 'Select at least one' : '至少选择一个'}</span>)
+        {isEnLang ? 'Select platform' : '选择支持的平台'}
+        (<b style={{ color: "red" }}>* </b><span className="platformTitleExplain">{isEnLang ? 'Select at least one' : '至少选择一个'}</span>)
       </p>
       {platformOptions.map((platform, index) => {
         return (
@@ -86,7 +86,7 @@ function Platforms(props, ref) {
             <p className="platformItemTitle">{platform.title}</p>
             <img class="platformSelectedItemTag" src="https://gw.alicdn.com/tfs/TB15rQzexD1gK0jSZFsXXbldVXa-200-200.svg" />
             <div className="platformItemDescription">
-              {useEn ? platform.description_en : platform.description}
+              {isEnLang ? platform.description_en : platform.description}
             </div>
           </div>
         )

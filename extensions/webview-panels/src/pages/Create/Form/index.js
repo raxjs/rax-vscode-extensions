@@ -1,5 +1,5 @@
 import { Fragment, createElement, useRef, useEffect, useState } from 'rax';
-import useEn from '../useEn';
+import isEnLang from '../isEnLang';
 import Platforms from './Platforms';
 import AppType from './appType';
 import Server from './Server';
@@ -93,7 +93,7 @@ export default function Form(props) {
           className="btn create"
           onClick={create}
         >
-          {useEn ? 'Create' : '创建工程'}
+          {isEnLang ? 'Create' : '创建工程'}
         </a>
       </div>
     </div>

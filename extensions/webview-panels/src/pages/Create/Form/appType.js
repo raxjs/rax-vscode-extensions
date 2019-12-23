@@ -1,5 +1,5 @@
 import { createElement } from 'rax';
-import useEn from '../useEn';
+import isEnLang from '../isEnLang';
 import appTypeOptions from '../configs/appType';
 
 import './appType.css';
@@ -11,7 +11,7 @@ export default function AppType(props) {
   
   return (
     <div className="appType">
-      <p className="appTypeTitle">{useEn ? 'App Type' : '应用类型'}</p>
+      <p className="appTypeTitle">{isEnLang ? 'App Type' : '应用类型'}</p>
       {appTypeOptions.map((option, index) => {
         return (
           <div
@@ -20,9 +20,9 @@ export default function AppType(props) {
             className={`appTypeItem ${appType === option.type ? 'selectedAppTypeItem' : ''} `}
           >
             <img className="selectedAppTypeTag" src="https://img.alicdn.com/tfs/TB1V5LSqkP2gK0jSZPxXXacQpXa-80-80.png" />
-            <p className="appTypeItemName">{useEn ? option.title_en : option.title}</p>
+            <p className="appTypeItemName">{isEnLang ? option.title_en : option.title}</p>
             <div className="appTypeItemDescription">
-              {useEn ? option.description_en : option.description}
+              {isEnLang ? option.description_en : option.description}
             </div>
           </div>
         )
