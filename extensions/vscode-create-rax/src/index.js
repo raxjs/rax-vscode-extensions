@@ -2,10 +2,9 @@ const vscode = require('vscode');
 const fs = require('fs-extra');
 const path = require('path');
 const generator = require('rax-generator');
+const userName = require('git-user-name');
 
 function activate(context) {
-	console.log('"vscode-rax-new-project" is now active!');
-
 	const { commands, window, ProgressLocation, Uri, ViewColumn } = vscode;
 
 	let webviewPanel = null;
@@ -22,17 +21,25 @@ function activate(context) {
 	context.subscriptions.push(commands.registerCommand('rax.create', async function () {
 		disposeWebview();
 
+		let projectAuthor;
+		try {
+			// https://www.npmjs.com/package/git-user-name
+			projectAuthor = userName();
+		} catch (e) {
+			projectAuthor = 'Rax';
+		}
+
 		const options = {
 			root: '',
 			projectName: '',
-			projectAuthor: 'Rax',
-			projectType: 'scaffold',
-			scaffoldType: 'spa-standard',
+			projectAuthor,
+			projectType: 'app',
+			appType: 'spa',
 			projectTargets: ['web'],
 			projectFeatures: [],
 			projectAliyunId: '',
-			projectServerlessRegion: '',
-			autoInstallModules: false,
+			projectAliyunRegion: '',
+			autoInstallModules: true,
 			template: ''
 		};
 
@@ -75,7 +82,7 @@ function activate(context) {
 				if (message.key === 'new-project') {
 
 					Object.assign(options, message.data);
-					
+
 					window.withProgress(
 						{
 							location: ProgressLocation.Notification,

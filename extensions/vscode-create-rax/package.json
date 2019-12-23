@@ -30,6 +30,7 @@
 	},
 	"dependencies": {
 		"fs-extra": "^8.1.0",
+		"git-user-name": "^2.0.0",
 		"rax-generator": "^0.1.0"
 	}
 }
