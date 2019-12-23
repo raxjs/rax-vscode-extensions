@@ -7,6 +7,10 @@
 	"engines": {
 		"vscode": "^1.40.0"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/raxjs/rax-vscode-extensions.git"
+	},
 	"categories": [
 		"Other"
 	],
