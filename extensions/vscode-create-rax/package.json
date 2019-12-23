@@ -1,7 +1,7 @@
 {
 	"name": "vscode-create-rax",
 	"displayName": "Create Rax",
-	"description": "VS Code extension: Create Rax",
+	"description": "Easily create a new Rax project.",
 	"publisher": "Rax",
 	"version": "0.0.1",
 	"engines": {
