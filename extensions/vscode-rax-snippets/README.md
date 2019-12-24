@@ -1,5 +1,7 @@
 # Rax Snippets
 
+This VS Code extension adds support for [Rax](https://rax.js.org/) snippets.
+
 ## Snippets
 
 | Snippet | Renders                     |
