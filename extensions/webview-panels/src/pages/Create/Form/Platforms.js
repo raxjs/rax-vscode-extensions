@@ -10,18 +10,19 @@ let projectTargets = [];
 function Platforms(props, ref) {
 
   const { onChange } = props;
-  
+
   const [mark, setMark] = useState({});
   const [showError, setShowError] = useState(false);
 
   useEffect(() => {
     // Set default platform
     projectTargets = ['web'];
+    // Same as rax-generator -> projectTargets
     setMark({
       web: true,
       weex: false,
-      aliMiniApp: false,
-      wxMiniApp: false,
+      miniapp: false,
+      ['wechat-miniprogram']: false,
       kraken: false
     })
   }, []);

@@ -4,8 +4,6 @@ import appTypeOptions from '../configs/appType';
 
 import './appType.css';
 
-console.log(appTypeOptions);
-
 export default function AppType(props) {
   const { appType, onChange } = props;
   

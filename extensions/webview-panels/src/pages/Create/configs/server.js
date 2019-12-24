@@ -7,7 +7,7 @@ export default [
     icon: "https://gw.alicdn.com/tfs/TB1S7n7qbj1gK0jSZFuXXcrHpXa-120-120.png",
     description: (
       <div>
-        <p>开启服务器端渲染，为 Web  应用带来更快的首屏呈现时间。</p>
+        <p>开启服务器端渲染，为 Web 应用带来更快的首屏呈现时间。</p>
         <a target="_blank" href="https://rax.js.org/docs/guide/ssr">查看文档</a>
       </div>
     ),
