@@ -1,0 +1,94 @@
+.platform {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.platformError .platformTitle, .platformError .platformTitleExplain {
+  color: red;
+}
+
+.platformError .platformTitleExplain {
+  animation: fadeIn 1.2s infinite ease-out;
+}
+
+.platformTitle {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  font-size: 14px;
+  color: #A6A5AA;
+  font-weight: 600;
+}
+
+.platformTitleExplain {
+  color: #A6A5AA;
+}
+
+.platformSelectedItemTag {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 16px;
+  height: 16px;
+}
+
+.platformSelectedItem .platformSelectedItemTag {
+  display: block;
+}
+
+.platformItem {
+  margin: 10px 5px 10px 0;
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.platformSelectedItem, .platformItem:hover {
+  background-color: #333238;
+}
+
+.platformItem:hover .platformItemDescription {
+  display: block;
+}
+
+.platformItemIcon {
+  width: 28px;
+  height: 28px;
+}
+
+.platformItemTitle {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #979797;
+  user-select: none;
+}
+
+.platformItemDescription {
+  display: none;
+  position: absolute;
+  bottom: 82px;
+  left: -60px;
+  width: 202px;
+  border: 1px solid #2B2B30;
+  background-color: #1e1e1e;
+  color: #979797;
+  font-size: 12px;
+  padding: 5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

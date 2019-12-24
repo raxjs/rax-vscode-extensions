@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #242423;
+}
+
+a {
+  color: #5f9ea0;
+}
+
+.page {
+  padding: 16px;
+  position: relative;
+  min-width: 550px;
+  max-width: 1200px;
+}
+
+.title {
+  color: #A6A5AA;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 16px 0;
+}
+
+.subTitle {
+  font-size: 12px;
+  color: #979797;
+}
+
+.container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}

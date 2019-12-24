@@ -1,0 +1,63 @@
+.menu {
+  position: relative;
+  min-width: 258px;
+}
+
+.rightBorder {
+  border-right: 1px solid #2B2B30;
+}
+
+.card {
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 220px;
+  height: 112px;
+  border: 1px solid #2B2B30;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card:hover, .selectedCard {
+  border: 1px solid #3790FF !important;
+}
+
+.selectedCardTag {
+  display: none;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+.selectedCard .selectedCardTag {
+  display: block;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.cardTitleIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.cardTitleTxt {
+  margin-left: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #A6A5AA;
+}
+
+.cardDescription {
+  font-size: 12px;
+  color: #979797;
+  line-height: 18px;
+}

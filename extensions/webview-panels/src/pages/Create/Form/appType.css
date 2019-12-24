@@ -1,0 +1,64 @@
+.appType {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.appTypeTitle {
+  position: relative;
+  width: 100%;
+  height: 20px;
+  font-size: 14px;
+  color: #A6A5AA;
+  font-weight: 600;
+}
+
+.appTypeItem {
+  margin: 10px 10px 10px 0;
+  padding: 5px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #2B2B30;
+  cursor: pointer;
+}
+
+.appTypeItem:hover, .selectedAppTypeItem {
+  border: 1px solid #3790FF !important;
+}
+
+.appTypeItem:hover .appTypeItemDescription, .selectedAppTypeItem .selectedAppTypeTag {
+  display: block;
+}
+
+.selectedAppTypeTag {
+  display: none;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+}
+
+.appTypeItemName {
+  font-size: 14px;
+  color: #A6A5AA;
+}
+
+.appTypeItemDescription {
+  display: none;
+  z-index: 99;
+  position: absolute;
+  bottom: 30px;
+  left: -72px;
+  width: 262px;
+  border: 1px solid #2B2B30;
+  background-color: #1e1e1e;
+  color: #979797;
+  font-size: 12px;
+  padding: 5px;
+}

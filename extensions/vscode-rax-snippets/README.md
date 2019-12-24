@@ -2,6 +2,13 @@
 
 This VS Code extension adds support for [Rax](https://rax.js.org/) snippets.
 
+## Usage
+
+1. Input snippets
+2. Use `tab` change cursor position
+
+![img](https://img.alicdn.com/tfs/TB1Xlqjq8v0gK0jSZKbXXbK2FXa-480-327.gif)
+
 ## Snippets
 
 | Snippet | Renders                     |
@@ -66,7 +73,7 @@ const [|, set|] = useState(|);
 ### ueh - Use Effect Hook
 ```javascript
 useEffect(() => {
-  // componentDidMount(), componentDidUpdate()
+  // componentDidMount()
   |
   return () => {
     // componentWillUnmount()

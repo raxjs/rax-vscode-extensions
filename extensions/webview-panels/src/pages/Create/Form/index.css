@@ -1,0 +1,26 @@
+.formWrap {
+  padding: 0 30px;
+  flex: 1;
+}
+
+.btn {
+  position: relative;
+  width: 160px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2px;
+  font-size: 14px;
+  color: #E7FFFF;
+  cursor: pointer;
+}
+
+.create {
+  background-color: #3180C2;
+}
+
+.create:hover {
+  color: #E7FFFF;
+  background-color: #478fd1;
+}

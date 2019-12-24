@@ -1,10 +1,15 @@
 {
   "name": "vscode-rax-snippets",
   "displayName": "Rax Snippets",
-  "description": "VS Code extension: Rax Snippets",
+  "description": "Code snippets for Rax.",
+  "publisher": "Rax",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.40.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raxjs/rax-vscode-extensions.git"
   },
   "icon": "assets/logo.png",
   "categories": [
@@ -26,6 +31,22 @@
       },
       {
         "language": "javascriptreact",
+        "path": "snippets/base.snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "snippets/hooks.snippets.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "snippets/hooks.snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "snippets/base.snippets.json"
+      },
+      {
+        "language": "typescriptreact",
         "path": "snippets/base.snippets.json"
       }
     ]
