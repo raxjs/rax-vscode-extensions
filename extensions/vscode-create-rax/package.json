@@ -1,0 +1,36 @@
+{
+	"name": "vscode-create-rax",
+	"displayName": "Create Rax",
+	"description": "Easily create a new Rax project.",
+	"publisher": "Rax",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.40.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/raxjs/rax-vscode-extensions.git"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "assets/logo.png",
+	"activationEvents": [
+		"*"
+	],
+	"main": "./src/index.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "rax.create",
+				"title": "Create new project",
+				"category": "Rax"
+			}
+		]
+	},
+	"dependencies": {
+		"fs-extra": "^8.1.0",
+		"git-user-name": "^2.0.0",
+		"rax-generator": "^0.1.0"
+	}
+}
