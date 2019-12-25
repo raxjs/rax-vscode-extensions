@@ -1,3 +1,6 @@
+[![Version](https://vsmarketplacebadge.apphb.com/version/Rax.vscode-create-rax.svg)](https://marketplace.visualstudio.com/items?itemName=Rax.vscode-create-rax)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/Rax.vscode-create-rax.svg)](https://marketplace.visualstudio.com/items?itemName=Rax.vscode-create-rax)
+
 # Create Rax
 
 This VS Code extension adds support for [Rax](https://rax.js.org/) new project.

@@ -1,3 +1,6 @@
+[![Version](https://vsmarketplacebadge.apphb.com/version/Rax.vscode-rax-snippets.svg)](https://marketplace.visualstudio.com/items?itemName=Rax.vscode-rax-snippets)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/Rax.vscode-rax-snippets.svg)](https://marketplace.visualstudio.com/items?itemName=Rax.vscode-rax-snippets)
+
 # Rax Snippets
 
 This VS Code extension adds support for [Rax](https://rax.js.org/) snippets.
