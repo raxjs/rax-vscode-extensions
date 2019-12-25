@@ -74,8 +74,8 @@ function Server(props, ref) {
     <div className="server">
       <p className="serverTitle">
         {isEnLang ?
-          'Enable Server-Side Rendering for web projects (optional)' :
-          '为 Web 工程开启服务端渲染 (可选)'
+          'Enable the following features for web projects (optional)' :
+          '为 Web 工程开启以下功能 (可选)'
         }
       </p>
       {serverOptions.map((option, index) => {
