@@ -4,7 +4,7 @@
     "vscode": "^1.40.0"
   },
   "scripts": {
-    "setup": "lerna bootstrap --no-ci",
+    "setup": "lerna bootstrap --no-ci && node ./scripts/bootstrap.client.js",
     "lint": "eslint --cache --ext .js ./",
     "lint-fix": "eslint --cache --ext .js ./ --fix",
     "test": "jest",
@@ -15,6 +15,7 @@
   ],
   "devDependencies": {
     "eslint": "^6.7.2",
+    "fs-extra": "^8.1.0",
     "jest": "^24.9.0",
     "lerna": "^3.19.0",
     "pre-commit": "^1.2.2"
