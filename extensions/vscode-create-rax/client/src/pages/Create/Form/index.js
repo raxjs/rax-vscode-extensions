@@ -2,7 +2,7 @@ import { Fragment, createElement, useRef, useEffect, useState } from 'rax';
 import isEnLang from '../isEnLang';
 import Platforms from './Platforms';
 import AppType from './appType';
-import Server from './Server';
+import Features from './Features';
 
 import './index.css';
 
@@ -11,25 +11,22 @@ const defaultAppType = 'spa';
 export default function Form(props) {
   const { type } = props;
 
-  const [showServerOption, setShowServerOption] = useState(true);
+  const [showFeaturesOption, setShowFeaturesOption] = useState(true);
 
   // rax-cli args
   const [appType, setAppType] = useState(defaultAppType);
+  const [projectTargets, setProjectTargets] = useState([]);
 
   const platformsRef = useRef(null);
-  const serverRef = useRef(null);
+  const featuresRef = useRef(null);
 
-  // when type is app and contains web platform, show ssr options
-  function serverOptionToggle() {
+  // when type is app, show project features
+  function featuresOptionToggle(targets) {
+    setProjectTargets(targets);
     if (type === 'app') {
-      const platformsData = platformsRef.current.getData();
-      if (platformsData && platformsData.projectTargets.includes('web')) {
-        setShowServerOption(true);
-      } else {
-        setShowServerOption(false);
-      }
+      setShowFeaturesOption(true);
     } else {
-      setShowServerOption(false);
+      setShowFeaturesOption(false);
     }
   }
 
@@ -46,7 +43,7 @@ export default function Form(props) {
         Object.assign(
           res,
           platformsData,
-          showServerOption ? serverRef.current.getData() : {}
+          showFeaturesOption ? featuresRef.current.getData() : {}
         );
         break;
       default:
@@ -57,7 +54,6 @@ export default function Form(props) {
   function create() {
     const data = getData();
     console.log("create -> data", data)
-
     if (data && window.__VSCODE__ && window.__VSCODE__.postMessage) {
       window.__VSCODE__.postMessage({
         key: 'new-project',
@@ -67,7 +63,7 @@ export default function Form(props) {
   };
 
   useEffect(() => {
-    serverOptionToggle();
+    featuresOptionToggle(platformsRef.current.getData().projectTargets);
     setAppType(defaultAppType);
   }, [type]);
 
@@ -80,13 +76,14 @@ export default function Form(props) {
       />
       <Platforms
         ref={platformsRef}
-        onChange={serverOptionToggle}
+        onChange={featuresOptionToggle}
       />
-      <Server
-        x-if={showServerOption}
+      <Features
+        x-if={showFeaturesOption}
         type={type}
         appType={appType}
-        ref={serverRef}
+        projectTargets={projectTargets}
+        ref={featuresRef}
       />
       <div className="footer">
         <a

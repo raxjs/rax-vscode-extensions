@@ -1,14 +1,14 @@
 import { createElement, forwardRef, useEffect, useImperativeHandle, useState } from 'rax';
 import isEnLang from '../isEnLang';
-import serverOptions from '../configs/server';
+import featuresOptions from '../configs/features';
 
-import './Server.css';
+import './Features.css';
 
 // rax-cli args
 let projectFeatures = [];
 
-function Server(props, ref) {
-  const { appType, type } = props;
+function Features(props, ref) {
+  const { appType, projectTargets, type } = props;
 
   const [mark, setMark] = useState({
     ssr: false,
@@ -42,17 +42,18 @@ function Server(props, ref) {
   // Listen appType and type to update projectFeatures
   useEffect(() => {
     let currentMark = mark;
-    // Lite-App without SSR 
-    if (appType === 'lite' && mark.ssr === true) {
-      currentMark = Object.assign(
-        {},
-        mark,
-        { ssr: false }
-      );
-    }
+    featuresOptions.map((option) => {
+      if (option.disabled && option.disabled({ appType, projectTargets })) {
+        currentMark = Object.assign(
+          {},
+          currentMark,
+          { [option.type]: false }
+        );
+      }
+    });
     setProjectFeatures(currentMark);
     setMark(currentMark);
-  }, [appType, type]);
+  }, [appType, projectTargets, type]);
 
   useImperativeHandle(ref, () => ({
     getData: () => {
@@ -71,27 +72,27 @@ function Server(props, ref) {
   }))
 
   return (
-    <div className="server">
-      <p className="serverTitle">
+    <div className="features">
+      <p className="featuresTitle">
         {isEnLang ?
-          'Enable Server-Side Rendering for web projects (optional)' :
-          '为 Web 工程开启服务端渲染 (可选)'
+          'Do you want to enable these features? (optional)' :
+          '是否为 Rax 应用开启以下功能？(可选)'
         }
       </p>
-      {serverOptions.map((option, index) => {
-        if (appType === 'lite' && option.type === 'ssr') {
+      {featuresOptions.map((option, index) => {
+        if (option.disabled && option.disabled({ appType, projectTargets })) {
           return null;
         }
         return (
           <div
             key={`option_${index}`}
             onClick={() => { handleClick(option) }}
-            className={`serverItem${mark[option.type] === true ? " serverSelectedItem" : ""} `}
+            className={`featuresItem${mark[option.type] === true ? " featuresSelectedItem" : ""} `}
           >
-            <img class="serverItemIcon" title={option.title} src={option.icon} />
-            <p className="serverItemTitle">{option.title}</p>
-            <img class="serverSelectedItemTag" src="https://gw.alicdn.com/tfs/TB15rQzexD1gK0jSZFsXXbldVXa-200-200.svg" />
-            <div className="serverItemDescription">
+            <img class="featuresItemIcon" title={option.title} src={option.icon} />
+            <p className="featuresItemTitle">{option.title}</p>
+            <img class="featuresSelectedItemTag" src="https://gw.alicdn.com/tfs/TB15rQzexD1gK0jSZFsXXbldVXa-200-200.svg" />
+            <div className="featuresItemDescription">
               {isEnLang ? option.description_en : option.description}
             </div>
           </div>
@@ -129,4 +130,4 @@ function Server(props, ref) {
   );
 };
 
-export default forwardRef(Server);
+export default forwardRef(Features);
