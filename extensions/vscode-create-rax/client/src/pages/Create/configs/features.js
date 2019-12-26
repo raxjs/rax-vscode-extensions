@@ -6,6 +6,7 @@ export default [
     title: 'SSR',
     icon: "https://gw.alicdn.com/tfs/TB1S7n7qbj1gK0jSZFuXXcrHpXa-120-120.png",
     disabled: (config) => {
+      // Only enable in SPA MPA and Web App
       return config.appType === 'lite' || !config.projectTargets.includes('web');
     },
     description: (

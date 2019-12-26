@@ -75,8 +75,8 @@ function Features(props, ref) {
     <div className="features">
       <p className="featuresTitle">
         {isEnLang ?
-          'Enable the following features for web projects (optional)' :
-          '为 Web 工程开启以下功能 (可选)'
+          'Do you want to enable these features? (optional)' :
+          '是否为 Rax 应用开启以下功能？(可选)'
         }
       </p>
       {featuresOptions.map((option, index) => {
