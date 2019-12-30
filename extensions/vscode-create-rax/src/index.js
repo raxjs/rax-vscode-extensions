@@ -1,14 +1,16 @@
 const vscode = require('vscode');
 const fs = require('fs-extra');
+const ejs = require('ejs');
 const path = require('path');
 const generator = require('rax-generator');
 const userName = require('git-user-name');
 
 function activate(context) {
+	const { extensionPath } = context;
 	const { commands, window, ProgressLocation, Uri, ViewColumn } = vscode;
 
 	let webviewPanel = null;
-	const webviewHTML = fs.readFileSync(path.join(context.extensionPath, 'src/create.html'), 'utf-8');
+	const webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/create.html.ejs'), 'utf-8');
 
 	function disposeWebview() {
 		if (webviewPanel) {
@@ -75,6 +77,17 @@ function activate(context) {
 				'Create Rax',
 				ViewColumn.One,
 				{ enableScripts: true }
+			);
+
+			const webviewHTML = ejs.render(webviewTemplate,
+				{
+					styles: [
+						`vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Create_index.css')}`
+					],
+					scripts: [
+						`vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Create_index.js')}`
+					]
+				}
 			);
 			webviewPanel.webview.html = webviewHTML;
 

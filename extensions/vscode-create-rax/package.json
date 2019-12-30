@@ -1,36 +1,48 @@
 {
-	"name": "vscode-create-rax",
-	"displayName": "Create Rax",
-	"description": "Easily create a new Rax project.",
-	"publisher": "Rax",
-	"version": "0.0.2",
-	"engines": {
-		"vscode": "^1.40.0"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/raxjs/rax-vscode-extensions.git"
-	},
-	"categories": [
-		"Other"
-	],
-	"icon": "assets/logo.png",
-	"activationEvents": [
-		"*"
-	],
-	"main": "./src/index.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "rax.create",
-				"title": "Create new project",
-				"category": "Rax"
-			}
-		]
-	},
-	"dependencies": {
-		"fs-extra": "^8.1.0",
-		"git-user-name": "^2.0.0",
-		"rax-generator": "^0.1.0"
-	}
+  "name": "vscode-create-rax",
+  "displayName": "Create Rax",
+  "description": "Easily create a new Rax project.",
+  "publisher": "Rax",
+  "version": "0.0.3",
+  "engines": {
+    "vscode": "^1.40.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raxjs/rax-vscode-extensions.git"
+  },
+  "categories": [
+    "Other"
+  ],
+  "icon": "assets/logo.png",
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./src/index.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "rax.create",
+        "title": "Create new project",
+        "category": "Rax"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "cd client && build-scripts build",
+    "start": "cd client && build-scripts start"
+  },
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "rax": "^1.0.8",
+    "rax-app": "^0.2.4",
+    "fs-extra": "^8.1.0",
+    "git-user-name": "^2.0.0",
+    "rax-generator": "^0.1.0"
+  },
+  "devDependencies": {
+    "@alib/build-scripts": "^0.1.0",
+    "build-plugin-rax-app": "^0.1.0",
+    "build-plugin-rax-multi-pages": "^0.1.2"
+  }
 }

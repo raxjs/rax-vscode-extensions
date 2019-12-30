@@ -1,8 +1,4 @@
-# vscode-rax-webview-panels
-
-Newly opened WebView panel page when VS Code extension is extended.
-
-## Create Rax
+# Client
 
 The WebView panel page when the project is created, see the red box in the figure below.
 
