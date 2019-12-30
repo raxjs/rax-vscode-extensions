@@ -6,7 +6,7 @@ Rax VS Code Extensions
 
 There are 2 ways to install Rax VS Code Extension:
 
-1. Search for `rax` and click install in VS Code.
+1. Search for `rax` and click install in VS Code Extensions.
 2. Go here [VS Code Extensions Marketplace](https://marketplace.visualstudio.com/items?itemName=Rax.vscode-rax)
 
 ## Extensions
