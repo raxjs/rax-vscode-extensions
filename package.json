@@ -4,7 +4,7 @@
     "vscode": "^1.40.0"
   },
   "scripts": {
-    "setup": "lerna bootstrap --no-ci && node ./scripts/bootstrap.client.js",
+    "setup": "lerna bootstrap --no-ci",
     "lint": "eslint --cache --ext .js ./",
     "lint-fix": "eslint --cache --ext .js ./ --fix",
     "test": "jest",
