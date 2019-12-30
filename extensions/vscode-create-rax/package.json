@@ -33,6 +33,7 @@
     "start": "cd client && build-scripts start"
   },
   "dependencies": {
+    "ejs": "^3.0.1",
     "rax": "^1.0.8",
     "rax-app": "^0.2.4",
     "fs-extra": "^8.1.0",
@@ -42,7 +43,6 @@
   "devDependencies": {
     "@alib/build-scripts": "^0.1.0",
     "build-plugin-rax-app": "^0.1.0",
-    "build-plugin-rax-multi-pages": "^0.1.2",
-    "ejs": "^3.0.1"
+    "build-plugin-rax-multi-pages": "^0.1.2"
   }
 }
