@@ -40,3 +40,7 @@ The `Rax VS Code Extension packs` contains：
 2. Input `rax create`
 
 ![img](https://img.alicdn.com/tfs/TB1TB9pqYj1gK0jSZFOXXc7GpXa-980-654.gif)
+
+## Contributing
+
+Read our [contributing guide](./.github/CONTRIBUTING.md) to learn about our development process and how to develop a VS Code Extension.
