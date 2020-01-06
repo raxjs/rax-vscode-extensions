@@ -4,6 +4,7 @@ export default [
   {
     type: 'ssr',
     title: 'SSR',
+    title_en: 'SSR',
     icon: "https://gw.alicdn.com/tfs/TB1S7n7qbj1gK0jSZFuXXcrHpXa-120-120.png",
     disabled: (config) => {
       // Only enable in SPA MPA and Web App
@@ -25,6 +26,7 @@ export default [
   {
     type: 'faas',
     title: 'FaaS',
+    title_en: 'FaaS',
     icon: "https://gw.alicdn.com/tfs/TB1j4z7qkT2gK0jSZFkXXcIQFXa-120-120.png",
     description: (
       <div>
@@ -36,6 +38,24 @@ export default [
       <div>
         <p>Use FaaS(Function as a Service) to develop UI and data interfaces at the same time.</p>
         <a target="_blank" href="https://rax.js.org/docs/guide/cloud-in-one">Reference</a>
+      </div>
+    )
+  },
+  {
+    type: 'react',
+    title: '兼容 React',
+    title_en: 'Compatibility with React',
+    icon: "https://gw.alicdn.com/tfs/TB1rddGtmf2gK0jSZFPXXXsopXa-120-120.png",
+    description: (
+      <div>
+        <p>在 Rax 工程项目内执行 React 风格的代码。</p>
+        <a target="_blank" href="http://rax.js.org/docs/guide/rax-plugin-compat-react">查看文档</a>
+      </div>
+    ),
+    description_en: (
+      <div>
+        <p>Execute React style code within a Rax project.</p>
+        <a target="_blank" href="http://rax.js.org/docs/guide/rax-plugin-compat-react">Reference</a>
       </div>
     )
   }
