@@ -48,7 +48,7 @@ Run `vsce package`, package it into **vsix** and send it to others for installat
 
 ### 4. Publish Extension
 
-Add `"publisher": "Rax"` into your extension package.json
+Add `"publisher": "Rax"` into your extension package.json:
 
 ```json
 {
@@ -56,7 +56,7 @@ Add `"publisher": "Rax"` into your extension package.json
 }
 ```
 
-When your   **PR** has been **merged**, It will auto publish to VS Code Extension [Marketplace](https://marketplace.visualstudio.com/).
+When your **PR** has been **merged**, It will be auto published to VS Code Extension [Marketplace](https://marketplace.visualstudio.com/).
 
 
 
