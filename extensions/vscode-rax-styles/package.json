@@ -1,0 +1,23 @@
+{
+	"name": "vscode-rax-styles",
+	"displayName": "Rax Styles",
+	"description": "Easily write styles in Rax App",
+	"publisher": "Rax",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "assets/logo.png",
+	"activationEvents": [
+		"onLanguage:json",
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact"
+	],
+	"main": "./src/index.js",
+	"devDependencies": {}
+}
