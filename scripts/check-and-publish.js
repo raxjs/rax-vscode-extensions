@@ -94,6 +94,10 @@ function publish(extension, workDir, version, shouldBuild) {
   }
 
   // vsce publish
+  console.log('[VSCE] PUBLISH')
+  spawnSync('vsce', [], {
+    cwd: workDir,
+  });
   spawnSync('vsce', ['publish'], {
     stdio: 'inherit',
     cwd: workDir,
