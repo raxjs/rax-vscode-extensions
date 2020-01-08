@@ -73,7 +73,6 @@ function checkVersionExists(extension, version, retry = 0) {
 
 function publish(extension, workDir, version, shouldBuild) {
 
-
   // npm install
   spawnSync('npm', [
     'install',
