@@ -72,7 +72,7 @@ function checkVersionExists(extension, version, retry = 0) {
 }
 
 function publish(extension, workDir, version, shouldBuild) {
-  console.log('[PUBLISH]', `${extension}@${version}`);
+
 
   // npm install
   spawnSync('npm', [
@@ -94,16 +94,12 @@ function publish(extension, workDir, version, shouldBuild) {
   }
 
   // vsce publish
-  console.log('[VSCE] PUBLISH');
-  spawnSync('echo $VSCE_TOKEN', [], {
-    stdio: 'inherit',
-    cwd: workDir,
-  });
+  console.log('[VSCE] PUBLISH: ', `${extension}@${version}`);
   spawnSync('vsce', [
     'publish',
     '-p',
     '--pat',
-    '$VSCE_TOKEN'
+    process.env.VSCE_TOKEN
   ], {
     stdio: 'inherit',
     cwd: workDir,
