@@ -34,15 +34,15 @@ function checkVersion(folder, callback) {
         const packageInfo = JSON.parse(readFileSync(packageInfoPath));
         checkVersionExists(packageInfo.name, packageInfo.version)
           .then((exists) => {
-            if (!exists) {
-              ret.push({
-                name: packageInfo.name,
-                workDir: join(folder, packageFolderName),
-                local: packageInfo.version,
-                // If exists scripts.build, then run it.
-                shouldBuild: !!(packageInfo.scripts && packageInfo.scripts.build),
-              });
-            }
+            // if (!exists) {
+            ret.push({
+              name: packageInfo.name,
+              workDir: join(folder, packageFolderName),
+              local: packageInfo.version,
+              // If exists scripts.build, then run it.
+              shouldBuild: !!(packageInfo.scripts && packageInfo.scripts.build),
+            });
+            // }
             finish();
           });
       } else {
