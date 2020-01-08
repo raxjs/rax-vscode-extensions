@@ -52,7 +52,7 @@ Add `"publisher": "Rax"` into your extension package.json:
 
 ```json
 {
-	"publisher": "Rax"
+  "publisher": "Rax"
 }
 ```
 
