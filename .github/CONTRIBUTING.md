@@ -36,7 +36,7 @@ Document：[https://code.visualstudio.com/api](https://code.visualstudio.com/api
 
 Use the VS Code to develop the extension project, and enable extension debugging through `F5`.
 
-### 3. Publish Extension
+### 3. Packaging Extension
 
 First you need to use [`vsce`](https://www.npmjs.com/package/vsce).
 
@@ -44,27 +44,19 @@ First you need to use [`vsce`](https://www.npmjs.com/package/vsce).
 npm i vsce -g
 ```
 
-You must log in to the publisher account for packaging and publishing.
-
-```shell
-vsce login Rax
-```
-
-#### View and add publisher tokens
-
-Visit [https://aka.ms/SignupAzureDevOps](https://aka.ms/SignupAzureDevOps)。
-
-Click access tokens in the personal center to create and view personal tokens.
-
-![img01](https://img.alicdn.com/tfs/TB12K4osuT2gK0jSZFvXXXnFXXa-1500-862.png)
-
-#### Packaging
-
 Run `vsce package`, package it into **vsix** and send it to others for installation;
 
-#### Publish
+### 4. Publish Extension
 
-Run `vsce publish` ;
+Add `"publisher": "Rax"` into your extension package.json
+
+```json
+{
+	"publisher": "Rax"
+}
+```
+
+When your   **PR** has been **merged**, It will auto publish to VS Code Extension [Marketplace](https://marketplace.visualstudio.com/).
 
 
 
