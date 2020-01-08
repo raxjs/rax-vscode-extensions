@@ -98,7 +98,6 @@ function publish(extension, workDir, version, shouldBuild) {
   spawnSync('vsce', [
     'publish',
     '-p',
-    '--pat',
     process.env.VSCE_TOKEN
   ], {
     stdio: 'inherit',
