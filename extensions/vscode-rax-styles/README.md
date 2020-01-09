@@ -1,4 +1,4 @@
-# vscode-rax-styles README
+# Rax Styles
 
 This is the README for your extension "vscode-rax-styles". After writing up a brief description, we recommend including the following sections.
 

@@ -12,12 +12,19 @@
 	],
 	"icon": "assets/logo.png",
 	"activationEvents": [
-		"onLanguage:json",
 		"onLanguage:javascript",
 		"onLanguage:javascriptreact",
 		"onLanguage:typescript",
 		"onLanguage:typescriptreact"
 	],
 	"main": "./src/index.js",
-	"devDependencies": {}
+	"devDependencies": {},
+	"dependencies": {
+		"@babel/core": "^7.7.7",
+		"@babel/parser": "^7.7.7",
+		"@babel/traverse": "^7.7.4",
+		"css": "^2.2.4",
+		"fs-extra": "^8.1.0",
+		"rax-compile-config": "^0.2.10"
+	}
 }
