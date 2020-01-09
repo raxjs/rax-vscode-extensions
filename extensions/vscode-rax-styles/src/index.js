@@ -1,68 +1,92 @@
 const vscode = require('vscode');
-const css = require('css');
-const path = require('path');
-const fs = require('fs-extra');
-const babel = require('@babel/core');
-const babelParser = require('@babel/parser');
-const traverse = require('@babel/traverse').default;
-const { getBabelConfig } = require('rax-compile-config');
 
+const findStyle = require('./findStyle');
+const findStyleDependencies = require('./findStyleDependencies');
+const findStyleSelectors = require('./findStyleSelectors');
+const getFocusCodeInfo = require('./getFocusCodeInfo');
 
+const SUPPORT_LANGUAGES = [
+  'javascript',
+  'javascriptreact',
+  'typescript',
+  'typescriptreact'
+];
+
+// Cmd+Click jump to style definition
 function provideDefinition(document, position) {
-
-  // Code info
-  const line = document.lineAt(position);
-  const word = document.getText(document.getWordRangeAtPosition(position));
+  const { line, word, fileName, directory } = getFocusCodeInfo(document, position);
 
   if (!/style|className/g.test(line.text)) return;
 
-  // File info
-  const fileName = document.fileName;
-  const workDir = path.dirname(fileName);
+  const matched = findStyle(directory, word, findStyleDependencies(fileName));
+  if (matched) {
+    const position = matched.position.start;
+    return new vscode.Location(vscode.Uri.file(matched.file), new vscode.Position(position.line, position.column));
+  }
+}
 
+// Show style tips on hover over
+function provideHover(document, position) {
+  const { line, word, fileName, directory } = getFocusCodeInfo(document, position);
 
-  try {
-    const styleFiles = [];
+  if (!/style|className/g.test(line.text)) return;
 
-    // Find style dependencies.
-    const code = babel.transformFileSync(fileName, getBabelConfig()).code;
-    const ast = babelParser.parse(code, { sourceType: 'module' });
-
-    traverse(ast, {
-      CallExpression(path) {
-        const { node } = path;
-        if (node.callee.name === 'require' && /\.css$/i.test(node.arguments[0].value)) {
-          styleFiles.push(node.arguments[0].value);
-        }
-      }
+  const matched = findStyle(directory, word, findStyleDependencies(fileName));
+  if (matched) {
+    console.log(matched);
+    const styles = matched.declarations.map((declaration) => {
+      // * width: 100px;
+      return `* ${declaration.property}: ${declaration.value};`
     });
+    return new vscode.Hover(`**styles:**  \n ${styles.join('  \n ')} `);
+  }
+}
 
-    // Find style code
-    for (let i = 0, l = styleFiles.length; i < l; i++) {
-      const stylePath = path.join(workDir, styleFiles[i]);
-      const styleCode = fs.readFileSync(stylePath, 'utf-8');
+// Styles auto Complete
+function provideCompletionItems(document, position) {
+  const { line, fileName, directory } = getFocusCodeInfo(document, position);
+  if (!/style|className/g.test(line.text)) return;
 
-      const stylesheet = css.parse(styleCode).stylesheet;
-      const matched = stylesheet.rules.find(rule => rule.selectors.includes(`.${word}`));
-      if (matched) {
-        const position = matched.position.start;
-        return new vscode.Location(vscode.Uri.file(stylePath), new vscode.Position(position.line, position.column));
-      }
-    }
-  } catch (e) {
-    // ignore 
+  // In case of cursor shaking
+  const word = line.text.substring(0, position.character);
+
+  // match styles.xxx
+  if (/styles\.$/g.test(word)) {
+    return findStyleSelectors(directory, word, findStyleDependencies(fileName)).map((selector) => {
+      // Remove class selector `.`, When use styles.xxx.
+      return new vscode.CompletionItem(selector.replace('.', ''), vscode.CompletionItemKind.Variable)
+    });
   }
 }
 
 function activate(context) {
-  context.subscriptions.push(vscode.languages.registerDefinitionProvider([
-    'javascript',
-    'javascriptreact',
-    'typescript',
-    'typescriptreact'
-  ], {
-    provideDefinition
-  }));
+  // Cmd+Click jump to style definition
+  context.subscriptions.push(
+    vscode.languages.registerDefinitionProvider(
+      SUPPORT_LANGUAGES,
+      { provideDefinition }
+    )
+  );
+
+  SUPPORT_LANGUAGES.forEach((language) => {
+    // Show style tips on hover over
+    context.subscriptions.push(
+      vscode.languages.registerHoverProvider(
+        language,
+        { provideHover }
+      )
+    );
+
+    // Styles auto Complete (styles.xxx)
+    context.subscriptions.push(
+      vscode.languages.registerCompletionItemProvider(
+        language,
+        { provideCompletionItems },
+        // match styles.xxx
+        '.'
+      )
+    );
+  })
 }
 
 exports.activate = activate;
