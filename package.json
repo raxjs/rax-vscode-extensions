@@ -8,12 +8,14 @@
     "lint": "eslint --cache --ext .js ./",
     "lint-fix": "eslint --cache --ext .js ./ --fix",
     "test": "jest",
-    "clean": "rm -rf ./extensions/*/node_modules"
+    "clean": "rm -rf ./extensions/*/node_modules",
+    "check-and-publish": "node ./scripts/check-and-publish"
   },
   "pre-commit": [
     "lint"
   ],
   "devDependencies": {
+    "axios": "^0.19.0",
     "eslint": "^6.7.2",
     "fs-extra": "^8.1.0",
     "jest": "^24.9.0",
