@@ -25,7 +25,7 @@ function provideDefinition(document, position) {
   }
 }
 
-// Show style tips on hover over
+// Show current style on hover over
 function provideHover(document, position) {
   const { line, word, fileName, directory } = getFocusCodeInfo(document, position);
 
@@ -33,7 +33,6 @@ function provideHover(document, position) {
 
   const matched = findStyle(directory, word, findStyleDependencies(fileName));
   if (matched) {
-    console.log(matched);
     const styles = matched.declarations.map((declaration) => {
       // * width: 100px;
       return `* ${declaration.property}: ${declaration.value};`
@@ -69,7 +68,7 @@ function activate(context) {
   );
 
   SUPPORT_LANGUAGES.forEach((language) => {
-    // Show style tips on hover over
+    // Show current style on hover over
     context.subscriptions.push(
       vscode.languages.registerHoverProvider(
         language,

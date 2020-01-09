@@ -1,65 +1,21 @@
 # Rax Styles
 
-This is the README for your extension "vscode-rax-styles". After writing up a brief description, we recommend including the following sections.
+This VS Code extension adds support for [Rax](https://rax.js.org/) write styles.
 
-## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+# Hover widget
 
-For example if there is an image subfolder under your extension project workspace:
+Whenever you hover over some JSX style code,  shows the style result in a Hover widget.
+![img01](https://img.alicdn.com/tfs/TB1_oWRtxv1gK0jSZFFXXb0sXXa-1488-836.gif)
 
-\!\[feature X\]\(images/feature-x.png\)
+# Click to definition
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Make `cmd + click`  (Windows: `ctrl + click`) perform a "Go To Definition" on the identifier under the cursor. 
+![img02](https://img.alicdn.com/tfs/TB1WYmQtuH2gK0jSZFEXXcqMpXa-1488-836.gif)
 
-## Requirements
+# Auto complete
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+When you input `styles.` it will show styles suggestions related to your css file.
+![img03](https://img.alicdn.com/tfs/TB1y95NtxD1gK0jSZFsXXbldVXa-1664-970.gif)
 
-## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**

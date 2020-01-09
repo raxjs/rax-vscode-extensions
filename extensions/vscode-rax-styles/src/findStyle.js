@@ -2,6 +2,7 @@ const css = require('css');
 const path = require('path');
 const fs = require('fs-extra');
 
+// Find style property by className, in some CSS files.
 module.exports = function findStyle(directory, className, styleDependencies = []) {
   let matched;
 
