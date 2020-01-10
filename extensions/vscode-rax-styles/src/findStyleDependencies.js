@@ -1,27 +1,40 @@
-const babel = require('@babel/core');
+const fs = require('fs-extra');
 const babelParser = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
-const { getBabelConfig } = require('rax-compile-config');
 
 // Find style dependencies, like import style form './index.css';
 module.exports = function findStyleDependencies(file) {
   const StyleDependencies = [];
 
-  const code = babel.transformFileSync(file, getBabelConfig()).code;
-  const ast = babelParser.parse(code, { sourceType: 'module' });
+  try {
+    const ast = babelParser.parse(fs.readFileSync(file, 'utf-8'), {
+      // Support JSX and TS
+      plugins: ['typescript', 'jsx'],
+      sourceType: 'module',
+    });
 
-  traverse(ast, {
-    CallExpression(path) {
-      const { node } = path;
-      // Find parsed code's `require('xxx.css')`;
-      if (
-        node.callee.name === 'require' &&
-        /\.css$/i.test(node.arguments[0].value)
-      ) {
-        StyleDependencies.push(node.arguments[0].value);
+    traverse(ast, {
+      ImportDeclaration(path) {
+        const { node } = path;
+        if (/\.css$/i.test(node.source.value)) {
+          // import styles from './xxx.css';
+          // return [{ source: './xxx.css', identifier: 'styles' }]
+          // import './xxx.css';
+          // return [{ source: './xxx.css', identifier: null }]
+          StyleDependencies.push({
+            source: node.source.value,
+            // Just return first identifier.
+            identifier:
+              node.specifiers[0] ?
+                node.specifiers[0].local.name :
+                null
+          });
+        }
       }
-    }
-  });
+    });
+  } catch (e) {
+    // ignore
+  }
 
   return StyleDependencies;
 };

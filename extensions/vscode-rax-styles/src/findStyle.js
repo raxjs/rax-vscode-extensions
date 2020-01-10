@@ -8,7 +8,7 @@ module.exports = function findStyle(directory, className, styleDependencies = []
 
   for (let i = 0, l = styleDependencies.length; i < l; i++) {
 
-    const file = path.join(directory, styleDependencies[i]);
+    const file = path.join(directory, styleDependencies[i].source);
     const stylesheet = css.parse(fs.readFileSync(file, 'utf-8')).stylesheet;
 
     matched = stylesheet.rules.find(rule => rule.selectors.includes(`.${className}`));

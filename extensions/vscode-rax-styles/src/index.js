@@ -48,13 +48,15 @@ function provideCompletionItems(document, position) {
 
   // In case of cursor shaking
   const word = line.text.substring(0, position.character);
+  const styleDependencies = findStyleDependencies(fileName);
 
-  // match styles.xxx
-  if (/styles\.$/g.test(word)) {
-    return findStyleSelectors(directory, word, findStyleDependencies(fileName)).map((selector) => {
-      // Remove class selector `.`, When use styles.xxx.
-      return new vscode.CompletionItem(selector.replace('.', ''), vscode.CompletionItemKind.Variable);
-    });
+  for (let i = 0, l = styleDependencies.length; i < l; i++) {
+    if (styleDependencies[i].identifier && new RegExp(`${styleDependencies[i].identifier}\\.$`).test(word)) {
+      return findStyleSelectors(directory, styleDependencies).map((selector) => {
+        // Remove class selector `.`, When use styles.xxx.
+        return new vscode.CompletionItem(selector.replace('.', ''), vscode.CompletionItemKind.Variable);
+      });
+    }
   }
 }
 
@@ -76,12 +78,13 @@ function activate(context) {
       )
     );
 
-    // Styles auto Complete (styles.xxx)
+    // Styles auto Complete 
     context.subscriptions.push(
       vscode.languages.registerCompletionItemProvider(
         language,
         { provideCompletionItems },
-        // match styles.xxx
+        // match [styles identifier].xxx
+        // Example: `import test from './xxx.css'` match test.xxx;
         '.'
       )
     );
