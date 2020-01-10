@@ -35,7 +35,7 @@ function provideHover(document, position) {
   if (matched) {
     const styles = matched.declarations.map((declaration) => {
       // * width: 100px;
-      return `* ${declaration.property}: ${declaration.value};`
+      return `* ${declaration.property}: ${declaration.value};`;
     });
     return new vscode.Hover(`**styles:**  \n ${styles.join('  \n ')} `);
   }
@@ -53,7 +53,7 @@ function provideCompletionItems(document, position) {
   if (/styles\.$/g.test(word)) {
     return findStyleSelectors(directory, word, findStyleDependencies(fileName)).map((selector) => {
       // Remove class selector `.`, When use styles.xxx.
-      return new vscode.CompletionItem(selector.replace('.', ''), vscode.CompletionItemKind.Variable)
+      return new vscode.CompletionItem(selector.replace('.', ''), vscode.CompletionItemKind.Variable);
     });
   }
 }
@@ -85,7 +85,7 @@ function activate(context) {
         '.'
       )
     );
-  })
+  });
 }
 
 exports.activate = activate;

@@ -24,7 +24,7 @@ function Platforms(props, ref) {
       miniapp: false,
       ['wechat-miniprogram']: false,
       kraken: false
-    })
+    });
   }, []);
 
   function checkValid(targets) {
@@ -50,7 +50,7 @@ function Platforms(props, ref) {
       if (newMark[key] === true) {
         projectTargets.push(key);
       }
-    })
+    });
     checkValid(projectTargets);
     onChange && onChange(projectTargets);
 
@@ -68,7 +68,7 @@ function Platforms(props, ref) {
       }
       return null;
     }
-  }))
+  }));
 
   return (
     <div className={`platform${showError ? " platformError" : ""}`}>
@@ -80,7 +80,7 @@ function Platforms(props, ref) {
         return (
           <div
             key={`platform_${index}`}
-            onClick={() => { handleClick(platform) }}
+            onClick={() => { handleClick(platform); }}
             className={`platformItem${mark[platform.type] === true ? " platformSelectedItem" : ""} `}
           >
             <img class="platformItemIcon" title={platform.title} src={platform.icon} />
@@ -90,10 +90,10 @@ function Platforms(props, ref) {
               {isEnLang ? platform.description_en : platform.description}
             </div>
           </div>
-        )
+        );
       })}
     </div>
   );
 };
 
-export default forwardRef(Platforms)
+export default forwardRef(Platforms);

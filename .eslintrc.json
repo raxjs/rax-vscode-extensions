@@ -13,6 +13,8 @@
     "sourceType": "module"
   },
   "rules": {
+    "semi": "error",
+    "semi-spacing": "error",
     "no-const-assign": "warn",
     "no-this-before-super": "warn",
     "no-undef": "warn",

@@ -51,7 +51,7 @@ function activate(context) {
 				placeHolder: "Project name",
 				validateInput: function (input) {
 					if (input.trim() === '') {
-						return "Please input your project name!"
+						return "Please input your project name!";
 					}
 				}
 			}

@@ -21,4 +21,4 @@ module.exports = function findStyle(directory, className, styleDependencies = []
   }
 
   return matched;
-}
+};

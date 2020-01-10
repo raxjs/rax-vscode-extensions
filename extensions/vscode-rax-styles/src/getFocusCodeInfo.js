@@ -11,4 +11,4 @@ module.exports = function getFocusCodeInfo(document, position) {
     fileName: document.fileName,
     directory: path.dirname(document.fileName),
   };
-}
+};

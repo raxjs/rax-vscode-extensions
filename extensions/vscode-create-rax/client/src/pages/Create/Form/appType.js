@@ -14,7 +14,7 @@ export default function AppType(props) {
         return (
           <div
             key={`appType${index}`}
-            onClick={() => { onChange && onChange(option.type) }}
+            onClick={() => { onChange && onChange(option.type); }}
             className={`appTypeItem ${appType === option.type ? 'selectedAppTypeItem' : ''} `}
           >
             <img className="selectedAppTypeTag" src="https://img.alicdn.com/tfs/TB1V5LSqkP2gK0jSZPxXXacQpXa-80-80.png" />
@@ -23,7 +23,7 @@ export default function AppType(props) {
               {isEnLang ? option.description_en : option.description}
             </div>
           </div>
-        )
+        );
       })}
     </div>
   );

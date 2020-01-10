@@ -24,4 +24,4 @@ module.exports = function findStyleDependencies(file) {
   });
 
   return StyleDependencies;
-}
+};

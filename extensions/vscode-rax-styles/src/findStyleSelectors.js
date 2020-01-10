@@ -13,8 +13,8 @@ module.exports = function findStyleSelectors(directory, className, styleDependen
 
     stylesheet.rules.forEach((rule) => {
       selectors = selectors.concat(rule.selectors);
-    })
+    });
   }
 
   return selectors;
-}
+};
