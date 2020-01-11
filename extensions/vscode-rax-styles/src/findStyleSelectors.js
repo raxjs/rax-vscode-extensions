@@ -1,6 +1,6 @@
 const css = require('css');
+const fs = require('fs');
 const path = require('path');
-const fs = require('fs-extra');
 
 // Find styles selectors, ['.wrap', '.header' ....]
 module.exports = function findStyleSelectors(directory, styleDependencies = []) {
