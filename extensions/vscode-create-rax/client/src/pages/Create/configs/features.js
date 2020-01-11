@@ -48,13 +48,13 @@ export default [
     icon: "https://gw.alicdn.com/tfs/TB1rddGtmf2gK0jSZFPXXXsopXa-120-120.png",
     description: (
       <div>
-        <p>执行 React 风格的代码。</p>
+        <p>在 Rax 应用中使用 React 的组件或方法。</p>
         <a target="_blank" href="http://rax.js.org/docs/guide/rax-plugin-compat-react">查看文档</a>
       </div>
     ),
     description_en: (
       <div>
-        <p>Compatibility with React.</p>
+        <p>Use React components or methods in Rax projects.</p>
         <a target="_blank" href="http://rax.js.org/docs/guide/rax-plugin-compat-react">Reference</a>
       </div>
     )
