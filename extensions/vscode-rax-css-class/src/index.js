@@ -21,7 +21,11 @@ function provideDefinition(document, position) {
   const matched = findStyle(directory, word, findStyleDependencies(fileName));
   if (matched) {
     const position = matched.position.start;
-    return new vscode.Location(vscode.Uri.file(matched.file), new vscode.Position(position.line, position.column));
+    return new vscode.Location(
+      vscode.Uri.file(matched.file),
+      // The zero-based line and character value.
+      new vscode.Position(position.line - 1, position.column - 1)
+    );
   }
 }
 
@@ -33,11 +37,8 @@ function provideHover(document, position) {
 
   const matched = findStyle(directory, word, findStyleDependencies(fileName));
   if (matched) {
-    const styles = matched.declarations.map((declaration) => {
-      // * width: 100px;
-      return `* ${declaration.property}: ${declaration.value};`;
-    });
-    return new vscode.Hover(`**styles:**  \n ${styles.join('  \n ')} `);
+    // Markdown css code
+    return new vscode.Hover('```css \n ' + matched.code + ' \n ````');
   }
 }
 

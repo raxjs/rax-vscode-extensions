@@ -47,7 +47,7 @@ The `Rax VS Code Extension packs` contains：
 2. Click to definition
 3. Auto complete
 
-![img01](https://img.alicdn.com/tfs/TB1WYmQtuH2gK0jSZFEXXcqMpXa-1488-836.gif)
+![img01](https://img.alicdn.com/tfs/TB1pb1ltYY1gK0jSZTEXXXDQVXa-1468-906.gif)
 
 ## Contributing
 

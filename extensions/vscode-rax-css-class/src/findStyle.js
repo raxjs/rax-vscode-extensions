@@ -16,6 +16,10 @@ module.exports = function findStyle(directory, className, styleDependencies = []
     // Just find one matched stylesheet.
     if (matched) {
       matched.file = file;
+      matched.code = css.stringify({
+        type: "stylesheet",
+        stylesheet: { rules: [matched] }
+      });
       break;
     }
   }
