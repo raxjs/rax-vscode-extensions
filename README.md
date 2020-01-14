@@ -41,7 +41,7 @@ The `Rax VS Code Extension packs` contains：
 
 ![img](https://img.alicdn.com/tfs/TB1TB9pqYj1gK0jSZFOXXc7GpXa-980-654.gif)
 
-## 3. Rax Styles
+## 3. CSS classes
 ### Features
 1. Hover widget
 2. Click to definition

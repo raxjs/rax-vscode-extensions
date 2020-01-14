@@ -1,11 +1,11 @@
-# Rax Styles
+# Rax - CSS Class
 
-This VS Code extension adds support for [Rax](https://rax.js.org/) write styles.
+This VS Code extension adds support for [Rax](https://rax.js.org/) write CSS classes.
 
 
 # Hover widget
 
-Whenever you hover over some JSX style code,  shows the style result in a Hover widget.
+Whenever you hover over some JSX style code, shows the style result in a Hover widget.
 ![img01](https://img.alicdn.com/tfs/TB1_oWRtxv1gK0jSZFFXXb0sXXa-1488-836.gif)
 
 # Click to definition

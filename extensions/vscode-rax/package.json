@@ -18,6 +18,6 @@
   "extensionPack": [
     "Rax.vscode-rax-snippets",
     "Rax.vscode-create-rax",
-    "Rax.vscode-rax-styles"
+    "Rax.vscode-rax-css-class"
   ]
 }
