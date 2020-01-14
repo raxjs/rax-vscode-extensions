@@ -7,7 +7,7 @@ const userName = require('git-user-name');
 
 function activate(context) {
 	const { extensionPath } = context;
-	const { commands, window, ProgressLocation, Uri, ViewColumn } = vscode;
+	const { env, commands, window, ProgressLocation, Uri, ViewColumn } = vscode;
 
 	let webviewPanel = null;
 	const webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/create.html.ejs'), 'utf-8');
@@ -81,6 +81,7 @@ function activate(context) {
 
 			const webviewHTML = ejs.render(webviewTemplate,
 				{
+					language: env.language,
 					styles: [
 						`vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Create_index.css')}`
 					],

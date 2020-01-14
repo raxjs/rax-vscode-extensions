@@ -90,7 +90,7 @@ function Features(props, ref) {
             className={`featuresItem${mark[option.type] === true ? " featuresSelectedItem" : ""} `}
           >
             <img class="featuresItemIcon" title={option.title} src={option.icon} />
-            <p className="featuresItemTitle">{option.title}</p>
+            <p className="featuresItemTitle">{isEnLang ? option.title_en : option.title}</p>
             <img class="featuresSelectedItemTag" src="https://gw.alicdn.com/tfs/TB15rQzexD1gK0jSZFsXXbldVXa-200-200.svg" />
             <div className="featuresItemDescription">
               {isEnLang ? option.description_en : option.description}
