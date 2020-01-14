@@ -20,7 +20,7 @@ export default function Create() {
         </p>
       </div>
       <div className="container">
-        <Menu type={type} onChange={(type) => { setType(type) }} />
+        <Menu type={type} onChange={(type) => { setType(type); }} />
         <Form type={type} />
       </div>
     </div>

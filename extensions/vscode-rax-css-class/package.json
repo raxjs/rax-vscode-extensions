@@ -1,0 +1,27 @@
+{
+	"name": "vscode-rax-css-class",
+	"displayName": "Rax CSS Class",
+	"description": "Easily write CSS classes in Rax App",
+	"publisher": "Rax",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "assets/logo.png",
+	"activationEvents": [
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact"
+	],
+	"main": "./src/index.js",
+	"devDependencies": {},
+	"dependencies": {
+		"@babel/parser": "^7.7.7",
+		"@babel/traverse": "^7.7.4",
+		"css": "^2.2.4"
+	}
+}

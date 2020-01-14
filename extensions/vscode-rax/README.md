@@ -27,3 +27,11 @@ This VS Code extension adds support for [Rax](https://rax.js.org/).
 3. Enter
 
 ![img](https://img.alicdn.com/tfs/TB1TB9pqYj1gK0jSZFOXXc7GpXa-980-654.gif)
+
+## 3. CSS classes
+### Features
+1. Hover widget
+2. Click to definition
+3. Auto complete
+
+![img01](https://img.alicdn.com/tfs/TB1pb1ltYY1gK0jSZTEXXXDQVXa-1468-906.gif)

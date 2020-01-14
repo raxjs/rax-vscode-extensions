@@ -26,7 +26,7 @@ function Features(props, ref) {
       if (currentMark[key] === true) {
         projectFeatures.push(key);
       }
-    })
+    });
   }
 
   function handleClick(options) {
@@ -69,7 +69,7 @@ function Features(props, ref) {
       }
       return res;
     }
-  }))
+  }));
 
   return (
     <div className="features">
@@ -86,7 +86,7 @@ function Features(props, ref) {
         return (
           <div
             key={`option_${index}`}
-            onClick={() => { handleClick(option) }}
+            onClick={() => { handleClick(option); }}
             className={`featuresItem${mark[option.type] === true ? " featuresSelectedItem" : ""} `}
           >
             <img class="featuresItemIcon" title={option.title} src={option.icon} />
@@ -96,7 +96,7 @@ function Features(props, ref) {
               {isEnLang ? option.description_en : option.description}
             </div>
           </div>
-        )
+        );
       })}
       <div x-if={mark.faas === true} className="extraInfo">
         <p className="extraTitle">
@@ -110,7 +110,7 @@ function Features(props, ref) {
           <p className="extraItemLabel">Alibaba Cloud ID</p>
           <input
             value={projectAliyunId}
-            onKeyUp={(e) => { setProjectAliyunId(e.target.value) }}
+            onKeyUp={(e) => { setProjectAliyunId(e.target.value); }}
             className="extraItemInput"
             placeholder={isEnLang ? 'Console -> Basic Information -> Security Settings -> Account ID' : '可在阿里云控制台右上角->基本资料->安全设置->账号 ID 中查看'} />
         </div>
@@ -121,7 +121,7 @@ function Features(props, ref) {
           </p>
           <input
             value={projectAliyunRegion}
-            onKeyUp={(e) => { setProjectAliyunRegion(e.target.value) }}
+            onKeyUp={(e) => { setProjectAliyunRegion(e.target.value); }}
             className="extraItemInput"
             placeholder="cn-hangzhou" />
         </div>
