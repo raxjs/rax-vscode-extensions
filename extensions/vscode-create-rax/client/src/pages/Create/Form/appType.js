@@ -6,7 +6,7 @@ import './appType.css';
 
 export default function AppType(props) {
   const { appType, onChange } = props;
-  
+
   return (
     <div className="appType">
       <p className="appTypeTitle">{isEnLang ? 'App Type' : '应用类型'}</p>
@@ -14,7 +14,9 @@ export default function AppType(props) {
         return (
           <div
             key={`appType${index}`}
-            onClick={() => { onChange && onChange(option.type); }}
+            onClick={() => {
+              onChange && onChange(option.type);
+            }}
             className={`appTypeItem ${appType === option.type ? 'selectedAppTypeItem' : ''} `}
           >
             <img className="selectedAppTypeTag" src="https://img.alicdn.com/tfs/TB1V5LSqkP2gK0jSZPxXXacQpXa-80-80.png" />

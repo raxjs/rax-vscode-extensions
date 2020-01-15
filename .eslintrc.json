@@ -1,6 +1,6 @@
 {
   "env": {
-    "browser": false,
+    "browser": true,
     "commonjs": true,
     "es6": true,
     "node": true
@@ -13,6 +13,15 @@
     "sourceType": "module"
   },
   "rules": {
+    "indent": [
+      "error",
+      2
+    ],
+    "quotes": [
+      "error",
+      "single",
+      "avoid-escape"
+    ],
     "semi": "error",
     "semi-spacing": "error",
     "no-const-assign": "warn",
@@ -21,6 +30,155 @@
     "no-unreachable": "warn",
     "no-unused-vars": "warn",
     "constructor-super": "warn",
-    "valid-typeof": "warn"
+    "valid-typeof": "warn",
+    "prefer-const": "off",
+    "no-class-assign": "error",
+    "no-dupe-class-members": "error",
+    "rest-spread-spacing": "error",
+    "no-duplicate-imports": "error",
+    "no-useless-rename": "error",
+    "arrow-spacing": "error",
+    "no-useless-computed-key": "error",
+    "template-curly-spacing": "error",
+    "generator-star-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "yield-star-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "strict": [
+      "off",
+      "global"
+    ],
+    "global-strict": [
+      "off",
+      "always"
+    ],
+    "no-extra-strict": "off",
+    "no-shadow": "off",
+    "no-unused-expressions": "off",
+    "no-use-before-define": "off",
+    "yoda": "off",
+    "eqeqeq": "off",
+    "no-new": "off",
+    "consistent-return": "off",
+    "no-extend-native": "error",
+    "no-native-reassign": "error",
+    "no-return-assign": "off",
+    "no-constant-condition": [
+      "error",
+      {
+        "checkLoops": false
+      }
+    ],
+    "no-caller": "error",
+    "no-loop-func": "off",
+    "no-console": "off",
+    "no-catch-shadow": "error",
+    "no-new-require": "off",
+    "no-mixed-requires": [
+      "off",
+      false
+    ],
+    "no-path-concat": "off",
+    "handle-callback-err": "off",
+    "no-empty": "off",
+    "camelcase": [
+      "off",
+      {
+        "properties": "always"
+      }
+    ],
+    "brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": false
+      }
+    ],
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "comma-style": [
+      "error",
+      "last"
+    ],
+    "eol-last": "off",
+    "func-names": "off",
+    "new-cap": [
+      "error",
+      {
+        "capIsNewExceptions": [
+          "App",
+          "Page",
+          "Component"
+        ]
+      }
+    ],
+    "key-spacing": [
+      "error",
+      {
+        "beforeColon": false,
+        "afterColon": true
+      }
+    ],
+    "no-mixed-spaces-and-tabs": "error",
+    "no-multi-spaces": "error",
+    "no-multiple-empty-lines": "error",
+    "no-new-object": "error",
+    "no-spaced-func": "error",
+    "no-tabs": "error",
+    "no-trailing-spaces": "error",
+    "no-extra-parens": [
+      "error",
+      "all",
+      {
+        "ignoreJSX": "all"
+      }
+    ],
+    "padded-blocks": [
+      "error",
+      "never"
+    ],
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "line": {
+          "markers": [
+            "/"
+          ],
+          "exceptions": [
+            "-",
+            "+"
+          ]
+        },
+        "block": {
+          "markers": [
+            "!"
+          ],
+          "exceptions": [
+            "*"
+          ],
+          "balanced": true
+        }
+      }
+    ],
+    "jsx-quotes": [
+      "error",
+      "prefer-double"
+    ]
   }
 }

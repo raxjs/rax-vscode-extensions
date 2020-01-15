@@ -34,26 +34,26 @@ export default function Form(props) {
   function getData() {
     let res = { projectType: type };
     switch (type) {
-      case 'app':
-        res.appType = appType;
-      case 'api':
-      case 'component':
-        const platformsData = platformsRef.current.getData();
-        if (platformsData === null) return null;
-        Object.assign(
-          res,
-          platformsData,
-          showFeaturesOption ? featuresRef.current.getData() : {}
-        );
-        break;
-      default:
+    case 'app':
+      res.appType = appType;
+    case 'api':
+    case 'component':
+      const platformsData = platformsRef.current.getData();
+      if (platformsData === null) return null;
+      Object.assign(
+        res,
+        platformsData,
+        showFeaturesOption ? featuresRef.current.getData() : {}
+      );
+      break;
+    default:
     }
     return res;
   }
 
   function create() {
     const data = getData();
-    console.log("create -> data", data);
+    console.log('create -> data', data);
     if (data && window.__VSCODE__ && window.__VSCODE__.postMessage) {
       window.__VSCODE__.postMessage({
         key: 'new-project',
