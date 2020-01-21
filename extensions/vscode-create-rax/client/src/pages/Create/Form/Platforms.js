@@ -8,7 +8,6 @@ import './Platforms.css';
 let projectTargets = [];
 
 function Platforms(props, ref) {
-
   const { onChange } = props;
 
   const [mark, setMark] = useState({});
@@ -22,7 +21,7 @@ function Platforms(props, ref) {
       web: true,
       weex: false,
       miniapp: false,
-      ['wechat-miniprogram']: false,
+      'wechat-miniprogram': false,
       kraken: false
     });
   }, []);
@@ -71,17 +70,19 @@ function Platforms(props, ref) {
   }));
 
   return (
-    <div className={`platform${showError ? " platformError" : ""}`}>
+    <div className={`platform${showError ? ' platformError' : ''}`}>
       <p className="platformTitle">
         {isEnLang ? 'Select platform' : '选择支持的平台'}
-        (<b style={{ color: "red" }}>* </b><span className="platformTitleExplain">{isEnLang ? 'Select at least one' : '至少选择一个'}</span>)
+        (<b style={{ color: 'red' }}>* </b><span className="platformTitleExplain">{isEnLang ? 'Select at least one' : '至少选择一个'}</span>)
       </p>
       {platformOptions.map((platform, index) => {
         return (
           <div
             key={`platform_${index}`}
-            onClick={() => { handleClick(platform); }}
-            className={`platformItem${mark[platform.type] === true ? " platformSelectedItem" : ""} `}
+            onClick={() => {
+              handleClick(platform);
+            }}
+            className={`platformItem${mark[platform.type] === true ? ' platformSelectedItem' : ''} `}
           >
             <img class="platformItemIcon" title={platform.title} src={platform.icon} />
             <p className="platformItemTitle">{platform.title}</p>
