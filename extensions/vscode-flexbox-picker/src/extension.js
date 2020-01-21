@@ -2,12 +2,13 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const fs = require('fs');
-const FLEX_PROPERTY_REG =  /(flex-direction|flex-wrap|justify-content|align-items|align-content|flex|flex-basis|flex-grow|flex-shrink|align-self)(\s+)?:(\s+)?([.\w-\s]*);/gi;
+
+const FLEX_PROPERTY_REG = /(flex-direction|flex-wrap|justify-content|align-items|align-content|flex|flex-basis|flex-grow|flex-shrink|align-self)(\s+)?:(\s+)?([.\w-\s]*);/gi;
 const SUPPORTS_FILE_TYPES = ['css', 'less', 'sass', 'scss', 'rml', 'vue', 'html'];
 
 function decorateIcon(editor, iconDecorationType) {
   const sourceCode = editor.document.getText();
-  
+
   let decorationsArray = [];
 
   const sourceCodeArr = sourceCode.split('\n');
@@ -16,7 +17,7 @@ function decorateIcon(editor, iconDecorationType) {
     const sourceCode = sourceCodeArr[line];
 
     let matches = [];
-    
+    let match;
     while (match = FLEX_PROPERTY_REG.exec(sourceCode)) {
       matches.push(match);
     }
@@ -49,7 +50,6 @@ function decorateIcon(editor, iconDecorationType) {
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
   let currentFlexPropertyNameAndValueRange;
   let currentFlexProperty;
   let currentDocument;
@@ -75,7 +75,7 @@ function activate(context) {
   });
 
   const activeEditor = vscode.window.activeTextEditor;
-  
+
   if (activeEditor) {
     decorateIcon(activeEditor, iconDecorationType);
   }
@@ -84,7 +84,7 @@ function activate(context) {
     let editor = vscode.window.activeTextEditor;
     decorateIcon(editor, iconDecorationType);
   });
-  
+
   const disposableChangeDocument = vscode.workspace.onDidChangeTextDocument(event => {
     const openEditor = vscode.window.visibleTextEditors.filter(
       editor => editor.document.uri === event.document.uri
@@ -117,7 +117,7 @@ function activate(context) {
       pickerPanel.webview.onDidReceiveMessage(async message => {
         const targetFsPath = message.fsPath;
         let targetTextEditor;
-        vscode.window.visibleTextEditors.forEach((textEditor) =>{
+        vscode.window.visibleTextEditors.forEach((textEditor) => {
           if (textEditor.document.uri.fsPath === targetFsPath) {
             targetTextEditor = textEditor;
           }
@@ -136,7 +136,7 @@ function activate(context) {
             // currentTextEditor.revealRange(currentFlexPropertyNameAndValueRange);
             const newText = `${message.propertyName}: ${message.propertyValue};`;
             builder.replace(currentFlexPropertyNameAndValueRange, newText);
-            // Update range for picker udpate at some position 
+            // Update range for picker udpate at some position
             currentFlexPropertyNameAndValueRange = currentFlexPropertyNameAndValueRange.with(
               currentFlexPropertyNameAndValueRange.start,
               new vscode.Position(currentFlexPropertyNameAndValueRange.start.line, currentFlexPropertyNameAndValueRange.start.character + newText.length),
@@ -175,7 +175,7 @@ function activate(context) {
         };
         currentFlexPropertyNameAndValueRange = range;
       }
- 
+
       const commandUri = vscode.Uri.parse('command:flexbox.picker');
       const markedString = new vscode.MarkdownString(`[Open Flexbox Picker 💬](${commandUri} "Open Flexbox Picker")`);
 
