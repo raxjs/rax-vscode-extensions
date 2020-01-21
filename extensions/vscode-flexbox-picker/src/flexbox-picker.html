@@ -76,13 +76,6 @@
       font-weight: 700;
     }
 
-    .default::after {
-      content: '*';
-      margin-left: 4px;
-      display: inline-block;
-      color: #ff9000;
-    }
-
     .shorthand-hint {
       font-size: 10px;
       color: #797979;
@@ -92,6 +85,10 @@
       display: none;
     }
 
+    .selected {
+      border-color: #ff9000;
+    };
+
     </style>
   </head>
   <body>
@@ -100,7 +97,7 @@
   <div id="values">
     <!-- display -->
     <div id="display" class="group">
-      <div class="row">
+      <div class="row" property-value="flex">
         <div>display: flex;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -125,7 +122,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="">
         <div>display: inline-flex;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -159,7 +156,7 @@
 
     <!-- flex-direction -->
     <div id="flex-direction" class="group">
-      <div class="row">
+      <div class="row" property-value="row">
         <div>flex-direction: <span class="default">row</span>;
         </div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -191,7 +188,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="row-reverse">
         <div>flex-direction: row-reverse;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -222,7 +219,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="column">
         <div>flex-direction: column;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -252,7 +249,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="column-reverse">
         <div>flex-direction: column-reverse;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -286,7 +283,7 @@
 
     <!-- flex-wrap -->
     <div id="flex-wrap" class="group">
-      <div class="row">
+      <div class="row" property-value="nowrap">
         <div>flex-wrap: <span class="default">nowrap</span>;
         </div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -315,7 +312,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="wrap">
         <div>flex-wrap: wrap;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -356,7 +353,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="wrap-reverse">
         <div>flex-wrap: wrap-reverse;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -400,7 +397,7 @@
 
     <!-- justify-content -->
     <div id="justify-content" class="group">
-      <div class="row">
+      <div class="row" property-value="flex-start">
         <div>justify-content: <span class="default">flex-start</span>;
         </div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -429,7 +426,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="center">
         <div>justify-content: center;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -457,7 +454,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="flex-end">
         <div>justify-content: flex-end;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -485,7 +482,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="space-between">
         <div>justify-content: space-between;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -514,7 +511,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="space-around">
         <div>justify-content: space-around;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -542,7 +539,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="space-evenly">
         <div>justify-content: space-evenly;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -574,7 +571,7 @@
 
     <!-- align-items -->
     <div id="align-items" class="group">
-      <div class="row">
+      <div class="row" property-value="stretch">
         <div>align-items: <span class="default">stretch</span>;
         </div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -603,7 +600,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="flex-start">
         <div>align-items: flex-start;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -631,7 +628,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="center">
         <div>align-items: center;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -659,7 +656,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="flex-end">
         <div>align-items: flex-end;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -687,7 +684,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="baseline">
         <div>align-items: baseline;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -716,7 +713,7 @@
 
     <!-- align-content -->
     <div id="align-content" class="group">
-      <div class="row">
+      <div class="row" property-value="stretch">
         <div>align-content: <span class="default">stretch</span>;
         </div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -750,7 +747,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="flex-start">
         <div>align-content: flex-start;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -783,7 +780,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="center">
         <div>align-content: center;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -816,7 +813,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="flex-end">
         <div>align-content: flex-end;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -849,7 +846,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="space-between">
         <div>align-content: space-between;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -882,7 +879,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="space-around">
         <div>align-content: space-around;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -919,8 +916,46 @@
   
     <!-- order -->
     <div id="order" class="group">
-      <div class="row">
+      <div class="row" property-value="0">
         <div>order: <span class="default">0</span>;
+        </div>
+        <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <rect id="path-1" x="0" y="0" width="37" height="21"></rect>
+          </defs>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="item" transform="translate(-27.000000, -117.000000)">
+              <g id="order_0" transform="translate(27.000000, 117.000000)">
+                <mask id="mask-2" fill="white">
+                  <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="mask" xlink:href="#path-1"></use>
+                <g id="elements" mask="url(#mask-2)">
+                  <path
+                      d="M2,2.99895656 L2,6.00104344 C2,6.55275191 2.4463114,7 2.99754465,7 L10.0024554,7 C10.553384,7 11,6.55733967 11,6.00104344 L11,2.99895656 C11,2.44724809 10.5536886,2 10.0024554,2 L2.99754465,2 C2.44661595,2 2,2.44266033 2,2.99895656 Z M10.0024554,3 C10.0009345,3 10,6.00104344 10,6.00104344 C10,6.00307541 2.99754465,6 2.99754465,6 C2.99906549,6 3,2.99895656 3,2.99895656 C3,2.99692459 10.0024554,3 10.0024554,3 Z"
+                      id="Rectangle-14" fill="#75715E"></path>
+                  <path
+                      d="M29,2.99980749 L29,6.00019251 C29,6.55237094 29.4509752,7 29.990778,7 L34.009222,7 C34.5564136,7 35,6.55628335 35,6.00019251 L35,2.99980749 C35,2.44762906 34.5490248,2 34.009222,2 L29.990778,2 C29.4435864,2 29,2.44371665 29,2.99980749 Z M34.009222,3 C33.9984093,3 34,6.00019251 34,6.00019251 C34,6.00406733 29.990778,6 29.990778,6 C30.0015907,6 30,2.99980749 30,2.99980749 C30,2.99593267 34.009222,3 34.009222,3 Z"
+                      id="Rectangle-17" fill="#75715E"></path>
+                  <g id="value" transform="translate(0.000000, 6.000000)">
+                    <polygon id="value-2" fill="#f7941e"
+                              transform="translate(4.127459, 4.126125) rotate(-292.000000) translate(-4.127459, -4.126125) "
+                              points="6.12745875 0.626124718 2.12745875 4.12612472 6.12745875 7.62612472"></polygon>
+                    <path
+                        d="M4.8530554,5.914605 C5.64169677,7.8195214 7.09635922,11.7093404 12.0481798,11.7093403 C17.0000004,11.7093403 20.1507658,8.8995312 20.3677071,4.55180426"
+                        id="Path-119" stroke="#f7941e"></path>
+                  </g>
+                </g>
+                <path
+                    d="M12,3.00292933 L12,7.99707067 C12,8.55097324 12.4446309,9 13.0008717,9 L26.9991283,9 C27.5518945,9 28,8.56211865 28,7.99707067 L28,3.00292933 C28,2.44902676 27.5553691,2 26.9991283,2 L13.0008717,2 C12.4481055,2 12,2.43788135 12,3.00292933 Z M26.9991283,3 C27.0008847,3 27,7.99707067 27,7.99707067 C27,8.00471541 13.0008717,8 13.0008717,8 C12.9991153,8 13,3.00292933 13,3.00292933 C13,2.99528459 26.9991283,3 26.9991283,3 Z"
+                    id="selector" fill="#995db5" mask="url(#mask-2)"></path>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="row" property-value="1">
+        <div>order: 1;
         </div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -961,7 +996,7 @@
 
     <!-- flex -->
     <div id="flex" class="group">
-      <div class="row">
+      <div class="row" property-value="0 1 auto">
         <div>flex: <span class="default">0 1 auto</span>;
         </div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -991,7 +1026,36 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="0 0.1 auto">
+        <div>flex: 0 0.1 auto;</div>
+        <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <defs>
+            <rect id="path-1" x="0" y="0" width="37" height="21"></rect>
+          </defs>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="item" transform="translate(-27.000000, -177.000000)">
+              <g id="flex-grow_0" transform="translate(27.000000, 177.000000)">
+                <mask id="mask-2" fill="white">
+                  <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="mask" xlink:href="#path-1"></use>
+                <g id="elements" mask="url(#mask-2)" fill="#75715E">
+                  <path
+                      d="M31,2.9999602 L31,18.0000398 C31,18.5523026 31.4433532,19 32.0093689,19 L33.9906311,19 C34.5480902,19 35,18.5452911 35,18.0000398 L35,2.9999602 C35,2.44769743 34.5566468,2 33.9906311,2 L32.0093689,2 C31.4519098,2 31,2.45470893 31,2.9999602 Z M33.9906311,3 C34.0021871,3 34,2.99782053 34,2.9999602 L34,18.0000398 C34,17.9944105 33.9943851,18 33.9906311,18 L32.0093689,18 C31.9978129,18 32,18.0021795 32,18.0000398 L32,2.9999602 C32,3.00558949 32.0056149,3 32.0093689,3 L33.9906311,3 Z M26,2.9999602 L26,18.0000398 C26,18.5523026 26.4433532,19 27.0093689,19 L28.9906311,19 C29.5480902,19 30,18.5452911 30,18.0000398 L30,2.9999602 C30,2.44769743 29.5566468,2 28.9906311,2 L27.0093689,2 C26.4519098,2 26,2.45470893 26,2.9999602 Z M28.9906311,3 C29.0021871,3 29,2.99782053 29,2.9999602 L29,18.0000398 C29,17.9944105 28.9943851,18 28.9906311,18 L27.0093689,18 C26.9978129,18 27,18.0021795 27,18.0000398 L27,2.9999602 C27,3.00558949 27.0056149,3 27.0093689,3 L28.9906311,3 Z"
+                      id="Combined-Shape"></path>
+                </g>
+                <path
+                    d="M2,2.9999602 L2,18.0000398 C2,18.5523026 2.43891776,19 3.00307055,19 L23.9969294,19 C24.55091,19 25,18.5452911 25,18.0000398 L25,2.9999602 C25,2.44769743 24.5610822,2 23.9969294,2 L3.00307055,2 C2.44908998,2 2,2.45470893 2,2.9999602 Z M23.9969294,3 C24.004404,3 24,18.0000398 24,18.0000398 C24,17.9958139 3.00307055,18 3.00307055,18 C2.995596,18 3,2.9999602 3,2.9999602 C3,3.0041861 23.9969294,3 23.9969294,3 Z"
+                    id="selector" fill="#995db5" mask="url(#mask-2)"></path>
+                <path
+                    d="M16,10 L16,7 L20,10.5 L16,14 L16,11 L11,11 L11,14 L7,10.5 L11,7 L11,10 L16,10 L16,10 Z M5,7 L6,7 L6,14 L5,14 L5,7 L5,7 Z M21,7 L22,7 L22,14 L21,14 L21,7 L21,7 Z"
+                    id="value" fill="#f7941e" mask="url(#mask-2)"></path>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="row" property-value="0 1 100px">
         <div>flex: 0 1 100px;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1019,7 +1083,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="1 2 100px">
         <div>flex: 1 2 100px;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1047,7 +1111,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="1 1 200px">
         <div>flex: 1 1 200px;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1079,7 +1143,7 @@
 
     <!-- flex-grow -->
     <div id="flex-grow" class="group">
-      <div class="row">
+      <div class="row" property-value="0">
         <div>flex-grow: <span class="default">0</span>;
         </div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -1109,7 +1173,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="1">
         <div>flex-grow: 1;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1141,7 +1205,7 @@
 
     <!-- flex-shrink -->
     <div id="flex-shrink" class="group">
-      <div class="row">
+      <div class="row" property-value="1">
         <div>flex-shrink: <span class="default">1</span>;
         </div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -1174,7 +1238,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="2">
         <div>flex-shrink: 2;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1210,7 +1274,7 @@
 
     <!-- flex-basis -->
     <div id="flex-basis" class="group">
-      <div class="row">
+      <div class="row" property-value="auto">
         <div>flex-basis: <span class="default">auto</span>;
         </div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -1243,7 +1307,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="100px">
         <div>flex-basis: 100px;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1275,7 +1339,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="200px">
         <div>flex-basis: 200px;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1311,7 +1375,7 @@
 
     <!-- align-self -->
     <div id="align-self" class="group">
-      <div class="row">
+      <div class="row" property-value="auto">
         <div>align-self: <span class="default">auto</span>;
         </div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -1341,7 +1405,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="flex-start">
         <div>align-self: flex-start;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1373,7 +1437,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="center">
         <div>align-self: center;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1404,7 +1468,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="flex-end">
         <div>align-self: flex-end;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1436,7 +1500,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="baseline">
         <div>align-self: baseline;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1465,7 +1529,7 @@
           </g>
         </svg>
       </div>
-      <div class="row">
+      <div class="row" property-value="stretch">
         <div>align-self: stretch;</div>
         <svg width="74px" height="42px" viewBox="0 0 37 21" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <defs>
@@ -1586,10 +1650,12 @@
   </div>
 
   <script>
-    const FLEX_PROPERTY_REG = /(flex-direction|flex-wrap|justify-content|align-items|align-content|flex|flex-basis|flex-grow|flex-shrink|align-self)(\s+)?:(\s+)?([\w-\s]*);/ig;
+    const FLEX_PROPERTY_REG = /(flex-direction|flex-wrap|justify-content|align-items|align-content|flex|flex-basis|flex-grow|flex-shrink|align-self)(\s+)?:(\s+)?([.\w-\s]*);/ig;
     const vscode = acquireVsCodeApi();
     let fsPath = '$FS_PATH';
     let propertyName = '$PROPERTY_NAME';
+    let propertyValue = '$PROPERTY_VALUE';
+
     let preivewExampleType;
     switch (propertyName) {
       case 'align-content':
@@ -1637,37 +1703,68 @@
       }
     }
 
-    document.querySelectorAll('.row').forEach(node => {
-      node.addEventListener('click', event => {
-        const property = getCurrentProperty(event);
-        vscode.postMessage({
-          propertyName: property.propertyName,
-          propertyValue: property.propertyValue,
-          fsPath,
+    function perviewProperty(property) {
+      const propertyName = property.propertyName.replace(/-([a-z])/g, g => g[1].toUpperCase());
+      let targetStyle = previewExample.style;
+
+      const isFlexProperty = propertyName === 'flexShrink'
+        || propertyName === 'flexBasis'
+        || propertyName === 'flexGrow'
+        || propertyName === 'flex';
+
+      if (isFlexProperty || propertyName === 'alignSelf') {
+        targetStyle = previewExample.children[0].style;
+      }
+
+      if (isFlexProperty) {
+        previewExample.children[0].children[0].innerText = `${property.propertyName}: ${property.propertyValue}`;
+      }
+
+      targetStyle[propertyName] = property.propertyValue;
+    }
+
+
+    function selected(propertyName, propertyValue) {
+      const selectedNode = document.querySelector('.selected');
+      if (selectedNode) {
+        selectedNode.classList.remove('selected');
+      }
+
+      const shouldSelectNode = document.querySelector(`#${propertyName} [property-value=${propertyValue}]`);
+      if (shouldSelectNode) {
+        shouldSelectNode.classList.add('selected');
+      }
+    }
+
+    function init() {
+      document.querySelectorAll('.row').forEach(node => {
+        node.addEventListener('click', event => {
+          const property = getCurrentProperty(event);
+          vscode.postMessage({
+            propertyName: property.propertyName,
+            propertyValue: property.propertyValue,
+            fsPath,
+          });
+          selected(property.propertyName, property.propertyValue);
+        });
+
+        node.addEventListener('mouseover', event => {
+          const property = getCurrentProperty(event);
+          perviewProperty(property);
         });
       });
 
-      node.addEventListener('mouseover', event => {
-        const property = getCurrentProperty(event);
-        const propertyName = property.propertyName.replace(/-([a-z])/g, g => g[1].toUpperCase());
-        let targetStyle = previewExample.style;
+      if (propertyName && propertyValue) {
+        perviewProperty({
+          propertyName,
+          propertyValue
+        });
+        selected(propertyName, propertyValue);
+      }
+    }
 
-        const isFlexProperty = propertyName === 'flexShrink'
-          || propertyName === 'flexBasis'
-          || propertyName === 'flexGrow'
-          || propertyName === 'flex';
-
-        if (isFlexProperty || propertyName === 'alignSelf') {
-          targetStyle = previewExample.children[0].style;
-        }
-
-        if (isFlexProperty) {
-          previewExample.children[0].children[0].innerText = `${property.propertyName}: ${property.propertyValue}`;
-        }
-
-        targetStyle[propertyName] = property.propertyValue;
-      });
-    });
+    init();
+    
   </script>
 </body>
 </html>

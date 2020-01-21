@@ -6,21 +6,19 @@
   "engines": {
     "vscode": "^1.41.0"
   },
+  "publisher": "Rax",
   "icon": "assets/logo.png",
   "categories": [
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:javascript",
-    "onLanguage:typescript",
-    "onLanguage:javascriptreact",
-    "onLanguage:typescriptreact",
     "onLanguage:css",
     "onLanguage:less",
     "onLanguage:sass",
     "onLanguage:scss",
     "onLanguage:html",
-    "onLanguage:rml"
+    "onLanguage:rml",
+    "onLanguage:vue"
   ],
   "main": "./src/extension.js",
   "contributes": {

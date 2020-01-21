@@ -2,7 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 const fs = require('fs');
-const FLEX_PROPERTY_REG =  /(flex-direction|flex-wrap|justify-content|align-items|align-content|flex|flex-basis|flex-grow|flex-shrink|align-self)(\s+)?:(\s+)?[\w-\s]*;/gi;
+const FLEX_PROPERTY_REG =  /(flex-direction|flex-wrap|justify-content|align-items|align-content|flex|flex-basis|flex-grow|flex-shrink|align-self)(\s+)?:(\s+)?([.\w-\s]*);/gi;
 const SUPPORTS_FILE_TYPES = ['css', 'less', 'sass', 'scss', 'rml', 'vue', 'html'];
 
 function decorateIcon(editor, iconDecorationType) {
@@ -50,8 +50,8 @@ function decorateIcon(editor, iconDecorationType) {
  */
 function activate(context) {
 
-  let currentFlexPropertyAndValueRange;
-  let currentFlexPropertyName;
+  let currentFlexPropertyNameAndValueRange;
+  let currentFlexProperty;
   let currentDocument;
   let pickerPanel;
 
@@ -133,13 +133,13 @@ function activate(context) {
         if (targetTextEditor) {
           targetTextEditor.edit(builder => {
             // currentTextEditor.show();
-            // currentTextEditor.revealRange(currentFlexPropertyAndValueRange);
+            // currentTextEditor.revealRange(currentFlexPropertyNameAndValueRange);
             const newText = `${message.propertyName}: ${message.propertyValue};`;
-            builder.replace(currentFlexPropertyAndValueRange, newText);
+            builder.replace(currentFlexPropertyNameAndValueRange, newText);
             // Update range for picker udpate at some position 
-            currentFlexPropertyAndValueRange = currentFlexPropertyAndValueRange.with(
-              currentFlexPropertyAndValueRange.start,
-              new vscode.Position(currentFlexPropertyAndValueRange.start.line, currentFlexPropertyAndValueRange.start.character + newText.length),
+            currentFlexPropertyNameAndValueRange = currentFlexPropertyNameAndValueRange.with(
+              currentFlexPropertyNameAndValueRange.start,
+              new vscode.Position(currentFlexPropertyNameAndValueRange.start.line, currentFlexPropertyNameAndValueRange.start.character + newText.length),
             );
           });
         }
@@ -150,7 +150,9 @@ function activate(context) {
 
     const webviewPath = context.asAbsolutePath('/src/flexbox-picker.html');
     let html = fs.readFileSync(webviewPath, 'utf-8');
-    html = html.replace('$FS_PATH', currentDocument.uri.fsPath).replace('$PROPERTY_NAME', currentFlexPropertyName);
+    html = html.replace('$FS_PATH', currentDocument.uri.fsPath)
+      .replace('$PROPERTY_NAME', currentFlexProperty.name)
+      .replace('$PROPERTY_VALUE', currentFlexProperty.value);
     pickerPanel.webview.html = html;
   });
 
@@ -167,8 +169,11 @@ function activate(context) {
       const match = FLEX_PROPERTY_REG.exec(hoverText);
       if (match) {
         currentDocument = doc;
-        currentFlexPropertyName = match[1];
-        currentFlexPropertyAndValueRange = range;
+        currentFlexProperty = {
+          name: match[1],
+          value: match[4]
+        };
+        currentFlexPropertyNameAndValueRange = range;
       }
  
       const commandUri = vscode.Uri.parse('command:flexbox.picker');
