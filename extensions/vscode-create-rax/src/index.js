@@ -78,43 +78,41 @@ function activate(context) {
         { enableScripts: true }
       );
 
-      /* eslint-disable */
-			const webviewHTML = ejs.render(webviewTemplate,
-				{
-					language: env.language,
-					styles: [
-						`vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Create_index.css')}`
-					],
-					scripts: [
-						`vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Create_index.js')}`
-					]
-				}
-			);
-			webviewPanel.webview.html = webviewHTML;
+      const webviewHTML = ejs.render(webviewTemplate,
+        {
+          language: env.language,
+          styles: [
+            `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Create_index.css')}`
+          ],
+          scripts: [
+            `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Create_index.js')}`
+          ]
+        }
+      );
+      webviewPanel.webview.html = webviewHTML;
 
-			webviewPanel.webview.onDidReceiveMessage(message => {
-				if (message.key === 'new-project') {
+      webviewPanel.webview.onDidReceiveMessage(message => {
+        if (message.key === 'new-project') {
+          Object.assign(options, message.data);
 
-					Object.assign(options, message.data);
-
-					window.withProgress(
-						{
-							location: ProgressLocation.Notification,
-							title: 'Creating rax project'
-						}, () => {
-							// Create project
-							return generator.init(options).then(function (directory) {
-								disposeWebview();
-								commands.executeCommand("vscode.openFolder", Uri.file(directory), true);
-							}).catch(function (e) {
-								window.showErrorMessage(`Create project error: ${e.toString()}`);
-							});
-						}
-					);
-				}
-			}, undefined, context.subscriptions);
-		}
-	}));
+          window.withProgress(
+            {
+              location: ProgressLocation.Notification,
+              title: 'Creating rax project'
+            }, () => {
+              // Create project
+              return generator.init(options).then(function(directory) {
+                disposeWebview();
+                commands.executeCommand('vscode.openFolder', Uri.file(directory), true);
+              }).catch(function(e) {
+                window.showErrorMessage(`Create project error: ${e.toString()}`);
+              });
+            }
+          );
+        }
+      }, undefined, context.subscriptions);
+    }
+  }));
 }
 
 exports.activate = activate;
