@@ -7,7 +7,6 @@ module.exports = function findStyleSelectors(directory, styleDependencies = []) 
   let selectors = [];
 
   for (let i = 0, l = styleDependencies.length; i < l; i++) {
-
     const file = path.join(directory, styleDependencies[i].source);
     const stylesheet = css.parse(fs.readFileSync(file, 'utf-8')).stylesheet;
 
