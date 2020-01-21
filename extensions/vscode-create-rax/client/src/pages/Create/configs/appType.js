@@ -5,7 +5,7 @@ export default [
     type: 'spa',
     title: '单页应用',
     title_en: 'SPA',
-    icon: "https://gw.alicdn.com/tfs/TB1S7n7qbj1gK0jSZFuXXcrHpXa-120-120.png",
+    icon: 'https://gw.alicdn.com/tfs/TB1S7n7qbj1gK0jSZFuXXcrHpXa-120-120.png',
     description: (
       <div>
         <p>单页应用(Single Page Application)，相比多页应用它具有更好的页面切换体验和更一致的状态管理模式。</p>
@@ -23,7 +23,7 @@ export default [
     type: 'mpa',
     title: '多页应用',
     title_en: 'MPA',
-    icon: "https://gw.alicdn.com/tfs/TB1j4z7qkT2gK0jSZFkXXcIQFXa-120-120.png",
+    icon: 'https://gw.alicdn.com/tfs/TB1j4z7qkT2gK0jSZFkXXcIQFXa-120-120.png',
     description: (
       <div>
         <p>将 App 工程变成多页面工程，每个页面会构建出独立的资源文件。</p>
@@ -41,7 +41,7 @@ export default [
     type: 'lite',
     title: '最简应用',
     title_en: 'Lite App',
-    icon: "https://gw.alicdn.com/tfs/TB1j4z7qkT2gK0jSZFkXXcIQFXa-120-120.png",
+    icon: 'https://gw.alicdn.com/tfs/TB1j4z7qkT2gK0jSZFkXXcIQFXa-120-120.png',
     description: (
       <div>
         <p>最简化的 Rax 工程，没有复杂的配置，默认也没有路由系统。</p>

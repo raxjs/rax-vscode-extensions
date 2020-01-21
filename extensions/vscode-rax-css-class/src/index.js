@@ -79,7 +79,7 @@ function activate(context) {
       )
     );
 
-    // Styles auto Complete 
+    // Styles auto Complete
     context.subscriptions.push(
       vscode.languages.registerCompletionItemProvider(
         language,
