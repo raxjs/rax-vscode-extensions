@@ -1,0 +1,15 @@
+{
+  "inlineStyle": false,
+  "outputDir": "../assets/client/build",
+  "plugins": [
+    [
+      "build-plugin-rax-app",
+      {
+        "targets": [
+          "web"
+        ]
+      }
+    ],
+    "build-plugin-rax-multi-pages"
+  ]
+}

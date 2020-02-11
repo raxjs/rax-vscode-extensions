@@ -1,0 +1,54 @@
+{
+	"name": "vscode-rax-config-viewer",
+	"displayName": "Rax Config Viewer",
+	"description": "A viewer for Rax project config file, such as build.json",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "assets/logo.png",
+	"activationEvents": [
+		"onCommand:extension.helloWorld"
+	],
+	"main": "./src/index.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.helloWorld",
+				"title": "Hello World",
+				"category": "configViewer",
+				"icon": {
+					"light": "assets/logo.png",
+					"dark": "assets/logo.png"
+				}
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"command": "extension.helloWorld",
+					"when": "resourceFilename == build.json || console.log(1111)",
+					"group": "navigation"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"build": "cd client && build-scripts build",
+		"start": "cd client && build-scripts start"
+	},
+	"dependencies": {
+		"ejs": "^3.0.1",
+		"rax": "^1.1.0",
+		"rax-app": "^2.0.0",
+		"rax-document": "^0.1.0"
+	},
+	"devDependencies": {
+		"build-plugin-rax-multi-pages": "^0.1.2",
+		"build-plugin-rax-app": "^2.0.0",
+		"@alib/build-scripts": "^0.1.0"
+	}
+}
