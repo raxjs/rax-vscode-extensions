@@ -8,7 +8,7 @@ function activate(context) {
   const { env, commands, window, ViewColumn } = vscode;
 
   let webviewPanel = null;
-  const webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/buildJson.html.ejs'), 'utf-8');
+  const webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/buildConfig.html.ejs'), 'utf-8');
 
   function disposeWebview() {
     if (webviewPanel) {
@@ -36,10 +36,10 @@ function activate(context) {
       {
         language: env.language,
         styles: [
-          `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Home_index.css')}`
+          `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_BuildConfig_index.css')}`
         ],
         scripts: [
-          `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Home_index.js')}`
+          `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_BuildConfig_index.js')}`
         ]
       }
     );

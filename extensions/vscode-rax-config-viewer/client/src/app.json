@@ -1,8 +1,8 @@
 {
   "routes": [
     {
-      "path": "/",
-      "source": "pages/Home/index"
+      "path": "/buildConfig",
+      "source": "pages/BuildConfig/index"
     }
   ],
   "window": {
