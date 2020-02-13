@@ -8,7 +8,7 @@ function activate(context) {
   const { env, commands, window, ViewColumn } = vscode;
 
   let webviewPanel = null;
-  const webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/create.html.ejs'), 'utf-8');
+  const webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/buildJson.html.ejs'), 'utf-8');
 
   function disposeWebview() {
     if (webviewPanel) {
@@ -17,16 +17,17 @@ function activate(context) {
     }
   }
 
-  context.subscriptions.push(commands.registerCommand('extension.helloWorld', async function(info) {
-    const { fsPath } = info;
-    console.log(fsPath);
-    console.log(1111);
-    console.log(window.menuBarVisibility);
+  context.subscriptions.push(commands.registerCommand('rax.showProjectConfig', async function() {
+    if (!fs.existsSync(path.join(vscode.workspace.rootPath, 'build.json'))) {
+      window.showErrorMessage("The workspace folder doesn't has `build.json` file.");
+      return false;
+    }
+
     disposeWebview();
 
     webviewPanel = window.createWebviewPanel(
-      'createRax',
-      'Create Rax',
+      'raxProjectConfig',
+      'Rax project config',
       ViewColumn.One,
       { enableScripts: true }
     );
@@ -43,8 +44,6 @@ function activate(context) {
       }
     );
     webviewPanel.webview.html = webviewHTML;
-    window.test = 11;
-    console.log(window.test);
 
     webviewPanel.webview.onDidReceiveMessage(message => {
       console.log(message);

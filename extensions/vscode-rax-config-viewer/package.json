@@ -2,6 +2,7 @@
 	"name": "vscode-rax-config-viewer",
 	"displayName": "Rax Config Viewer",
 	"description": "A viewer for Rax project config file, such as build.json",
+	"publisher": "Rax",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.41.0"
@@ -11,15 +12,15 @@
 	],
 	"icon": "assets/logo.png",
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:rax.showProjectConfig"
 	],
 	"main": "./src/index.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World",
-				"category": "configViewer",
+				"command": "rax.showProjectConfig",
+				"title": "Show Rax project config",
+				"category": "Rax",
 				"icon": {
 					"light": "assets/logo.png",
 					"dark": "assets/logo.png"
@@ -29,11 +30,37 @@
 		"menus": {
 			"editor/title": [
 				{
-					"command": "extension.helloWorld",
-					"when": "resourceFilename == build.json || console.log(1111)",
-					"group": "navigation"
+					"command": "rax.showProjectConfig",
+					"when": "!config.configViewer.hideEditorTitle",
+					"group": "navigation@1"
+				}
+			],
+			"editor/context": [
+				{
+					"command": "rax.showProjectConfig",
+					"when": "resourceFilename == build.json",
+					"group": "Rax"
+				}
+			],
+			"explorer/context": [
+				{
+					"command": "rax.showProjectConfig",
+					"when": "resourceFilename == build.json",
+					"group": "Rax"
 				}
 			]
+		}
+	},
+	"configuration": {
+		"type": "object",
+		"title": "Rax Config Viewer",
+		"properties": {
+			"configViewer.hideEditorTitle": {
+				"type": "boolean",
+				"default": false,
+				"scope": "window",
+				"description": "Whether to display the icon of Rax Config Viewer"
+			}
 		}
 	},
 	"scripts": {
