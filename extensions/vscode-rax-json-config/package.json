@@ -1,0 +1,25 @@
+{
+	"name": "vscode-rax-json-config",
+	"displayName": "Rax JSON Config",
+	"description": "Easily write JSON Config files in Rax App",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/raxjs/rax-vscode-extensions.git"
+	},
+	"icon": "assets/logo.png",
+	"categories": [
+		"Other"
+	],
+	"contributes": {
+		"jsonValidation": [
+			{
+				"fileMatch": "build.json",
+				"url": "./schemas/build.json"
+			}
+		]
+	}
+}
