@@ -1,6 +1,6 @@
 
 const setTerminal = require('./setTerminal');
 
-module.exports = function(context) {
+module.exports = function() {
   setTerminal('npm run build');
 };

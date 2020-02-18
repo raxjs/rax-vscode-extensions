@@ -23,20 +23,38 @@
 		"commands": [
 			{
 				"command": "rax.start",
-				"title": "Rax Scripts: start a development server",
+				"title": "[Scripts] start a development server",
 				"category": "Rax"
 			},
 			{
 				"command": "rax.debug",
-				"title": "Rax Scripts: run and debug",
+				"title": "[Scripts] run and debug",
 				"category": "Rax"
 			},
 			{
 				"command": "rax.build",
-				"title": "Rax Scripts: Build your project",
+				"title": "[Scripts] build your project",
 				"category": "Rax"
 			}
-		]
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Rax Scripts",
+			"properties": {
+				"raxScripts.showPreview": {
+					"type": "boolean",
+					"default": true,
+					"scope": "window",
+					"description": "Whether to display the preview when run start."
+				},
+				"raxScripts.previewUrl": {
+					"type": "string",
+					"default": "http://localhost:3333/",
+					"scope": "window",
+					"description": "Preview url to launch when run start."
+				}
+			}
+		}
 	},
 	"extensionDependencies": [
 		"weex.weex-debugger",
