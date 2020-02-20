@@ -1,11 +1,20 @@
-const vscode = require('vscode');
 const fs = require('fs');
 const ejs = require('ejs');
 const path = require('path');
+const vscode = require('vscode');
+const setTerminal = require('./setTerminal');
+const isRaxProject = require('./isRaxProject');
 
 module.exports = function(context) {
   const { extensionPath } = context;
   const { env, window, ViewColumn } = vscode;
+
+  if (!isRaxProject()) {
+    window.showErrorMessage('Please open Rax project!');
+    return false;
+  }
+
+  setTerminal('npm run start');
 
   let webviewPanel = null;
   const webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/debug.html.ejs'), 'utf-8');
@@ -40,6 +49,14 @@ module.exports = function(context) {
   webviewPanel.webview.html = webviewHTML;
 
   webviewPanel.webview.onDidReceiveMessage(message => {
-    console.log(message);
+    if (message.key === 'weex-debugger') {
+      vscode.commands
+        .executeCommand(message.run ? 'weex.debug' : 'weex.debug.stop')
+        .then(() => {
+          console.log('run "weex.debug" success');
+        }, (e) => {
+          console.error(e);
+        });
+    }
   }, undefined, context.subscriptions);
 };

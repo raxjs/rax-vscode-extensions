@@ -25,7 +25,7 @@ a {
   min-width: 550px;
   max-width: 1200px;
   width: calc(100% - 32px);
-  height: 120px;
+  height: 80px;
   background-color: #242423;
   z-index: 2;
 }
@@ -44,7 +44,7 @@ a {
 
 .left {
   position: fixed;
-  top: calc(120px + 16px);
+  top: calc(80px + 16px);
   left: 16px;
   width: 180px;
   border-right: 1px solid #2B2B30;
@@ -73,7 +73,7 @@ a {
 }
 
 .right {
-  margin-top: 120px;
+  margin-top: 80px;
   margin-left: 180px;
 }
 
@@ -95,6 +95,7 @@ a {
 
 .container img {
   width: 100%;
+  max-width: 800px;
 }
 
 .container ul, li {
@@ -106,18 +107,25 @@ a {
 .container .btn {
   margin-top: 20px;
   display: flex;
-  width: 60px;
+  font-size: 14px;
+  font-weight: bold;
+  max-width: 200px;
   height: 30px;
+  line-height: 30px;
   align-items: center;
   justify-content: center;
   border: 1px solid #2B2B30;
+  cursor: pointer;
+}
+
+.container .btn-on {
+  color: #41d2ae;
+}
+
+.container .btn-off {
+  color: #d81e05;
 }
 
 .container .btn:hover {
   background-color: #333238;
-}
-
-.container .btnIcon {
-  width: 24px;
-  height: 24px;
 }

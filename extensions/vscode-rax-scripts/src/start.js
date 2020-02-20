@@ -1,11 +1,17 @@
 
 const vscode = require('vscode');
 const setTerminal = require('./setTerminal');
+const isRaxProject = require('./isRaxProject');
 
 module.exports = function() {
-  const { commands, workspace } = vscode;
+  const { commands, window, workspace } = vscode;
+
+  if (!isRaxProject()) {
+    window.showErrorMessage('Please open Rax project!');
+    return false;
+  }
+
   const configuration = workspace.getConfiguration();
-  console.log(configuration);
 
   setTerminal('npm run start');
 
@@ -15,6 +21,6 @@ module.exports = function() {
     if (configuration.get('raxScripts.showPreview')) {
       commands.executeCommand('browser-preview.openPreview', configuration.get('raxScripts.previewUrl'));
     }
-    // Wait for compile
-  }, 10000);
+    // Wait for compile. About 30s.
+  }, 30000);
 };

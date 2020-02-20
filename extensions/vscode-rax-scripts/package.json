@@ -23,17 +23,17 @@
 		"commands": [
 			{
 				"command": "rax.start",
-				"title": "[Scripts] start a development server",
+				"title": "Start a development server",
 				"category": "Rax"
 			},
 			{
 				"command": "rax.debug",
-				"title": "[Scripts] run and debug",
+				"title": "Run and debug",
 				"category": "Rax"
 			},
 			{
 				"command": "rax.build",
-				"title": "[Scripts] build your project",
+				"title": "Build your project",
 				"category": "Rax"
 			}
 		],

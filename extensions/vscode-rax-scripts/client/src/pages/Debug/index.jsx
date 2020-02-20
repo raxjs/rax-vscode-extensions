@@ -1,4 +1,5 @@
 import { createElement, useState } from 'rax';
+import isEnLang from './isEnLang';
 import Web from './components/Web/index';
 import Weex from './components/Weex/index';
 
@@ -9,8 +10,7 @@ export default function Home() {
   return (
     <div className="page">
       <div className="header">
-        <h1 className="title">调试 Rax 工程</h1>
-        <p className="subTitle">说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明说明</p>
+        <h1 className="title">{isEnLang ? 'Debug Rax project' : '调试 Rax 工程'}</h1>
       </div>
       <div className="left">
         <a
@@ -19,7 +19,7 @@ export default function Home() {
             setType('web');
           }}
         >
-          调试 Web
+          {isEnLang ? 'Web debug' : '调试 Web'}
         </a>
         <a
           style={{ marginBottom: 0 }}
@@ -28,7 +28,7 @@ export default function Home() {
             setType('weex');
           }}
         >
-          调试 Weex
+          {isEnLang ? 'Weex debug' : '调试 Weex'}
         </a>
       </div>
       <div className="right">
