@@ -1,6 +1,6 @@
 {
-	"name": "vscode-rax-json-config",
-	"displayName": "Rax JSON Config",
+	"name": "vscode-rax-config-helper",
+	"displayName": "Rax Config Helper",
 	"description": "Easily write JSON Config files in Rax App",
 	"publisher": "Rax",
 	"version": "0.0.1",

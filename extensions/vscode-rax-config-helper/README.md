@@ -1,4 +1,4 @@
-# Rax - JSON Config
+# Rax Config Helper
 
 This VS Code extension adds support for [Rax](https://rax.js.org/) write JSON config files, like `build.json`.
 
