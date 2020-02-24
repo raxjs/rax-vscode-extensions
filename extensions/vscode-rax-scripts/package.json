@@ -62,18 +62,12 @@
 		"auchenberg.vscode-browser-preview"
 	],
 	"scripts": {
-		"build": "cd client && build-scripts build",
-		"start": "cd client && build-scripts start"
+		"setup:web": "cd web && npm install",
+		"start:web": "cd web && npm run start",
+		"build:web": "cd web && npm run build",
+		"build": "cd web && npm install && npm run build"
 	},
 	"dependencies": {
-		"ejs": "^3.0.1",
-		"rax": "^1.1.0",
-		"rax-app": "^2.0.0",
-		"rax-document": "^0.1.0"
-	},
-	"devDependencies": {
-		"build-plugin-rax-multi-pages": "^0.1.2",
-		"build-plugin-rax-app": "^2.0.0",
-		"@alib/build-scripts": "^0.1.0"
+		"ejs": "^3.0.1"
 	}
 }

@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "build-scripts build",
+    "start": "build-scripts start"
+  },
+  "dependencies": {
+    "rax": "^1.1.0",
+    "rax-app": "^2.0.0",
+    "rax-document": "^0.1.0"
+  },
+  "devDependencies": {
+    "build-plugin-rax-multi-pages": "^0.1.2",
+    "build-plugin-rax-app": "^2.0.0",
+    "@alib/build-scripts": "^0.1.0"
+  }
+}

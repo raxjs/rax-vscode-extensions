@@ -15,7 +15,7 @@ export default () => {
       <ul className="description">
         <li>
           {isEnLang ?
-            'Step 1: add debugging configuration;' :
+            'Step 1: Add debugging configuration;' :
             '第一步：添加调试配置；'
           }
         </li>
@@ -29,7 +29,7 @@ export default () => {
         <img src="https://gw.alicdn.com/tfs/TB108e.vYj1gK0jSZFuXXcrHpXa-2870-1668.jpg" />
         <li>
           {isEnLang ?
-            'Step 3: change the url to the dev server url (after this, the above steps can be skipped), and click the run button to start debugging;' :
+            'Step 3: Change the url to the dev server url (after this, the above steps can be skipped), and click the run button to start debugging;' :
             '第三步：修改 url 为对应项目的开发地址（配置后，上述步骤可跳过），点击调试按钮开始调试；'
           }
         </li>
