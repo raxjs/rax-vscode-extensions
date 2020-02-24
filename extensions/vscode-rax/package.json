@@ -16,10 +16,10 @@
     "Extension Packs"
   ],
   "extensionPack": [
-    "Rax.vscode-rax-snippets",
     "Rax.vscode-create-rax",
     "Rax.vscode-rax-css-class",
+    "Rax.vscode-rax-config-helper",
     "Rax.vscode-rax-scripts",
-    "Rax.vscode-rax-json-config"
+    "Rax.vscode-rax-snippets"
   ]
 }
