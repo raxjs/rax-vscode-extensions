@@ -35,3 +35,13 @@ This VS Code extension adds support for [Rax](https://rax.js.org/).
 3. Auto complete
 
 ![img01](https://img.alicdn.com/tfs/TB1pb1ltYY1gK0jSZTEXXXDQVXa-1468-906.gif)
+
+
+## 4. JSON config
+### Features
+1. Hover widget
+2. Auto complete
+3. Snippets
+4. Validator
+
+![img02](https://img.alicdn.com/tfs/TB188ZZvrj1gK0jSZFuXXcrHpXa-1132-774.gif)

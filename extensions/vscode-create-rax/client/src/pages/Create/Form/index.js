@@ -2,6 +2,7 @@ import { Fragment, createElement, useRef, useEffect, useState } from 'rax';
 import isEnLang from '../isEnLang';
 import Platforms from './Platforms';
 import AppType from './appType';
+import ComponentType from './ComponentType';
 import Features from './Features';
 
 import './index.css';
@@ -19,6 +20,7 @@ export default function Form(props) {
 
   const platformsRef = useRef(null);
   const featuresRef = useRef(null);
+  const componentTypeRef = useRef(null);
 
   // when type is app, show project features
   function featuresOptionToggle(targets) {
@@ -43,7 +45,8 @@ export default function Form(props) {
         Object.assign(
           res,
           platformsData,
-          showFeaturesOption ? featuresRef.current.getData() : {}
+          showFeaturesOption ? featuresRef.current.getData() : {},
+          type === 'component' ? componentTypeRef.current.getData() : {}
         );
         break;
       default:
@@ -84,6 +87,10 @@ export default function Form(props) {
         appType={appType}
         projectTargets={projectTargets}
         ref={featuresRef}
+      />
+      <ComponentType
+        x-if={type === 'component'}
+        ref={componentTypeRef}
       />
       <div className="footer">
         <a

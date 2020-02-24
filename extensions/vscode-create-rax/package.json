@@ -3,7 +3,7 @@
   "displayName": "Create Rax",
   "description": "Easily create a new Rax project.",
   "publisher": "Rax",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": {
     "vscode": "^1.40.0"
   },

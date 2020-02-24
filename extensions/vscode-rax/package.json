@@ -19,6 +19,7 @@
     "Rax.vscode-rax-snippets",
     "Rax.vscode-create-rax",
     "Rax.vscode-rax-css-class",
-    "Rax.vscode-rax-scripts"
+    "Rax.vscode-rax-scripts",
+    "Rax.vscode-rax-json-config"
   ]
 }
