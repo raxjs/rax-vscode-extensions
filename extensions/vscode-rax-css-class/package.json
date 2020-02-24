@@ -10,6 +10,10 @@
 	"categories": [
 		"Other"
 	],
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/raxjs/rax-vscode-extensions.git"
+  },
 	"icon": "assets/logo.png",
 	"activationEvents": [
 		"onLanguage:javascript",

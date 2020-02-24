@@ -3,7 +3,7 @@
   "displayName": "Rax",
   "description": "Rax VS Code extension packs",
   "publisher": "Rax",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.41.0"
   },
@@ -18,6 +18,7 @@
   "extensionPack": [
     "Rax.vscode-rax-snippets",
     "Rax.vscode-create-rax",
-    "Rax.vscode-rax-css-class"
+    "Rax.vscode-rax-css-class",
+    "Rax.vscode-rax-json-config"
   ]
 }
