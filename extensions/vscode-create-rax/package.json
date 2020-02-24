@@ -29,20 +29,15 @@
     ]
   },
   "scripts": {
-    "build": "cd client && build-scripts build",
-    "start": "cd client && build-scripts start"
+    "setup:web": "cd web && npm install",
+    "start:web": "cd web && npm run start",
+    "build:web": "cd web && npm run build",
+    "build": "cd web && npm install && npm run build"
   },
   "dependencies": {
     "ejs": "^3.0.1",
-    "rax": "^1.0.8",
-    "rax-app": "^0.2.4",
     "fs-extra": "^8.1.0",
     "git-user-name": "^2.0.0",
     "rax-generator": "^1.0.2"
-  },
-  "devDependencies": {
-    "@alib/build-scripts": "^0.1.0",
-    "build-plugin-rax-app": "^0.1.0",
-    "build-plugin-rax-multi-pages": "^0.1.2"
   }
 }
