@@ -2,7 +2,7 @@
 
 ## 0.1.0
 
-- Add 'Rax Config Helper';
+- Add 'Rax Scripts';
 
 ## 0.0.3
 
