@@ -39,10 +39,10 @@ module.exports = function(context) {
     {
       language: env.language,
       styles: [
-        `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_debug_index.css')}`
+        `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Debug_index.css')}`
       ],
       scripts: [
-        `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_debug_index.js')}`
+        `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Debug_index.js')}`
       ]
     }
   );
