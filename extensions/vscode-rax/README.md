@@ -45,3 +45,11 @@ This VS Code extension adds support for [Rax](https://rax.js.org/).
 4. Validator
 
 ![img02](https://img.alicdn.com/tfs/TB188ZZvrj1gK0jSZFuXXcrHpXa-1132-774.gif)
+
+## 5. Rax Scripts
+### Features
+1. start
+2. debug
+3. build
+
+![img03](https://img.alicdn.com/tfs/TB1mBy.vYj1gK0jSZFuXXcrHpXa-2878-1664.jpg)

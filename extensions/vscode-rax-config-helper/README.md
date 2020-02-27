@@ -1,3 +1,6 @@
+[![Version](https://vsmarketplacebadge.apphb.com/version/Rax.vscode-rax-config-helper.svg)](https://marketplace.visualstudio.com/items?itemName=Rax.vscode-rax-config-helper)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/Rax.vscode-rax-config-helper.svg)](https://marketplace.visualstudio.com/items?itemName=Rax.vscode-rax-config-helper)
+
 # Rax Config Helper
 
 This VS Code extension adds support for [Rax](https://rax.js.org/) write JSON config files, like `build.json`.

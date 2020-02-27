@@ -1,4 +1,7 @@
-# Rax - CSS Class
+[![Version](https://vsmarketplacebadge.apphb.com/version/Rax.vscode-rax-css-class.svg)](https://marketplace.visualstudio.com/items?itemName=Rax.vscode-rax-css-class)
+[![Installs](https://vsmarketplacebadge.apphb.com/installs-short/Rax.vscode-rax-css-class.svg)](https://marketplace.visualstudio.com/items?itemName=Rax.vscode-rax-css-class)
+
+# Rax CSS Class
 
 This VS Code extension adds support for [Rax](https://rax.js.org/) write CSS classes.
 
