@@ -1,74 +1,28 @@
-const babelParser = require('@babel/parser');
-const traverse = require('@babel/traverse').default;
+const vscode = require('vscode');
+const getCurrentJsxElement = require('./getCurrentJsxElement');
+const getDefinitions = require('./getDefinitions');
 
-module.exports = function provideCompletionItems(document, position) {
+
+module.exports = async function provideCompletionItems(document, position) {
+  const items = [];
+
+  const { Position } = vscode;
   const documentText = document.getText();
   const cursorPosition = document.offsetAt(position);
+  const currentJsxElement = getCurrentJsxElement(documentText, cursorPosition);
 
-  let ast;
+  if (currentJsxElement) {
+    const definitions = await getDefinitions(
+      document.uri,
+      new Position(
+        currentJsxElement.loc.start.line - 1,
+        currentJsxElement.loc.start.column + 2
+      )
+    );
 
-  try {
-    ast = babelParser.parse(documentText, {
-      sourceType: 'module',
-      plugins: [
-        'jsx',
-        'flow',
-        'doExpressions',
-        'objectRestSpread',
-        'decorators-legacy',
-        'classProperties',
-        'exportExtensions',
-        'asyncGenerators',
-        'functionBind',
-        'functionSent',
-        'dynamicImport'
-      ]
-    });
-  } catch (error) {
-    // ignore
+    console.log(currentJsxElement);
+    console.log(definitions);
   }
 
-  // <Text | >...</Text>
-  const isCursorInJsxOpeningElement = (jsxOpeningElement) => {
-    return cursorPosition > jsxOpeningElement.start && cursorPosition < jsxOpeningElement.end;
-  };
-
-  // <Text xxx={ | } >...</Text>
-  const isCursorInJsxAttribute = (node, scope) => {
-    let result = false;
-    traverse(
-      node,
-      {
-        JSXAttribute(path) {
-          const jsxAttribute = path.node;
-
-          if (cursorPosition > jsxAttribute.start && cursorPosition < jsxAttribute.end) {
-            result = true;
-          }
-        }
-      },
-      scope
-    );
-    return result;
-  };
-
-  if (ast) {
-    traverse(
-      ast,
-      {
-        JSXOpeningElement(path) {
-          const jsxOpeningElement = path.node;
-
-          if (
-            isCursorInJsxOpeningElement(jsxOpeningElement) &&
-            !isCursorInJsxAttribute(jsxOpeningElement, path.scope)
-          ) {
-            console.log(jsxOpeningElement);
-          }
-        }
-      }
-    );
-  }
-
-  return [];
+  return items;
 };
