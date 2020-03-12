@@ -1,6 +1,6 @@
 {
-	"name": "vscode-rax-prop-types",
-	"displayName": "Rax PropTypes",
+	"name": "vscode-rax-props",
+	"displayName": "Rax Props",
 	"description": "Easily write component props in Rax App",
 	"publisher": "Rax",
 	"version": "0.0.1",

@@ -9,7 +9,5 @@ module.exports = async function getDefinitions(documentUri, position) {
     position
   );
 
-  console.log(definitions);
-
   return definitions || [];
 };
