@@ -30,10 +30,6 @@ module.exports = async function provideCompletionItems(document, position) {
       const componentPath = definition.uri.path;
       items = items.concat(getPropKeys(componentPath, currentJsxElementTagName));
     });
-
-
-    console.log(currentJsxElement);
-    console.log(definitions);
   }
 
   return items;

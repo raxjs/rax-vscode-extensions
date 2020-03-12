@@ -23,6 +23,7 @@
 	"dependencies": {
 		"@babel/parser": "^7.7.7",
 		"@babel/traverse": "^7.7.4",
-		"@babel/types": "^7.7.4"
+		"@babel/types": "^7.7.4",
+		"@rax-types/rax": "^1.0.6"
 	}
 }
