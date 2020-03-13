@@ -1,4 +1,4 @@
-# Rax Props
+# Rax Props Helper
 
 This VS Code extension adds support for [Rax](https://rax.js.org/) write component's props.
 
@@ -38,7 +38,7 @@ Logo.propTypes = {
   CProps: PropTypes.string
 };
 ```
-It works in PropTypes , const { xxx } = props and props.xxx;
+It works with props property in `propTypes` , `const { xxx } = props` and `props.xxx`;
 
 ![img02](https://img.alicdn.com/tfs/TB1mtz5x7L0gK0jSZFAXXcA9pXa-1688-780.gif)
 

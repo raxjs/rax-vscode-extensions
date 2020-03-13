@@ -1,5 +1,6 @@
 const babelParser = require('@babel/parser');
 const traverse = require('@babel/traverse').default;
+const getBabelParserPlugins = require('./getBabelParserPlugins');
 
 // <Text | >...</Text>
 const isCursorInJsxOpeningElement = (cursorPosition, jsxOpeningElement) => {
@@ -32,19 +33,7 @@ module.exports = function getCurrentJsxElement(documentText, cursorPosition) {
     // https://babeljs.io/docs/en/babel-parser
     const ast = babelParser.parse(documentText, {
       sourceType: 'module',
-      plugins: [
-        'jsx',
-        'flow',
-        'doExpressions',
-        'objectRestSpread',
-        'decorators-legacy',
-        'classProperties',
-        'exportExtensions',
-        'asyncGenerators',
-        'functionBind',
-        'functionSent',
-        'dynamicImport'
-      ]
+      plugins: getBabelParserPlugins('jsx')
     });
 
     if (ast) {
