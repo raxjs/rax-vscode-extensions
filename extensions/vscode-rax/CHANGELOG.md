@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.2
+
+- Add 'Rax Props Helper';
+
 ## 0.1.0
 
 - Add 'Rax Scripts';
