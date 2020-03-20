@@ -15,14 +15,14 @@ function disposeWebview() {
   }
 }
 
-// Init WebviewTemplate, from published extension source path.
-function initWebviewTemplate(extensionPath) {
-  webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/templates/create.project.html.ejs'), 'utf-8');
-}
-
-async function createProject(context) {
+module.exports = async function createProject(context) {
   const { extensionPath } = context;
   const { env, commands, window, ProgressLocation, Uri, ViewColumn } = vscode;
+
+  if (!webviewTemplate) {
+    // Init WebviewTemplate, from published extension source path.
+    webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/templates/create.project.html.ejs'), 'utf-8');
+  }
   disposeWebview();
 
   let projectAuthor;
@@ -114,9 +114,4 @@ async function createProject(context) {
       }
     }, undefined, context.subscriptions);
   }
-}
-
-module.exports = {
-  initWebviewTemplate,
-  createProject
 };
