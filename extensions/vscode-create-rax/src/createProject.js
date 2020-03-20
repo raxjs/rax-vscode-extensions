@@ -17,7 +17,7 @@ function disposeWebview() {
 
 // Init WebviewTemplate, from published extension source path.
 function initWebviewTemplate(extensionPath) {
-  webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/templates/create.html.ejs'), 'utf-8');
+  webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/templates/create.project.html.ejs'), 'utf-8');
 }
 
 async function createProject(context) {
