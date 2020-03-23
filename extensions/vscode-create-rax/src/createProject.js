@@ -21,7 +21,7 @@ module.exports = async function createProject(context) {
 
   if (!webviewTemplate) {
     // Init WebviewTemplate, from published extension source path.
-    webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/templates/create.project.html.ejs'), 'utf-8');
+    webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/templates/project.html.ejs'), 'utf-8');
   }
   disposeWebview();
 
