@@ -21,6 +21,10 @@ This VS Code extension adds support for [Rax](https://rax.js.org/) new project.
 
 ![img02](https://img.alicdn.com/tfs/TB1T67ezAL0gK0jSZFAXXcA9pXa-1792-1106.gif)
 
+### Create Rax page component
+
+
+
 
 
 

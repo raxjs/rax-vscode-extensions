@@ -4,7 +4,7 @@ const path = require('path');
 const getWorkspaceInfo = require('./getWorkspaceInfo');
 const getTemplateCode = require('./getTemplateCode.js');
 
-module.exports = async function createComponent(context) {
+module.exports = async function createComponent(context, targetName = 'component', targetDirectory = 'src/components', callback) {
   const { extensionPath } = context;
   const { commands, window, ProgressLocation, Uri, ViewColumn } = vscode;
   const { isRaxProject, isUseTypeScript, rootPath } = getWorkspaceInfo();
@@ -16,11 +16,11 @@ module.exports = async function createComponent(context) {
 
   const componentName = await window.showInputBox(
     {
-      prompt: 'Enter a component name for your new project',
-      placeHolder: 'Component name',
+      prompt: `Enter a ${targetName} name`,
+      placeHolder: `The ${targetName} name`,
       validateInput: function(input) {
         if (input.trim() === '') {
-          return 'Please input your component name!';
+          return `Please input your ${targetName} name!`;
         }
         if (!/^[A-Z]/.test(input)) {
           return 'Always start component names with a capital letter!';
@@ -30,11 +30,11 @@ module.exports = async function createComponent(context) {
   );
 
   if (componentName) {
-    const componentPath = path.join(rootPath, 'src/components', componentName);
+    const componentPath = path.join(rootPath, targetDirectory, componentName);
     const componentClassName = componentName.replace(/^([A-Z])/, $ => $.toLowerCase());
 
     if (fs.existsSync(componentPath)) {
-      window.showErrorMessage(`There already has component ${componentName}!`);
+      window.showErrorMessage(`There already has ${targetName} ${componentName}!`);
       return false;
     }
 
@@ -42,7 +42,7 @@ module.exports = async function createComponent(context) {
     window.withProgress(
       {
         location: ProgressLocation.Notification,
-        title: 'Creating rax component'
+        title: `Creating rax ${targetName}`
       }, async() => {
         fs.mkdirpSync(componentPath);
 
@@ -50,7 +50,7 @@ module.exports = async function createComponent(context) {
         const componentFilePath = path.join(componentPath, `index.${isUseTypeScript ? 't' : 'j'}sx`);
         fs.writeFileSync(
           componentFilePath,
-          getTemplateCode(extensionPath, `component.${isUseTypeScript ? 't' : 'j'}sx.ejs`, {
+          getTemplateCode(extensionPath, `${targetName}.${isUseTypeScript ? 't' : 'j'}sx.ejs`, {
             componentName,
             componentClassName
           }),
@@ -60,16 +60,18 @@ module.exports = async function createComponent(context) {
         // css
         fs.writeFileSync(
           path.join(componentPath, 'index.css'),
-          getTemplateCode(extensionPath, 'component.css.ejs', {
+          getTemplateCode(extensionPath, `${targetName}.css.ejs`, {
             componentClassName
           }),
           'utf8'
         );
 
         // Open file to preview
-        commands.executeCommand('vscode.openFolder', Uri.file(componentFilePath), {
+        commands.executeCommand('vscode.open', Uri.file(componentFilePath), {
           viewColumn: ViewColumn.One
         });
+
+        callback && callback();
       }
     );
   }

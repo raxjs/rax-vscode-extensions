@@ -1,8 +1,11 @@
-const vscode = require('vscode');
-const fs = require('fs-extra');
-const path = require('path');
-const ejs = require('ejs');
+const createComponent = require('./createComponent');
 
-module.exports = function createPage(context) {
-  // todo
+module.exports = async function createPage(context) {
+  const afterCreate = () => {
+    // todos
+    console.log(111);
+  };
+
+
+  createComponent(context, 'page', 'src/pages', afterCreate);
 };
