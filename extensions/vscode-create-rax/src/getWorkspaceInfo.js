@@ -23,6 +23,7 @@ module.exports = function getWorkspaceInfo() {
   }
 
   return {
+    rootPath,
     isRaxProject,
     isUseTypeScript
   };

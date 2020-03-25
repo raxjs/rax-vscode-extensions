@@ -1,12 +1,10 @@
 const vscode = require('vscode');
-const fs = require('fs-extra');
 const path = require('path');
-const ejs = require('ejs');
 const generator = require('rax-generator');
 const userName = require('git-user-name');
+const getTemplateCode = require('./getTemplateCode');
 
 let webviewPanel = null;
-let webviewTemplate = '';
 
 function disposeWebview() {
   if (webviewPanel) {
@@ -19,10 +17,6 @@ module.exports = async function createProject(context) {
   const { extensionPath } = context;
   const { env, commands, window, ProgressLocation, Uri, ViewColumn } = vscode;
 
-  if (!webviewTemplate) {
-    // Init WebviewTemplate, from published extension source path.
-    webviewTemplate = fs.readFileSync(path.join(extensionPath, 'src/templates/project.html.ejs'), 'utf-8');
-  }
   disposeWebview();
 
   let projectAuthor;
@@ -80,18 +74,15 @@ module.exports = async function createProject(context) {
       { enableScripts: true }
     );
 
-    const webviewHTML = ejs.render(webviewTemplate,
-      {
-        language: env.language,
-        styles: [
-          `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Create_index.css')}`
-        ],
-        scripts: [
-          `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Create_index.js')}`
-        ]
-      }
-    );
-    webviewPanel.webview.html = webviewHTML;
+    webviewPanel.webview.html = getTemplateCode(extensionPath, 'project.html.ejs', {
+      language: env.language,
+      styles: [
+        `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Create_index.css')}`
+      ],
+      scripts: [
+        `vscode-resource:${path.join(extensionPath, 'assets/client/build/web/', 'pages_Create_index.js')}`
+      ]
+    });
 
     webviewPanel.webview.onDidReceiveMessage(message => {
       if (message.key === 'new-project') {

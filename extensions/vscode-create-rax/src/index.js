@@ -3,7 +3,6 @@ const createComponent = require('./createComponent');
 const createPage = require('./createPage');
 const createProject = require('./createProject');
 
-
 function activate(context) {
   const { commands } = vscode;
 
