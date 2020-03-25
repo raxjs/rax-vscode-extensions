@@ -6,7 +6,7 @@ const getTemplateCode = require('./getTemplateCode.js');
 
 module.exports = async function createComponent(context) {
   const { extensionPath } = context;
-  const { window, ProgressLocation } = vscode;
+  const { commands, window, ProgressLocation, Uri, ViewColumn } = vscode;
   const { isRaxProject, isUseTypeScript, rootPath } = getWorkspaceInfo();
 
   if (!isRaxProject) {
@@ -47,8 +47,9 @@ module.exports = async function createComponent(context) {
         fs.mkdirpSync(componentPath);
 
         // jsx or tsx
+        const componentFilePath = path.join(componentPath, `index.${isUseTypeScript ? 't' : 'j'}sx`);
         fs.writeFileSync(
-          path.join(componentPath, `index.${isUseTypeScript ? 't' : 'j'}sx`),
+          componentFilePath,
           getTemplateCode(extensionPath, `component.${isUseTypeScript ? 't' : 'j'}sx.ejs`, {
             componentName,
             componentClassName
@@ -64,6 +65,11 @@ module.exports = async function createComponent(context) {
           }),
           'utf8'
         );
+
+        // Open file to preview
+        commands.executeCommand('vscode.openFolder', Uri.file(componentFilePath), {
+          viewColumn: ViewColumn.One
+        });
       }
     );
   }

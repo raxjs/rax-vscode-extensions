@@ -6,10 +6,23 @@
 This VS Code extension adds support for [Rax](https://rax.js.org/) new project.
 
 ## Usage
+
+### Create Rax project
+
 1. `cmd + shift + p` (Windows: `ctrl + shift + p`)
 2. Input `rax create`
 
-![img](https://img.alicdn.com/tfs/TB1TB9pqYj1gK0jSZFOXXc7GpXa-980-654.gif)
+![img01](https://img.alicdn.com/tfs/TB1TB9pqYj1gK0jSZFOXXc7GpXa-980-654.gif)
+
+### Create Rax component
+
+1. Right click on the folder, Select `Create new Rax component`
+2. Input your component name
+
+![img02](https://img.alicdn.com/tfs/TB1T67ezAL0gK0jSZFAXXcA9pXa-1792-1106.gif)
+
+
+
 
 
 
