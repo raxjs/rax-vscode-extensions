@@ -31,6 +31,7 @@ module.exports = async function createComponent(context, targetName = 'component
 
   if (componentName) {
     const componentPath = path.join(rootPath, targetDirectory, componentName);
+    // Logo => logo
     const componentClassName = componentName.replace(/^([A-Z])/, $ => $.toLowerCase());
 
     if (fs.existsSync(componentPath)) {
@@ -66,7 +67,7 @@ module.exports = async function createComponent(context, targetName = 'component
           'utf8'
         );
 
-        // Open file to preview
+        // Open jsx or tsx file to preview
         commands.executeCommand('vscode.open', Uri.file(componentFilePath), {
           viewColumn: ViewColumn.One
         });

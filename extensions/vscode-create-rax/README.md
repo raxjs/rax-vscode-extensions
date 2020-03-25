@@ -23,6 +23,13 @@ This VS Code extension adds support for [Rax](https://rax.js.org/) new project.
 
 ### Create Rax page component
 
+1. Right click on the folder, Select `Create new Rax page`
+2. Input your page name
+
+It will automatically synchronize your page config in app.json.
+
+![img03](https://img.alicdn.com/tfs/TB1B6grzq61gK0jSZFlXXXDKFXa-1796-1106.gif)
+
 
 
 

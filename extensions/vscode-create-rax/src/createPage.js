@@ -15,13 +15,16 @@ module.exports = async function createPage(context) {
       appConfig.routes = [];
     }
 
+    // Add new page to routes
     appConfig.routes.push({
       path: `/${componentName.replace(/^([A-Z])/, $ => $.toLowerCase())}`,
       source: `pages/${componentName}/index`
     });
 
+    // Rewrite
     fs.writeJsonSync(appConfigPath, appConfig, { spaces: '\t' });
   };
 
+  // Same as component
   createComponent(context, 'page', 'src/pages', afterCreate);
 };
