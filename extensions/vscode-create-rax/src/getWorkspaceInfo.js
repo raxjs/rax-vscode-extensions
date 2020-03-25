@@ -1,7 +1,6 @@
-const fs = require('fs');
-const path = require('path');
 const vscode = require('vscode');
-
+const fs = require('fs-extra');
+const path = require('path');
 
 module.exports = function getWorkspaceInfo() {
   const rootPath = vscode.workspace.rootPath;
@@ -10,7 +9,7 @@ module.exports = function getWorkspaceInfo() {
   let isUseTypeScript = false;
 
   try {
-    const packageJson = JSON.parse(fs.readFileSync(path.join(rootPath, 'package.json'), 'utf-8'));
+    const packageJson = fs.readJsonSync(path.join(rootPath, 'package.json'), 'utf-8');
     if (packageJson.dependencies.rax) {
       isRaxProject = true;
     }

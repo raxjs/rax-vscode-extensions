@@ -71,7 +71,7 @@ module.exports = async function createComponent(context, targetName = 'component
           viewColumn: ViewColumn.One
         });
 
-        callback && callback();
+        callback && callback(componentName);
       }
     );
   }
