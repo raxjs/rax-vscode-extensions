@@ -8,14 +8,10 @@ JSX and HTML tag highlight
 
 ![img01](https://img.alicdn.com/tfs/TB1h0exAEY1gK0jSZFCXXcwqXXa-2250-604.jpg)
 
-## Check Pair Tag
-
-
-
 ## Auto Close Tag
 
-![img03](https://img.alicdn.com/tfs/TB1v0CtAuL2gK0jSZPhXXahvXXa-1280-602.gif)
+![img02](https://img.alicdn.com/tfs/TB1v0CtAuL2gK0jSZPhXXahvXXa-1280-602.gif)
 
 ## Auto Rename Tag
 
-![img04](https://img.alicdn.com/tfs/TB1ZnqxAuL2gK0jSZFmXXc7iXXa-1428-730.gif)
+![img03](https://img.alicdn.com/tfs/TB1ZnqxAuL2gK0jSZFmXXc7iXXa-1428-730.gif)
