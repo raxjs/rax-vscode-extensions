@@ -7,19 +7,34 @@ const HTML_TAG_COLOR = '#89DDFF';
 // {/* xxx */} , <!-- xx --> , <xx>xx</xx>
 const TAG_REG = /{\/\*|\*\/}|<!--|-->|<(\/|)(.*?)(| (.*?)[^-?%$])>/g;
 
-function getDecoration(color) {
-  return {
+const decorationCache = {
+  JSX: null,
+  HTML: null
+};
+
+function getDecoration(key) {
+  // Reset color
+  if (decorationCache[key]) {
+    decorationCache[key].decorator.dispose();
+  }
+
+  const decoration = {
     chars: [],
-    decorator: vscode.window.createTextEditorDecorationType({ color })
+    decorator: vscode.window.createTextEditorDecorationType(
+      { color: key === 'JSX' ? JSX_TAG_COLOR : HTML_TAG_COLOR }
+    )
   };
+
+  decorationCache[key] = decoration;
+  return decoration;
 }
 
 function decorate() {
   const editor = vscode.window.activeTextEditor;
   const text = editor.document.getText();
 
-  const JSXTagDecoration = getDecoration(JSX_TAG_COLOR);
-  const HTMLTagDecoration = getDecoration(HTML_TAG_COLOR);
+  const JSXTagDecoration = getDecoration('JSX');
+  const HTMLTagDecoration = getDecoration('HTML');
 
   let matched;
   let isInComment = false;
