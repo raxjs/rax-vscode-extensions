@@ -16,15 +16,11 @@
 	},
 	"icon": "assets/logo.png",
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"*"
 	],
-	"main": "./extension.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
-			}
-		]
-	}
+	"extensionDependencies": [
+		"formulahendry.auto-close-tag",
+		"formulahendry.auto-rename-tag"
+	],
+	"main": "src/index.js"
 }
