@@ -1,0 +1,31 @@
+{
+	"name": "vscode-rax-outline",
+	"displayName": "Rax Outline",
+	"description": "Show the Rax Syntax Tree of active editor",
+	"publisher": "Rax",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/raxjs/rax-vscode-extensions.git"
+	},
+	"icon": "assets/logo.png",
+	"activationEvents": [
+		"onCommand:extension.helloWorld"
+	],
+	"main": "./src/index.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.helloWorld",
+				"title": "Hello World"
+			}
+		]
+	},
+	"dependencies": {}
+}
