@@ -1,0 +1,68 @@
+{
+	"name": "vscode-rax-explorer",
+	"displayName": "Rax Explorer",
+	"description": "Manage Rax routes, outline, npm scripts and configs",
+	"publisher": "Rax",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/raxjs/rax-vscode-extensions.git"
+	},
+	"icon": "assets/logo.png",
+	"activationEvents": [
+		"onView:raxRoutes",
+		"onView:raxOutline",
+		"onView:raxScripts"
+	],
+	"main": "./src/index.js",
+	"contributes": {
+		"viewsWelcome": [
+			{
+				"view": "raxRoutes",
+				"contents": "No Rax App found [learn more](https://rax.js.org/).\n[Create Rax](command:rax.create)"
+			}
+		],
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "rax",
+					"title": "Rax",
+					"icon": "assets/viewIcon.png"
+				}
+			]
+		},
+		"views": {
+			"rax": [
+				{
+					"id": "raxRoutes",
+					"name": "Routes"
+				},
+				{
+					"id": "raxOutline",
+					"name": "Outline"
+				},
+				{
+					"id": "raxScripts",
+					"name": "NPM Scripts"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "rax.refreshRoutes",
+				"title": "Refresh Rax Routes"
+			},
+			{
+				"command": "rax.refreshOutline",
+				"title": "Refresh Rax Outline"
+			}
+		]
+	},
+	"dependencies": {}
+}
