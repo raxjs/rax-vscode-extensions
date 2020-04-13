@@ -1,7 +1,7 @@
 {
-	"name": "vscode-rax-explorer",
-	"displayName": "Rax Explorer",
-	"description": "Manage Rax routes, outline, npm scripts and configs",
+	"name": "vscode-view-rax-scripts",
+	"displayName": "View Rax Scripts",
+	"description": "Manage scripts in vscode activity bar for Rax",
 	"publisher": "Rax",
 	"version": "0.0.1",
 	"engines": {
@@ -16,15 +16,13 @@
 	},
 	"icon": "assets/logo.png",
 	"activationEvents": [
-		"onView:raxRoutes",
-		"onView:raxOutline",
 		"onView:raxScripts"
 	],
 	"main": "./src/index.js",
 	"contributes": {
 		"viewsWelcome": [
 			{
-				"view": "raxRoutes",
+				"view": "raxScripts",
 				"contents": "No Rax App found [learn more](https://rax.js.org/).\n[Create Rax](command:rax.create)"
 			}
 		],
@@ -40,29 +38,14 @@
 		"views": {
 			"rax": [
 				{
-					"id": "raxRoutes",
-					"name": "Routes"
-				},
-				{
-					"id": "raxOutline",
-					"name": "Outline"
-				},
-				{
 					"id": "raxScripts",
-					"name": "NPM Scripts"
+					"name": "Scripts"
 				}
 			]
-		},
-		"commands": [
-			{
-				"command": "rax.refreshRoutes",
-				"title": "Refresh Rax Routes"
-			},
-			{
-				"command": "rax.refreshOutline",
-				"title": "Refresh Rax Outline"
-			}
-		]
+		}
 	},
-	"dependencies": {}
+	"extensionDependencies": [
+		"Rax.vscode-create-rax",
+		"Rax.vscode-rax-scripts"
+	]
 }
