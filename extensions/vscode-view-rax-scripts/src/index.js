@@ -1,7 +1,8 @@
 const vscode = require('vscode');
+const Scripts = require('./Scripts');
 
 function activate(context) {
-  console.log(1111);
+  vscode.window.registerTreeDataProvider('raxScripts', new Scripts(context));
 }
 
 exports.activate = activate;
