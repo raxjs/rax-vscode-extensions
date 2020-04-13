@@ -1,5 +1,5 @@
 # View Rax Scripts
 
-Manage scripts in vscode activity bar for Rax.
+Add a view in Rax Activity Bar that shows project scripts
 
 ## Features
