@@ -2,13 +2,42 @@ const path = require('path');
 const vscode = require('vscode');
 const isRaxProject = require('./isRaxProject');
 
-module.exports = class Scripts {
+module.exports = class Explorer {
   constructor(context) {
     this.context = context;
+
+    // Updating Tree View content
+    // https://code.visualstudio.com/api/extension-guides/tree-view#updating-tree-view-content
+    this._onDidChangeTreeData = new vscode.EventEmitter();
+    this.onDidChangeTreeData = this._onDidChangeTreeData.event;
+
+    // Listeners
+    vscode.window.onDidChangeActiveTextEditor(() => {
+      this.refresh();
+    });
+    vscode.workspace.onDidChangeTextDocument(() => {
+      // TODO config
+      // this.refresh();
+    });
+    vscode.workspace.onDidSaveTextDocument(() => {
+      this.refresh();
+    });
+
+    this.refresh();
   }
-  // https://code.visualstudio.com/api/extension-guides/tree-view
+
+  refresh() {
+    this.parseTree();
+    // this._onDidChangeTreeData.fire();
+  }
+
+  parseTree() {
+
+  }
+
+  // https://code.visualstudio.com/api/extension-guides/tree-view#tree-data-provider
   getChildren() {
-    if (!isRaxProject) {
+    if (!isRaxProject()) {
       return [];
     }
     return [
@@ -17,6 +46,7 @@ module.exports = class Scripts {
       { script: 'build', command: 'rax.build', title: 'Build your project' }
     ];
   }
+
   getTreeItem(element) {
     const treeItem = new vscode.TreeItem(element.script, vscode.TreeItemCollapsibleState.None);
     treeItem.command = {

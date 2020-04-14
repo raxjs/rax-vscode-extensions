@@ -8,7 +8,7 @@ module.exports = class Scripts {
   }
   // https://code.visualstudio.com/api/extension-guides/tree-view
   getChildren() {
-    if (!isRaxProject) {
+    if (!isRaxProject()) {
       return [];
     }
     return [
