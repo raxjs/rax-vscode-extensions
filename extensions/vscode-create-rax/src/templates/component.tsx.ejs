@@ -1,0 +1,17 @@
+import { createElement } from 'rax';
+import View from 'rax-view';
+import Text from 'rax-text';
+
+import './index.css';
+
+interface <%= targetName %>Props {
+  // The <%= targetName %> props interface
+}
+
+export default function <%= componentName %>(props: <%= targetName %>Props) {
+  return (
+    <View className="<%= componentClassName %>">
+      <Text><%= targetName %>: <%= componentName %></Text>
+    </View>
+  );
+};
