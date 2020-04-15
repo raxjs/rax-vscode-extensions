@@ -53,7 +53,8 @@ module.exports = async function createComponent(context, targetName = 'component
           componentFilePath,
           getTemplateCode(extensionPath, `component.${isUseTypeScript ? 't' : 'j'}sx.ejs`, {
             componentName,
-            componentClassName
+            componentClassName,
+            targetName
           }),
           'utf8'
         );
@@ -62,7 +63,8 @@ module.exports = async function createComponent(context, targetName = 'component
         fs.writeFileSync(
           path.join(componentPath, 'index.css'),
           getTemplateCode(extensionPath, 'component.css.ejs', {
-            componentClassName
+            componentClassName,
+            targetName
           }),
           'utf8'
         );
