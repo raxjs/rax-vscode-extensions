@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.0
+- Add create component
+- Add create page
+
 ## 0.1.1
 - Add componentType option.
 

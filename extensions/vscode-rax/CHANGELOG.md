@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.0
+
+- Add 'Rax Tag Helper';
+
 ## 0.1.2
 
 - Add 'Rax Props Helper';

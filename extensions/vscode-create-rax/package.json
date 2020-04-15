@@ -3,7 +3,7 @@
   "displayName": "Create Rax",
   "description": "Easily create a new Rax project.",
   "publisher": "Rax",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.40.0"
   },
@@ -22,11 +22,33 @@
   "contributes": {
     "commands": [
       {
-        "command": "rax.create",
+        "command": "rax.create.project",
         "title": "Create new project",
         "category": "Rax"
+      },
+      {
+        "command": "rax.create.page",
+        "title": "Create new Rax page",
+        "category": "Rax"
+      },
+      {
+        "command": "rax.create.component",
+        "title": "Create new Rax component",
+        "category": "Rax"
       }
-    ]
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "rax.create.page",
+          "group": "1_modification"
+        },
+        {
+          "command": "rax.create.component",
+          "group": "1_modification"
+        }
+      ]
+    }
   },
   "scripts": {
     "setup:web": "cd web && npm install",
