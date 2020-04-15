@@ -1,18 +1,17 @@
 
 import { createElement } from 'rax';
 import View from 'rax-view';
-import Text from 'rax-text';
 
 import './index.css';
 
 interface <%= componentName %>Props {
-  text: string
+  
 }
 
 export default function <%= componentName %>(props: <%= componentName %>Props) {
   return (
     <View className="<%= componentClassName %>">
-      <Text>{props.text}</Text>
+      
     </View>
   );
 };
