@@ -1,12 +1,13 @@
-const path = require('path');
 const vscode = require('vscode');
+const fs = require('fs-extra');
+const path = require('path');
 const isRaxProject = require('./isRaxProject');
 
 const defaultTreeData = [
-  { name: 'Document', icon: 'document' },
-  { name: 'Components', icon: 'components' },
-  { name: 'Pages', icon: 'pages' },
-  { name: 'Configs', icon: 'config' }
+  { name: 'Document', hasChildren: true },
+  { name: 'Components', hasChildren: true },
+  { name: 'Pages', hasChildren: true },
+  { name: 'Configs', hasChildren: true }
 ];
 
 module.exports = class Explorer {
@@ -33,9 +34,53 @@ module.exports = class Explorer {
   }
 
   getDocumentChildren() {
-    return [
-      { name: 'document.jsx' }
-    ];
+    const children = [];
+    // src/document/index.jsx
+    const documentFilePath = path.join(this.rootPath, 'src', 'document', 'index.jsx');
+    if (fs.existsSync(documentFilePath)) {
+      children.push({ name: 'index.jsx', icon: 'document' });
+    }
+    return children;
+  }
+
+  getComponentsChildren() {
+    let children = [];
+    const componentsDirPath = path.join(this.rootPath, 'src', 'components');
+    try {
+      children =
+        fs.readdirSync(componentsDirPath)
+          .filter(component => fs.statSync(path.join(componentsDirPath, component)).isDirectory())
+          .map(component => {
+            return { name: component, icon: 'component' };
+          });
+    } catch (e) {
+      children = [];
+    }
+    return children;
+  }
+
+  getPagesChildren() {
+    const children = [];
+    const appConfigFilePath = path.join(this.rootPath, 'src', 'app.json');
+    const appConfig = fs.readJsonSync(appConfigFilePath, 'utf-8');
+    (appConfig.routes || []).forEach((route) => {
+      children.push({ name: route.path, icon: 'page' });
+    });
+
+    return children;
+  }
+
+  getConfigsChildren() {
+    const children = [];
+    const appConfigFilePath = path.join(this.rootPath, 'src', 'app.json');
+    const buildConfigFilePath = path.join(this.rootPath, 'build.json');
+    if (fs.existsSync(appConfigFilePath)) {
+      children.push({ name: 'app', icon: 'config' });
+    }
+    if (fs.existsSync(buildConfigFilePath)) {
+      children.push({ name: 'build', icon: 'config' });
+    }
+    return children;
   }
 
   // https://code.visualstudio.com/api/extension-guides/tree-view#tree-data-provider
@@ -47,22 +92,42 @@ module.exports = class Explorer {
     if (!element) {
       return defaultTreeData;
     } else {
-      return [];
+      switch (element.name) {
+        case 'Document':
+          return this.getDocumentChildren();
+        case 'Components':
+          return this.getComponentsChildren();
+        case 'Pages':
+          return this.getPagesChildren();
+        case 'Configs':
+          return this.getConfigsChildren();
+        default:
+          return [];
+      }
     }
   }
 
   getTreeItem(element) {
-    const treeItem = new vscode.TreeItem(element.name, vscode.TreeItemCollapsibleState.Expanded);
+    if (!element) return null;
+    const treeItem = new vscode.TreeItem(
+      element.name,
+      element.hasChildren ?
+        vscode.TreeItemCollapsibleState.Expanded :
+        vscode.TreeItemCollapsibleState.None
+    );
     if (element.command) {
       treeItem.command = {
         command: element.command,
-        title: element.title
+        title: element.title || '',
+        arguments: element.arguments || null
       };
     }
-    treeItem.iconPath = {
-      light: this.context.asAbsolutePath(path.join('assets', 'light', `${element.icon}.svg`)),
-      dark: this.context.asAbsolutePath(path.join('assets', 'dark', `${element.icon}.svg`))
-    };
+    if (element.icon) {
+      treeItem.iconPath = {
+        light: this.context.asAbsolutePath(path.join('assets', 'light', `${element.icon}.svg`)),
+        dark: this.context.asAbsolutePath(path.join('assets', 'dark', `${element.icon}.svg`))
+      };
+    }
     return treeItem;
   }
 };

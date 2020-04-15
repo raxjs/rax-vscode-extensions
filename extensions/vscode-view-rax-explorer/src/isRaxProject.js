@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
 const vscode = require('vscode');
+const fs = require('fs-extra');
+const path = require('path');
 
 module.exports = function() {
   let isRaxProject = false;

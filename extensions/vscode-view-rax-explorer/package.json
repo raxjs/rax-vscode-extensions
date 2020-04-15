@@ -57,5 +57,8 @@
 				}
 			]
 		}
+	},
+	"dependencies": {
+		"fs-extra": "^8.1.0"
 	}
 }
