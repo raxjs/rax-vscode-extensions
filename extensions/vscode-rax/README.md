@@ -53,3 +53,12 @@ This VS Code extension adds support for [Rax](https://rax.js.org/).
 3. build
 
 ![img03](https://img.alicdn.com/tfs/TB1mBy.vYj1gK0jSZFuXXcrHpXa-2878-1664.jpg)
+
+
+## 6. Rax Tag Helper
+### Features
+1. Highlight
+2. Auto Close Tag
+3. Auto Rename Tag
+
+![img04](https://img.alicdn.com/tfs/TB1h0exAEY1gK0jSZFCXXcwqXXa-2250-604.jpg)
