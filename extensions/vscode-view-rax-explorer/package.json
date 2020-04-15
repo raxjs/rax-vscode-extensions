@@ -22,12 +22,39 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "rax.refreshExplorer",
+				"command": "rax.views.explorer.refresh",
 				"title": "Refresh Explorer",
 				"category": "Rax",
 				"icon": {
 					"light": "assets/light/refresh.svg",
 					"dark": "assets/dark/refresh.svg"
+				}
+			},
+			{
+				"command": "rax.views.explorer.addComponent",
+				"title": "Add Rax Component",
+				"category": "Rax",
+				"icon": {
+					"light": "assets/light/add.svg",
+					"dark": "assets/dark/add.svg"
+				}
+			},
+			{
+				"command": "rax.views.explorer.addPage",
+				"title": "Add Rax Page",
+				"category": "Rax",
+				"icon": {
+					"light": "assets/light/add.svg",
+					"dark": "assets/dark/add.svg"
+				}
+			},
+			{
+				"command": "rax.views.explorer.editPageConfig",
+				"title": "Edit Rax Page Config",
+				"category": "Rax",
+				"icon": {
+					"light": "assets/light/edit.svg",
+					"dark": "assets/dark/edit.svg"
 				}
 			}
 		],
@@ -51,9 +78,36 @@
 		"menus": {
 			"view/title": [
 				{
-					"command": "rax.refreshExplorer",
+					"command": "rax.views.explorer.refresh",
 					"when": "view == raxExplorer",
 					"group": "navigation"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "rax.views.explorer.addComponent",
+					"when": "viewItem == Components",
+					"group": "inline@1"
+				},
+				{
+					"command": "rax.views.explorer.addPage",
+					"when": "viewItem == Pages",
+					"group": "inline@1"
+				},
+				{
+					"command": "rax.views.explorer.editPageConfig",
+					"when": "viewItem == page",
+					"group": "inline@1"
+				},
+				{
+					"command": "rax.views.explorer.addComponent",
+					"when": "viewItem == component",
+					"group": "1_modification"
+				},
+				{
+					"command": "rax.views.explorer.addPage",
+					"when": "viewItem == page",
+					"group": "1_modification"
 				}
 			]
 		}

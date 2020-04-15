@@ -1,5 +1,8 @@
 # Change Log
 
+## 0.2.1
+- Add update explorer after create page and component.
+
 ## 0.2.0
 - Add create component
 - Add create page

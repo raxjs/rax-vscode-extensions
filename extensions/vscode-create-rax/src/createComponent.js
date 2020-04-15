@@ -74,6 +74,9 @@ module.exports = async function createComponent(context, targetName = 'component
           viewColumn: ViewColumn.One
         });
 
+        // Update Explorer
+        commands.executeCommand('rax.views.explorer.refresh');
+
         callback && callback(componentName);
       }
     );

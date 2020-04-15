@@ -51,7 +51,11 @@ module.exports = class Explorer {
         fs.readdirSync(componentsDirPath)
           .filter(component => fs.statSync(path.join(componentsDirPath, component)).isDirectory())
           .map(component => {
-            return { name: component, icon: 'component' };
+            return {
+              name: component,
+              icon: 'component',
+              contextValue: 'component'
+            };
           });
     } catch (e) {
       children = [];
@@ -64,7 +68,11 @@ module.exports = class Explorer {
     const appConfigFilePath = path.join(this.rootPath, 'src', 'app.json');
     const appConfig = fs.readJsonSync(appConfigFilePath, 'utf-8');
     (appConfig.routes || []).forEach((route) => {
-      children.push({ name: route.path, icon: 'page' });
+      children.push({
+        name: `path: "${route.path}"`,
+        icon: 'page',
+        contextValue: 'page'
+      });
     });
 
     return children;
@@ -115,6 +123,7 @@ module.exports = class Explorer {
         vscode.TreeItemCollapsibleState.Expanded :
         vscode.TreeItemCollapsibleState.None
     );
+    treeItem.contextValue = element.contextValue || element.name;
     if (element.command) {
       treeItem.command = {
         command: element.command,
