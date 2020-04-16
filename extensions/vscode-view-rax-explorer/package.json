@@ -1,122 +1,122 @@
 {
-	"name": "vscode-view-rax-explorer",
-	"displayName": "Rax View Explorer",
-	"description": "Add a view in Rax Activity Bar that shows the project file explorer.",
-	"publisher": "Rax",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "^1.41.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/raxjs/rax-vscode-extensions.git"
-	},
-	"icon": "assets/logo.png",
-	"activationEvents": [
-		"onView:raxViewExplorer"
-	],
-	"main": "./src/index.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "rax.view.explorer.refresh",
-				"title": "Refresh Explorer",
-				"category": "Rax",
-				"icon": {
-					"light": "assets/light/refresh.svg",
-					"dark": "assets/dark/refresh.svg"
-				}
-			},
-			{
-				"command": "rax.view.explorer.addComponent",
-				"title": "Add Rax Component",
-				"category": "Rax",
-				"icon": {
-					"light": "assets/light/add.svg",
-					"dark": "assets/dark/add.svg"
-				}
-			},
-			{
-				"command": "rax.view.explorer.addPage",
-				"title": "Add Rax Page",
-				"category": "Rax",
-				"icon": {
-					"light": "assets/light/add.svg",
-					"dark": "assets/dark/add.svg"
-				}
-			},
-			{
-				"command": "rax.view.explorer.editPageConfig",
-				"title": "Edit Rax Page Config",
-				"category": "Rax",
-				"icon": {
-					"light": "assets/light/edit.svg",
-					"dark": "assets/dark/edit.svg"
-				}
-			}
-		],
-		"viewsContainers": {
-			"activitybar": [
-				{
-					"id": "rax",
-					"title": "Rax",
-					"icon": "assets/viewIcon.png"
-				}
-			]
-		},
-		"views": {
-			"rax": [
-				{
-					"id": "raxViewExplorer",
-					"name": "Explorer"
-				}
-			]
-		},
-		"menus": {
-			"view/title": [
-				{
-					"command": "rax.view.explorer.refresh",
-					"when": "view == raxViewExplorer",
-					"group": "navigation"
-				}
-			],
-			"view/item/context": [
-				{
-					"command": "rax.view.explorer.addComponent",
-					"when": "viewItem == Components",
-					"group": "inline@1"
-				},
-				{
-					"command": "rax.view.explorer.addPage",
-					"when": "viewItem == Pages",
-					"group": "inline@1"
-				},
-				{
-					"command": "rax.view.explorer.editPageConfig",
-					"when": "viewItem == page",
-					"group": "inline@1"
-				},
-				{
-					"command": "rax.view.explorer.addComponent",
-					"when": "viewItem == component",
-					"group": "1_modification"
-				},
-				{
-					"command": "rax.view.explorer.addPage",
-					"when": "viewItem == page",
-					"group": "1_modification"
-				}
-			]
-		}
-	},
-	"extensionDependencies": [
-		"Rax.vscode-create-rax"
-	],
-	"dependencies": {
-		"fs-extra": "^8.1.0",
-		"line-column": "^1.0.2"
-	}
+  "name": "vscode-view-rax-explorer",
+  "displayName": "Rax View Explorer",
+  "description": "Add a view in Rax Activity Bar that shows the project file explorer.",
+  "publisher": "Rax",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.41.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raxjs/rax-vscode-extensions.git"
+  },
+  "icon": "assets/logo.png",
+  "activationEvents": [
+    "onView:raxViewExplorer"
+  ],
+  "main": "./src/index.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "rax.view.explorer.refresh",
+        "title": "Refresh Explorer",
+        "category": "Rax",
+        "icon": {
+          "light": "assets/light/refresh.svg",
+          "dark": "assets/dark/refresh.svg"
+        }
+      },
+      {
+        "command": "rax.view.explorer.addComponent",
+        "title": "Add Rax Component",
+        "category": "Rax",
+        "icon": {
+          "light": "assets/light/add.svg",
+          "dark": "assets/dark/add.svg"
+        }
+      },
+      {
+        "command": "rax.view.explorer.addPage",
+        "title": "Add Rax Page",
+        "category": "Rax",
+        "icon": {
+          "light": "assets/light/add.svg",
+          "dark": "assets/dark/add.svg"
+        }
+      },
+      {
+        "command": "rax.view.explorer.editPageConfig",
+        "title": "Edit Rax Page Config",
+        "category": "Rax",
+        "icon": {
+          "light": "assets/light/edit.svg",
+          "dark": "assets/dark/edit.svg"
+        }
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "rax",
+          "title": "Rax",
+          "icon": "assets/viewIcon.png"
+        }
+      ]
+    },
+    "views": {
+      "rax": [
+        {
+          "id": "raxViewExplorer",
+          "name": "Explorer"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "rax.view.explorer.refresh",
+          "when": "view == raxViewExplorer",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "rax.view.explorer.addComponent",
+          "when": "viewItem == Components",
+          "group": "inline@1"
+        },
+        {
+          "command": "rax.view.explorer.addPage",
+          "when": "viewItem == Pages",
+          "group": "inline@1"
+        },
+        {
+          "command": "rax.view.explorer.editPageConfig",
+          "when": "viewItem == page",
+          "group": "inline@1"
+        },
+        {
+          "command": "rax.view.explorer.addComponent",
+          "when": "viewItem == component",
+          "group": "1_modification"
+        },
+        {
+          "command": "rax.view.explorer.addPage",
+          "when": "viewItem == page",
+          "group": "1_modification"
+        }
+      ]
+    }
+  },
+  "extensionDependencies": [
+    "Rax.vscode-create-rax"
+  ],
+  "dependencies": {
+    "fs-extra": "^8.1.0",
+    "line-column": "^1.0.2"
+  }
 }
