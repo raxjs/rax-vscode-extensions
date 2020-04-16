@@ -3,7 +3,7 @@
 	"displayName": "Rax Tag Helper",
 	"description": "Easily write JSX and HTML tags",
 	"publisher": "Rax",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
