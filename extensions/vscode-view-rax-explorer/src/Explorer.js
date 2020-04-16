@@ -30,9 +30,6 @@ module.exports = class Explorer {
     this.rootPath = vscode.workspace.rootPath;
 
     // Listeners
-    vscode.window.onDidChangeActiveTextEditor(() => {
-      this.refresh();
-    });
     vscode.workspace.onDidSaveTextDocument(() => {
       this.refresh();
     });
@@ -47,10 +44,9 @@ module.exports = class Explorer {
     this._onDidChangeTreeData.fire();
   }
 
-
+  // src/document/index.jsx
   getDocumentChildren() {
     const children = [];
-    // src/document/index.jsx
     const documentFilePath = path.join(this.rootPath, 'src', 'document', 'index.jsx');
     if (fs.existsSync(documentFilePath)) {
       children.push(getOpenCommandChild({ name: 'index.jsx', icon: 'document' }, documentFilePath));
@@ -58,6 +54,7 @@ module.exports = class Explorer {
     return children;
   }
 
+  // src/components/xxx
   getComponentsChildren() {
     let children = [];
     const componentsDirPath = path.join(this.rootPath, 'src', 'components');
@@ -75,6 +72,7 @@ module.exports = class Explorer {
     return children;
   }
 
+  // Routes in app.json
   getPagesChildren() {
     const children = [];
     const appConfigFilePath = path.join(this.rootPath, 'src', 'app.json');
@@ -85,10 +83,10 @@ module.exports = class Explorer {
         getIndexFilePath(path.join(this.rootPath, 'src', route.source))
       ));
     });
-
     return children;
   }
 
+  // app.json and build.json
   getConfigsChildren() {
     const children = [];
     const appConfigFilePath = path.join(this.rootPath, 'src', 'app.json');

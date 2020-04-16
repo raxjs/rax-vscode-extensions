@@ -62,3 +62,10 @@ This VS Code extension adds support for [Rax](https://rax.js.org/).
 3. Auto Rename Tag
 
 ![img04](https://img.alicdn.com/tfs/TB1h0exAEY1gK0jSZFCXXcwqXXa-2250-604.jpg)
+
+## 7. Rax View
+### Features
+1. Explorer
+2. Scripts
+
+![img05](https://img.alicdn.com/tfs/TB14Ro5CXY7gK0jSZKzXXaikpXa-600-443.gif)

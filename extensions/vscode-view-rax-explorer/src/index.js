@@ -1,5 +1,6 @@
 const vscode = require('vscode');
 const Explorer = require('./Explorer');
+const openPageConfig = require('./openPageConfig');
 
 function activate(context) {
   const { window, commands } = vscode;
@@ -16,8 +17,7 @@ function activate(context) {
     commands.executeCommand('rax.create.page');
   });
   commands.registerCommand('rax.view.explorer.editPageConfig', function(args) {
-    // TODO
-    console.log(args);
+    openPageConfig(args);
   });
 }
 
