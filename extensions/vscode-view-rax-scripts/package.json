@@ -1,6 +1,6 @@
 {
 	"name": "vscode-view-rax-scripts",
-	"displayName": "View Rax Scripts",
+	"displayName": "Rax View Scripts",
 	"description": "Add a view in Rax Activity Bar that shows project scripts",
 	"publisher": "Rax",
 	"version": "0.0.1",
@@ -16,14 +16,14 @@
 	},
 	"icon": "assets/logo.png",
 	"activationEvents": [
-		"onView:raxScripts"
+		"onView:raxViewScripts"
 	],
 	"main": "./src/index.js",
 	"contributes": {
 		"viewsWelcome": [
 			{
-				"view": "raxScripts",
-				"contents": "No Rax App found [learn more](https://rax.js.org/).\n[Create Rax](command:rax.create)"
+				"view": "raxViewScripts",
+				"contents": "No Rax App found [learn more](https://rax.js.org/).\n[Create Rax](command:rax.create.project)"
 			}
 		],
 		"viewsContainers": {
@@ -38,7 +38,7 @@
 		"views": {
 			"rax": [
 				{
-					"id": "raxScripts",
+					"id": "raxViewScripts",
 					"name": "Scripts"
 				}
 			]

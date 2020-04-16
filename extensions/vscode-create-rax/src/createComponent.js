@@ -75,7 +75,7 @@ module.exports = async function createComponent(context, targetName = 'component
         });
 
         // Update Explorer
-        commands.executeCommand('rax.views.explorer.refresh');
+        commands.executeCommand('rax.view.explorer.refresh');
 
         callback && callback(componentName);
       }

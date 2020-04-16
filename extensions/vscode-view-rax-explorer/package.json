@@ -1,6 +1,6 @@
 {
 	"name": "vscode-view-rax-explorer",
-	"displayName": "View Rax Explorer",
+	"displayName": "Rax View Explorer",
 	"description": "Add a view in Rax Activity Bar that shows the project file explorer.",
 	"publisher": "Rax",
 	"version": "0.0.1",
@@ -16,13 +16,13 @@
 	},
 	"icon": "assets/logo.png",
 	"activationEvents": [
-		"onView:raxExplorer"
+		"onView:raxViewExplorer"
 	],
 	"main": "./src/index.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "rax.views.explorer.refresh",
+				"command": "rax.view.explorer.refresh",
 				"title": "Refresh Explorer",
 				"category": "Rax",
 				"icon": {
@@ -31,7 +31,7 @@
 				}
 			},
 			{
-				"command": "rax.views.explorer.addComponent",
+				"command": "rax.view.explorer.addComponent",
 				"title": "Add Rax Component",
 				"category": "Rax",
 				"icon": {
@@ -40,7 +40,7 @@
 				}
 			},
 			{
-				"command": "rax.views.explorer.addPage",
+				"command": "rax.view.explorer.addPage",
 				"title": "Add Rax Page",
 				"category": "Rax",
 				"icon": {
@@ -49,7 +49,7 @@
 				}
 			},
 			{
-				"command": "rax.views.explorer.editPageConfig",
+				"command": "rax.view.explorer.editPageConfig",
 				"title": "Edit Rax Page Config",
 				"category": "Rax",
 				"icon": {
@@ -70,7 +70,7 @@
 		"views": {
 			"rax": [
 				{
-					"id": "raxExplorer",
+					"id": "raxViewExplorer",
 					"name": "Explorer"
 				}
 			]
@@ -78,40 +78,43 @@
 		"menus": {
 			"view/title": [
 				{
-					"command": "rax.views.explorer.refresh",
-					"when": "view == raxExplorer",
+					"command": "rax.view.explorer.refresh",
+					"when": "view == raxViewExplorer",
 					"group": "navigation"
 				}
 			],
 			"view/item/context": [
 				{
-					"command": "rax.views.explorer.addComponent",
+					"command": "rax.view.explorer.addComponent",
 					"when": "viewItem == Components",
 					"group": "inline@1"
 				},
 				{
-					"command": "rax.views.explorer.addPage",
+					"command": "rax.view.explorer.addPage",
 					"when": "viewItem == Pages",
 					"group": "inline@1"
 				},
 				{
-					"command": "rax.views.explorer.editPageConfig",
+					"command": "rax.view.explorer.editPageConfig",
 					"when": "viewItem == page",
 					"group": "inline@1"
 				},
 				{
-					"command": "rax.views.explorer.addComponent",
+					"command": "rax.view.explorer.addComponent",
 					"when": "viewItem == component",
 					"group": "1_modification"
 				},
 				{
-					"command": "rax.views.explorer.addPage",
+					"command": "rax.view.explorer.addPage",
 					"when": "viewItem == page",
 					"group": "1_modification"
 				}
 			]
 		}
 	},
+	"extensionDependencies": [
+		"Rax.vscode-create-rax"
+	],
 	"dependencies": {
 		"fs-extra": "^8.1.0"
 	}

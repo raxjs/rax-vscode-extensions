@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.3.0
+
+- Add 'Rax View Explorer';
+- Add 'Rax View Scripts';
+
 ## 0.2.0
 
 - Add 'Rax Tag Helper';
