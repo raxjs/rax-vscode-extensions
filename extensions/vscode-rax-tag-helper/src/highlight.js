@@ -4,8 +4,8 @@ const vscode = require('vscode');
 const JSX_TAG_COLOR = '#FFCB6B';
 // HTML_TAG begin with lower-case letters, like div.
 const HTML_TAG_COLOR = '#89DDFF';
-// {/* xxx */} , <!-- xx --> , <xx>xx</xx>
-const TAG_REG = /{\/\*|\*\/}|<!--|-->|<(\/|)(.*?)(| (.*?)[^-?%$])>/g;
+// {/* xx */} , <!-- xx --> , <xx>, <xx, </xx>, </xx
+const TAG_REG = /{\/\*|\*\/}|<!--|-->|<(\/|)(\w+)\s?/g;
 
 const decorationCache = {
   JSX: null,
@@ -56,6 +56,9 @@ function decorate() {
     // <|Text  </|Text>
     const offset = matched[1] ? 2 : 1;
     const tagName = matched[2] || '';
+
+    // For fragment <> xxx </>
+    if (!tagName) continue;
 
     const start = editor.document.positionAt(matched.index + offset);
     const end = editor.document.positionAt(matched.index + tagName.length + offset);
