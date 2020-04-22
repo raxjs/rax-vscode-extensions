@@ -7,6 +7,7 @@ const spawnSync = require('child_process').spawnSync;
 module.exports = function getPackageInfos() {
   const packageInfos = {};
   const { workspace } = vscode;
+  const configuration = workspace.getConfiguration();
 
   try {
     const packageJSON = fs.readJsonSync(path.join(workspace.rootPath, 'package.json'), 'utf-8');
@@ -35,7 +36,7 @@ module.exports = function getPackageInfos() {
       const childProcess = spawnSync('npm', [
         'show', packageName,
         'dist-tags', 'versions',
-        '--json', '--registry=https://registry.npm.taobao.org/'
+        '--json', `--registry=${configuration.get('packageVersion.registry') || 'https://registry.npmjs.org/'}`
       ], {
         encoding: 'utf-8'
       });

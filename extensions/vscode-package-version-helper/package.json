@@ -22,10 +22,22 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.helloWorld",
-        "title": "Hello World"
+        "command": "package.version.check",
+        "title": "Check Package Version"
       }
-    ]
+    ],
+    "configuration": {
+			"type": "object",
+			"title": "Package Version Helper",
+			"properties": {
+				"packageVersion.registry": {
+					"type": "string",
+					"default": "https://registry.npm.taobao.org/",
+					"scope": "window",
+					"description": "Set npm registry."
+				}
+			}
+		}
   },
   "dependencies": {
     "fs-extra": "^8.1.0",
