@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "fs-extra": "^8.1.0",
+    "line-column": "^1.0.2",
     "semver": "^7.3.2"
   }
 }
