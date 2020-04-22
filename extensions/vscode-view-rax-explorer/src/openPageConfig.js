@@ -11,14 +11,14 @@ module.exports = function(args) {
   try {
     const appConfigJSON = fs.readFileSync(appConfigFilePath, 'utf-8');
     const currentRoutePath = args.name.slice(7, -1); // 'path: "/detail"' -> '/detail'
-    const matched = appConfigJSON.match(currentRoutePath);
+    const matched = appConfigJSON.match(`"${currentRoutePath}"`);
 
     if (matched && matched.index) {
       const positionInfo = lineColumn(appConfigJSON).fromIndex(matched.index);
       const position = new Position(
         // Example: "path": "|/detail",
         positionInfo.line - 1,
-        positionInfo.col - 1
+        positionInfo.col
       );
 
       commands.executeCommand(
