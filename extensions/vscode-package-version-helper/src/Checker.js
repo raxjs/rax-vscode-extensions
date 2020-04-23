@@ -3,30 +3,33 @@ const fs = require('fs-extra');
 const path = require('path');
 const lineColumn = require('line-column');
 const getPackageInfos = require('./getPackageInfos');
-const setWarningDecorations = require('./setWarningDecorations');
+const WarningDecorations = require('./WarningDecorations');
 
 module.exports = class Explorer {
   constructor(context) {
     this.context = context;
     this.rootPath = vscode.workspace.rootPath;
+    this.packageFilePath = path.join(this.rootPath, 'package.json');
 
     this.packageFileCache = '';
+
     this.warningList = [];
+    this.warningDecorations = new WarningDecorations(context);
   }
 
   check() {
-    const packageFile = fs.readFileSync(path.join(this.rootPath, 'package.json'), 'utf-8');
+    const packageFile = fs.readFileSync(this.packageFilePath, 'utf-8');
     if (packageFile !== this.packageFileCache) {
-      // Update cache
+      // Reset
+      this.warningList = [];
       this.packageFileCache = packageFile;
 
       const packageInfos = getPackageInfos();
       for (let packageName in packageInfos) {
         this.checkMaxSatisfying(packageInfos[packageName]);
       }
-
-      this.setDecorations();
     }
+    this.setDecorations();
   }
 
   // If the highest satisfies version is not equal to local installed version, show warning.
@@ -57,6 +60,10 @@ module.exports = class Explorer {
   }
 
   setDecorations() {
-    setWarningDecorations(this.context, this.warningList);
+    const editor = vscode.window.activeTextEditor;
+    this.warningDecorations.dispose();
+    if (editor.document.fileName === this.packageFilePath) {
+      this.warningDecorations.setDecorations(this.warningList);
+    }
   }
 };
