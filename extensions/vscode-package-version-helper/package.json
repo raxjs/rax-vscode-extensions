@@ -24,6 +24,10 @@
       {
         "command": "package.version.check",
         "title": "Check Package Version"
+      },
+      {
+        "command": "package.open",
+        "title": "Open package.json"
       }
     ],
     "configuration": {
@@ -32,7 +36,7 @@
 			"properties": {
 				"packageVersion.registry": {
 					"type": "string",
-					"default": "https://registry.npm.taobao.org/",
+					"default": "https://registry.npmjs.org/",
 					"scope": "window",
 					"description": "Set npm registry."
 				}

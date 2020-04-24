@@ -34,12 +34,12 @@ module.exports = class WarningDecorations {
     this.decorationType && this.decorationType.dispose();
   }
 
-  setDecorations(infos) {
+  setDecorations(warningList) {
     const editor = vscode.window.activeTextEditor;
     this.decorationType = vscode.window.createTextEditorDecorationType(this.decorationOptions);
     editor.setDecorations(
       this.decorationType,
-      infos.map(info => ({ range: info.range, renderOptions: { after: { ...this.decorationOptions.after, contentText: info.contentText } } }))
+      warningList.map(warning => ({ range: warning.range, renderOptions: { after: { ...this.decorationOptions.after, contentText: warning.contentText } } }))
     );
   }
 };
