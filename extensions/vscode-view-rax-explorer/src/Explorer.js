@@ -7,8 +7,7 @@ const getIndexFilePath = require('./getIndexFilePath');
 const defaultTreeData = [
   { name: 'Document', hasChildren: true },
   { name: 'Components', hasChildren: true },
-  { name: 'Pages', hasChildren: true },
-  { name: 'Configs', hasChildren: true }
+  { name: 'Pages', hasChildren: true }
 ];
 
 const getOpenCommandChild = (child, filePath) => {
@@ -47,9 +46,15 @@ module.exports = class Explorer {
   // src/document/index.jsx
   getDocumentChildren() {
     const children = [];
-    const documentFilePath = path.join(this.rootPath, 'src', 'document', 'index.jsx');
+    const basePath = path.join('src', 'document', 'index.jsx');
+    const documentFilePath = path.join(this.rootPath, basePath);
     if (fs.existsSync(documentFilePath)) {
-      children.push(getOpenCommandChild({ name: 'index.jsx', icon: 'document' }, documentFilePath));
+      children.push(getOpenCommandChild({
+        name: 'index.jsx',
+        icon: 'document',
+        tooltip: `Path: ${basePath}`
+      },
+      documentFilePath));
     }
     return children;
   }
@@ -57,13 +62,19 @@ module.exports = class Explorer {
   // src/components/xxx
   getComponentsChildren() {
     let children = [];
-    const componentsDirPath = path.join(this.rootPath, 'src', 'components');
+    const baseDirPath = path.join('src', 'components');
+    const componentsDirPath = path.join(this.rootPath, baseDirPath);
     try {
       children =
         fs.readdirSync(componentsDirPath)
           .filter(component => fs.statSync(path.join(componentsDirPath, component)).isDirectory())
           .map(component => getOpenCommandChild(
-            { name: component, icon: 'component', contextValue: 'component' },
+            {
+              name: component,
+              icon: 'component',
+              contextValue: 'component',
+              tooltip: `Path: ${path.join(baseDirPath, component)}`
+            },
             getIndexFilePath(path.join(componentsDirPath, component))
           ));
     } catch (e) {
@@ -78,25 +89,17 @@ module.exports = class Explorer {
     const appConfigFilePath = path.join(this.rootPath, 'src', 'app.json');
     const appConfig = fs.readJsonSync(appConfigFilePath, 'utf-8');
     (appConfig.routes || []).forEach((route) => {
+      const basePath = path.join('src', route.source);
       children.push(getOpenCommandChild(
-        { name: `path: "${route.path}"`, icon: 'page', contextValue: 'page' },
-        getIndexFilePath(path.join(this.rootPath, 'src', route.source))
+        {
+          name: `path: "${route.path}"`,
+          icon: 'page',
+          contextValue: 'page',
+          tooltip: `Path: ${basePath}`
+        },
+        getIndexFilePath(path.join(this.rootPath, basePath))
       ));
     });
-    return children;
-  }
-
-  // app.json and build.json
-  getConfigsChildren() {
-    const children = [];
-    const appConfigFilePath = path.join(this.rootPath, 'src', 'app.json');
-    const buildConfigFilePath = path.join(this.rootPath, 'build.json');
-    if (fs.existsSync(appConfigFilePath)) {
-      children.push(getOpenCommandChild({ name: 'app', icon: 'config' }, appConfigFilePath));
-    }
-    if (fs.existsSync(buildConfigFilePath)) {
-      children.push(getOpenCommandChild({ name: 'build', icon: 'config' }, buildConfigFilePath));
-    }
     return children;
   }
 
@@ -116,8 +119,6 @@ module.exports = class Explorer {
           return this.getComponentsChildren();
         case 'Pages':
           return this.getPagesChildren();
-        case 'Configs':
-          return this.getConfigsChildren();
         default:
           return [];
       }
@@ -132,6 +133,7 @@ module.exports = class Explorer {
         vscode.TreeItemCollapsibleState.Expanded :
         vscode.TreeItemCollapsibleState.None
     );
+    treeItem.tooltip = element.tooltip;
     treeItem.contextValue = element.contextValue || element.name;
     if (element.command) {
       treeItem.command = {
