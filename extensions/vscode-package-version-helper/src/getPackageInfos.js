@@ -33,6 +33,14 @@ module.exports = function getPackageInfos(source) {
       );
 
       // Process package infos
+      // {
+      //   name: 'rax',
+      //   from: 'dependencies',
+      //   versionRange: '^1.1.0',
+      //   satisfying: '1.1.1',
+      //   latest: '1.1.1',
+      //   local: '1.1.0'
+      // }
       packages.forEach((packageInfo) => {
         const { from, packageName, versionRange } = packageInfo;
 

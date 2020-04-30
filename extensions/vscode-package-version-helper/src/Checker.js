@@ -51,7 +51,7 @@ module.exports = class Explorer {
   // If the highest satisfies version is not equal to local installed version, show warning.
   checkMaxSatisfying(packageInfo) {
     if (
-      packageInfo.satisfying &&
+      packageInfo.local && packageInfo.satisfying &&
       packageInfo.local !== packageInfo.satisfying
     ) {
       const matched = this.packageSourceCache.match(`"${packageInfo.name}"`);
