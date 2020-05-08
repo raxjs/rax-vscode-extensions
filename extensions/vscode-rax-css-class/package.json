@@ -3,7 +3,7 @@
 	"displayName": "Rax CSS Class",
 	"description": "Easily write CSS classes in Rax App",
 	"publisher": "Rax",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
@@ -19,7 +19,10 @@
 		"onLanguage:javascript",
 		"onLanguage:javascriptreact",
 		"onLanguage:typescript",
-		"onLanguage:typescriptreact"
+		"onLanguage:typescriptreact",
+		"onLanguage:css",
+		"onLanguage:less",
+		"onLanguage:sass"
 	],
 	"main": "./src/index.js",
 	"devDependencies": {},

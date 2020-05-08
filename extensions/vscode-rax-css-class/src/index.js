@@ -4,6 +4,7 @@ const findStyle = require('./findStyle');
 const findStyleDependencies = require('./findStyleDependencies');
 const findStyleSelectors = require('./findStyleSelectors');
 const getFocusCodeInfo = require('./getFocusCodeInfo');
+const doCompletionInCss = require('./doCompletionInCss');
 
 const SUPPORT_LANGUAGES = [
   'javascript',
@@ -90,6 +91,8 @@ function activate(context) {
       )
     );
   });
+
+  doCompletionInCss(context);
 }
 
 exports.activate = activate;
