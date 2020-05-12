@@ -16,7 +16,10 @@
 	},
 	"icon": "assets/logo.png",
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact"
 	],
 	"main": "./src/index.js",
 	"contributes": {
@@ -26,5 +29,8 @@
 				"title": "Hello World"
 			}
 		]
+	},
+	"dependencies": {
+		"vscode-web-custom-data": "^0.1.3"
 	}
 }

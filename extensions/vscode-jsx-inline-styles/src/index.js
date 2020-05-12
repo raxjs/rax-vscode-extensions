@@ -1,37 +1,77 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+
 const vscode = require('vscode');
+const CSSData = require('vscode-web-custom-data/data/browsers.css-data');
+const getFocusCodeInfo = require('./getFocusCodeInfo');
+const isCompletingStyleName = require('./isCompletingStyleName');
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+// {
+//   position: {
+//     name: "position",
+//     values: [
+//       { name: "absolute", description: "xxx" },
+//       { name: "fixed", description: "xxx" },
+//       ...
+//     ],
+//     syntax: "static | relative | absolute | sticky | fixed",
+//     references: [
+//       { name: "MDN Reference", url: "https://developer.mozilla.org/docs/Web/CSS/position" }
+//     ],
+//     description: "The position CSS property sets how an element is positioned in a document. The top, right, bottom, and left properties determine the final location of positioned elements."
+//   }
+// }
+let CSS_PROPERTIES = {};
 
-/**
- * @param {vscode.ExtensionContext} context
- */
-function activate(context) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vscode-jsx-inline-styles" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', function () {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
+try {
+	// https://github.com/microsoft/vscode-custom-data
+	CSSData.properties.forEach((property) => {
+		// To camelCased property
+		const propertyName = property.name.replace(/-(\w)/, ($, $1) => $1.toUpperCase());
+		CSS_PROPERTIES[propertyName] = property;
 	});
-
-	context.subscriptions.push(disposable);
+} catch (e) {
+	// ignore
 }
+
+function activate(context) {
+	// Register completionItem provider
+	context.subscriptions.push(
+		vscode.languages.registerCompletionItemProvider(
+			[
+				{ scheme: 'file', language: 'javascript' },
+				{ scheme: 'file', language: 'javascriptreact' },
+				{ scheme: 'file', language: 'typescript' },
+				{ scheme: 'file', language: 'typescriptreact' }
+			],
+			{
+				provideCompletionItems(document, position) {
+					const { line, word } = getFocusCodeInfo(document, position);
+
+					// is in Object
+					if (isCompletingStyleName(word, line)) {
+						const currentText = line.text;
+						const previousText = currentText.substr(0, currentText.lastIndexOf(word)).trim()
+
+						if (previousText.endsWith(':')) {
+							console.log('value')
+
+						} else {
+							console.log('key')
+						}
+
+						// const propertyName =
+						// 	`${currentLineText.substr(0, currentLineText.lastIndexOf(word)).trim()}${word}`
+						// 		.match(new RegExp(`([a-zA-Z-]+):${word}`))
+						// console.log(propertyName);
+					}
+
+					console.log(line.text)
+
+				}
+			}
+		)
+	);
+}
+
 exports.activate = activate;
 
-// this method is called when your extension is deactivated
-function deactivate() {}
 
-module.exports = {
-	activate,
-	deactivate
-}
