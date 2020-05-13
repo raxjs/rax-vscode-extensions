@@ -22,14 +22,6 @@
 		"onLanguage:typescriptreact"
 	],
 	"main": "./src/index.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
-			}
-		]
-	},
 	"dependencies": {
 		"vscode-web-custom-data": "^0.1.3"
 	}
