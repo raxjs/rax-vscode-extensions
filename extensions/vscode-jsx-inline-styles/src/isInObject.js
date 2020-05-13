@@ -1,13 +1,13 @@
 const vscode = require('vscode');
 
 // The JSX style attribute accepts a JavaScript object.
-// If the active word is in an object, it seems like to completing style name.
+// If the active word is in an object, it seems like to completing style.
 // EXP-1: style={ p|
 // EXP-2: style={ \n p|
 // EXP-3: position: 'relative', \n p|
 
-module.exports = function isCompletingStyleName(word, line) {
-  let isCompletingStyleName = false;
+module.exports = function isInObject(word, line) {
+  let isInObject = false;
 
   const { document } = vscode.window.activeTextEditor;
   const currentLineText = line.text;
@@ -29,9 +29,9 @@ module.exports = function isCompletingStyleName(word, line) {
       previousLineText.endsWith(',')
     )
   ) {
-    isCompletingStyleName = true;
+    isInObject = true;
   }
 
-  return isCompletingStyleName;
+  return isInObject;
 }
 

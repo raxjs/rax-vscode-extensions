@@ -14,3 +14,5 @@ function HelloWorldComponent() {
 
 This VS Code extension adds support for [Rax](https://rax.js.org/) and React write inline styles.
 
+![img](https://img.alicdn.com/tfs/TB1oyRBF1H2gK0jSZFEXXcqMpXa-1000-586.gif)
+
