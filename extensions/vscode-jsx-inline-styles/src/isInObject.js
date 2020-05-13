@@ -23,7 +23,7 @@ module.exports = function isInObject(word, line) {
   if (
     // EXP: marginLeft, margin-left
     /^[a-zA-Z-]+$/.test(word) && (
-      // The JSX style attribute accepts a JavaScript object 
+      // The JSX style attribute accepts a JavaScript object
       currentLineText.indexOf('{') > -1 ||
       previousLineText.endsWith('{') ||
       previousLineText.endsWith(',')
@@ -33,5 +33,5 @@ module.exports = function isInObject(word, line) {
   }
 
   return isInObject;
-}
+};
 

@@ -12,4 +12,4 @@ module.exports = function getCompletionItem(
   completionItem.documentation = documentation;
   completionItem.insertText = insertedText;
   return completionItem;
-}
+};
