@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.2.1
+- Fix [issue/1892](https://github.com/alibaba/rax/issues/1892).
+- Update rax-generator.
+- Ignore web/node_modules when publish.
+
 ## 0.2.0
 - Add create component
 - Add create page
