@@ -58,6 +58,8 @@ module.exports = async function createProject(context) {
     // Chose folder to create
     const folders = await window.showOpenDialog({
       canSelectFolders: true,
+      canSelectFiles: false,
+      canSelectMany: false,
       openLabel: 'Select a folder to create project'
     });
 
@@ -65,7 +67,8 @@ module.exports = async function createProject(context) {
       return;
     }
 
-    options.root = path.join(folders[0].path, options.projectName);
+    // Fix https://github.com/alibaba/rax/issues/1892, example \D:\xxx to D:\xxx
+    options.root = path.join(folders[0].path, options.projectName).replace(/^\\/, '');
 
     webviewPanel = window.createWebviewPanel(
       'createRax',

@@ -3,7 +3,7 @@
   "displayName": "Create Rax",
   "description": "Easily create a new Rax project.",
   "publisher": "Rax",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "engines": {
     "vscode": "^1.40.0"
   },
@@ -60,6 +60,6 @@
     "ejs": "^3.0.1",
     "fs-extra": "^8.1.0",
     "git-user-name": "^2.0.0",
-    "rax-generator": "^1.0.2"
+    "rax-generator": "^1.2.4"
   }
 }

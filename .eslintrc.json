@@ -1,5 +1,15 @@
 {
   "extends": [
     "rax"
-  ]
+  ],
+  "rules": {
+    "module/no-implicit-dependencies": [
+      "error",
+      {
+        "whitelist": [
+          "vscode"
+        ]
+      }
+    ]
+  }
 }
