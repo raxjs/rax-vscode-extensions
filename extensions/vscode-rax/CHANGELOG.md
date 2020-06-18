@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.3.0
+
+- Add 'Iceworks';
+
 ## 0.2.0
 
 - Add 'Rax Tag Helper';
