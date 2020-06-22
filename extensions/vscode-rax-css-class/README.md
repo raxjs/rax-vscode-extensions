@@ -18,7 +18,10 @@ Make `cmd + click`  (Windows: `ctrl + click`) perform a "Go To Definition" on th
 
 # Auto complete
 
-When you input `styles.` it will show styles suggestions related to your css file.
+* When you input `styles.` it will show styles suggestions related to your css file.
 ![img03](https://img.alicdn.com/tfs/TB1UDGht.Y1gK0jSZFMXXaWcVXa-1468-906.gif)
+
+* When you input `.` in CSS file,  it will show class name suggestions related to your jsx file.
+![img04](https://img.alicdn.com/tfs/TB1l_zMFhD1gK0jSZFKXXcJrVXa-500-355.gif)
 
 
