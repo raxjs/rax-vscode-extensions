@@ -1,6 +1,12 @@
 [![Version](https://vsmarketplacebadge.apphb.com/version/Rax.vscode-rax-css-class.svg)](https://marketplace.visualstudio.com/items?itemName=Rax.vscode-rax-css-class)
 [![Installs](https://vsmarketplacebadge.apphb.com/installs-short/Rax.vscode-rax-css-class.svg)](https://marketplace.visualstudio.com/items?itemName=Rax.vscode-rax-css-class)
 
+**This extension has been deprecated.**
+
+**Please use [Iceworks](https://marketplace.visualstudio.com/items?itemName=iceworks-team.iceworks).**
+
+---
+
 # Rax CSS Class
 
 This VS Code extension adds support for [Rax](https://rax.js.org/) write CSS classes.

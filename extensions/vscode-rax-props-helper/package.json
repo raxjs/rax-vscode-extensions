@@ -3,7 +3,7 @@
 	"displayName": "Rax Props Helper",
 	"description": "Easily write component props in Rax App",
 	"publisher": "Rax",
-	"version": "0.0.2",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.41.0"
 	},

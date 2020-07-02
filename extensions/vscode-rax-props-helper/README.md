@@ -1,3 +1,9 @@
+**This extension has been deprecated.**
+
+**Please use [Iceworks](https://marketplace.visualstudio.com/items?itemName=iceworks-team.iceworks).**
+
+---
+
 # Rax Props Helper
 
 This VS Code extension adds support for [Rax](https://rax.js.org/) write component's props.
