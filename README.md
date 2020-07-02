@@ -1,5 +1,11 @@
 # rax-vscode-extensions
 
+**This project has been deprecated.**
+
+**Please use [Iceworks](https://marketplace.visualstudio.com/items?itemName=iceworks-team.iceworks).**
+
+---
+
 Rax VS Code Extensions
 
 ## Installation

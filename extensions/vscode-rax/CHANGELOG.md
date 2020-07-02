@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.3.1
+
+- Add 'Iceworks Config Helper';
+- Add 'Iceworks Style Helper';
+
 ## 0.3.0
 
 - Add 'Iceworks';

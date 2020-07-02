@@ -1,3 +1,9 @@
+**This extension has been deprecated.**
+
+**Please use [Iceworks](https://marketplace.visualstudio.com/items?itemName=iceworks-team.iceworks).**
+
+---
+
 # Rax Scripts
 
 This VS Code extension adds start, debug and build scripts for [Rax](https://rax.js.org/) project.
