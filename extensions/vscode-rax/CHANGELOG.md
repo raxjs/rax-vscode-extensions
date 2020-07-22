@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.3.2
+
+- Use 'Iceworks Application Creator' create Rax project.
+
 ## 0.3.1
 
 - Add 'Iceworks Config Helper';
